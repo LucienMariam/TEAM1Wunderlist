@@ -1,0 +1,5 @@
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DependencyResolver\bin\Debug\DependencyResolver.dll
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DependencyResolver\bin\Debug\DependencyResolver.pdb
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DependencyResolver\obj\Debug\DependencyResolver.csprojResolveAssemblyReference.cache
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DependencyResolver\obj\Debug\DependencyResolver.dll
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DependencyResolver\obj\Debug\DependencyResolver.pdb
