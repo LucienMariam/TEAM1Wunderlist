@@ -40,13 +40,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Entities\TaskDAL.cs" />
+    <Compile Include="Concrete\Entities\TaskUserDAL.cs" />
+    <Compile Include="Concrete\Entities\UserDAL.cs" />
+    <Compile Include="Concrete\Mappers\TaskMapperDAL.cs" />
+    <Compile Include="Concrete\Mappers\TaskUserMapperDAL.cs" />
+    <Compile Include="Concrete\Mappers\UserMapperDAL.cs" />
+    <Compile Include="Interfaces\Entities\IDALEntity.cs" />
+    <Compile Include="Interfaces\Entities\IDALKeyEntity.cs" />
+    <Compile Include="Interfaces\Mappers\IMapperDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\Entities\" />
+    <Folder Include="Concrete\Repositories\" />
     <Folder Include="Interfaces\Repositories\" />
-    <Folder Include="Mappers\SpecificMapppers\" />
-    <Folder Include="Repository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ORM\ORM.csproj">
+      <Project>{bcb7dcbe-f3f6-4bcf-9661-10d41ca329ce}</Project>
+      <Name>ORM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
