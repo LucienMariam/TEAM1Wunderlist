@@ -40,10 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Entities\TaskDAL.cs" />
+    <Compile Include="Concrete\Entities\TaskUserDAL.cs" />
+    <Compile Include="Concrete\Entities\UserDAL.cs" />
+    <Compile Include="Interfaces\Entities\IDALEntity.cs" />
+    <Compile Include="Interfaces\Entities\IDALKeyEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\Entities\" />
     <Folder Include="Interfaces\Repositories\" />
     <Folder Include="Mappers\SpecificMapppers\" />
     <Folder Include="Repository\" />

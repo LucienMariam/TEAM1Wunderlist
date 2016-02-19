@@ -1,14 +1,13 @@
 ﻿using System;
-using DAL.Interfaces.Entities;
 
-namespace DAL.Concrete.Entities
+namespace BLL.Interfaces
 {
-  public  class TaskDAL: IDALKeyEntity
+    public class TaskEntity : IBLLKeyEntity
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Desciption { get; set; }
         public DateTime? DueTime { get; set; }
-        public bool IsCompleted { get; set; } = false;
+        public bool IsCompleted { get; set; }
     }
 }

@@ -3,3 +3,6 @@ C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\BLL\bin\Debug\BLL.pdb
 C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\BLL\obj\Debug\BLL.dll
 C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\BLL\obj\Debug\BLL.pdb
+C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\BLL\obj\Debug\BLL.dll
+C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\BLL\obj\Debug\BLL.pdb
