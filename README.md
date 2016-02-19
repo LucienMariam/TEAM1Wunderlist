@@ -1,10 +1,10 @@
 # Remember to Do:
 - Architecture
-  * Compose DAL layer
+  * Compose DAL layer:
     1) Finish mappers
     2) Compose repositories
     3) Create UnitOfWork
-  * Compose BLL layer
+  * Compose BLL layer:
     1) Establish entities
     2) Create mappers
     3) Compose services
