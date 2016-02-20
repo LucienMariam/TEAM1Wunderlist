@@ -4,9 +4,8 @@ using ORM;
 
 namespace DAL.Concrete.Mappers
 {
-    class TaskUserMapperDAL: IMapperDAL<TaskUser, TaskUserDAL>
+    public class TaskUserMapperDAL: IMapperDAL<TaskUser, TaskUserDAL>
     {
-        //ToDo: try to extract methods body into "ConvertItem()" method
         public TaskUser ToORM(TaskUserDAL item)
         {
             return new TaskUser()
