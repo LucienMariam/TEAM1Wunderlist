@@ -1,6 +1,6 @@
 ﻿namespace DAL.Interfaces.Entities
 {
-    interface IDALEntity
+    public interface IDALEntity
     {
     }
 }

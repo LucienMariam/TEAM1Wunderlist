@@ -3,3 +3,7 @@ C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\bin\Debug\DAL.pdb
 C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\obj\Debug\DAL.dll
 C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\obj\Debug\DAL.pdb
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\bin\Debug\ORM.dll
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\bin\Debug\EntityFramework.dll
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\bin\Debug\ORM.pdb
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\bin\Debug\EntityFramework.xml

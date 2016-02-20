@@ -3,7 +3,7 @@ using DAL.Interfaces.Entities;
 
 namespace DAL.Concrete.Entities
 {
-    class UserDAL: IDALKeyEntity
+    public class UserDAL: IDALKeyEntity
     {
         public Guid Id { get; set; }
         public string Email { get; set; }
