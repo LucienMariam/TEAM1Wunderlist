@@ -1,13 +1,8 @@
 ﻿using System;
-using DAL.Interfaces.Entities;
 
-namespace DAL.Concrete.Entities
+namespace BLL.Interfaces
 {
-<<<<<<< HEAD
-    public class UserDAL: IDALKeyEntity
-=======
-   public class UserDAL: IDALKeyEntity
->>>>>>> origin/Develop
+    public class UserEntity : IBLLKeyEntity
     {
         public Guid Id { get; set; }
         public string Email { get; set; }
