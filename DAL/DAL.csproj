@@ -43,7 +43,6 @@
     <Compile Include="Concrete\Entities\TaskDAL.cs" />
     <Compile Include="Concrete\Entities\TaskUserDAL.cs" />
     <Compile Include="Concrete\Entities\UserDAL.cs" />
-<<<<<<< HEAD
     <Compile Include="Concrete\Mappers\TaskMapperDAL.cs" />
     <Compile Include="Concrete\Mappers\TaskUserMapperDAL.cs" />
     <Compile Include="Concrete\Mappers\UserMapperDAL.cs" />
@@ -54,13 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concrete\Repositories\" />
-=======
-    <Compile Include="Interfaces\Entities\IDALEntity.cs" />
-    <Compile Include="Interfaces\Entities\IDALKeyEntity.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
->>>>>>> origin/Develop
     <Folder Include="Interfaces\Repositories\" />
   </ItemGroup>
   <ItemGroup>
