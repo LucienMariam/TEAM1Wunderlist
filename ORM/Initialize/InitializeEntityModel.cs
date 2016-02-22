@@ -6,7 +6,7 @@ namespace ORM
     {
         protected override void Seed(EntityModel context)
         {
-            base.Seed(context);            
+            base.Seed(context);                  
         }
     }
 }
