@@ -167,16 +167,34 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font_lato_default.css" />
+    <Content Include="Content\Images\checkmark.svg" />
+    <Content Include="Content\Images\pictos.svg" />
+    <Content Include="Content\Images\reminder.svg" />
+    <Content Include="Content\Images\shared.svg" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\menubar.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\AppView.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\wundercon-light.otf" />
+    <Content Include="fonts\wundercon-light.woff" />
+    <Content Include="fonts\Lato_normal_300_default.woff" />
+    <Content Include="fonts\Lato_normal_400_default.woff" />
+    <Content Include="fonts\Lato_normal_700_default.woff" />
+    <Content Include="fonts\Lato_normal_900_default.woff" />
+    <Content Include="Content\Lato_normal_900_default.woff" />
+    <Content Include="Content\Lato_normal_700_default.woff" />
+    <Content Include="Content\Lato_normal_400_default.woff" />
+    <Content Include="Content\Lato_normal_300_default.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -185,9 +203,12 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\menubar.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\tracking.js" />
+    <Content Include="Scripts\WebappRoutes.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
