@@ -9,7 +9,7 @@ namespace DAL.Interfaces.Repositories
         IEnumerable<TaskUserDAL> GetByUserId(Guid userId);
         IEnumerable<TaskUserDAL> GetByTaskId(Guid taskId);
         IEnumerable<TaskUserDAL> GetByUsername(string userName);
-        TaskUserDAL GetTask(Guid taskId);
+        TaskDAL GetTask(Guid taskId);
         TaskUserDAL CreateUserTask(string taskName, string userName);
     }
 }

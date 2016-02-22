@@ -30,7 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,14 +55,20 @@
     <Compile Include="Concrete\Mappers\TaskMapperDAL.cs" />
     <Compile Include="Concrete\Mappers\TaskUserMapperDAL.cs" />
     <Compile Include="Concrete\Mappers\UserMapperDAL.cs" />
+    <Compile Include="Concrete\Repositories\KeyRepository.cs" />
+    <Compile Include="Concrete\Repositories\Repository.cs" />
+    <Compile Include="Concrete\Repositories\TaskUserRepository.cs" />
     <Compile Include="Interfaces\Entities\IDALEntity.cs" />
     <Compile Include="Interfaces\Entities\IDALKeyEntity.cs" />
     <Compile Include="Interfaces\Mappers\IMapperDAL.cs" />
+    <Compile Include="Interfaces\Repositories\IKeyRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITaskUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Concrete\Repositories\" />
-    <Folder Include="Interfaces\Repositories\" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ORM\ORM.csproj">
