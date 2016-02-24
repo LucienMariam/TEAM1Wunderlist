@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BLL.Interfaces
+namespace BLL.Interfaces.Entities
 {
     public interface IBLLKeyEntity : IBLLEntity
     {

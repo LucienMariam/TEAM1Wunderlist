@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using BLL.Interfaces.Entities;
 
-namespace BLL.Interfaces
+namespace BLL.Interfaces.Services
 {
     public interface IService<TEntity> where TEntity : class, IBLLEntity
     {
