@@ -42,9 +42,9 @@
   <ItemGroup>
     <Compile Include="Interfaces\Entities\IBLLEntity.cs" />
     <Compile Include="Interfaces\Entities\IBLLKeyEntity.cs" />
-    <Compile Include="Interfaces\Entities\TaskEntity.cs" />
-    <Compile Include="Interfaces\Entities\TaskUserEntity.cs" />
-    <Compile Include="Interfaces\Entities\UserEntity.cs" />
+    <Compile Include="Concrete\Entities\TaskEntity.cs" />
+    <Compile Include="Concrete\Entities\TaskUserEntity.cs" />
+    <Compile Include="Concrete\Entities\UserEntity.cs" />
     <Compile Include="Interfaces\Services\IKeyService.cs" />
     <Compile Include="Interfaces\Services\IService.cs" />
     <Compile Include="Interfaces\Services\ITaskUserService.cs" />

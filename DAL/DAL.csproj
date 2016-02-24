@@ -58,8 +58,10 @@
     <Compile Include="Concrete\Repositories\KeyRepository.cs" />
     <Compile Include="Concrete\Repositories\Repository.cs" />
     <Compile Include="Concrete\Repositories\TaskUserRepository.cs" />
+    <Compile Include="Concrete\UnitOfWork.cs" />
     <Compile Include="Interfaces\Entities\IDALEntity.cs" />
     <Compile Include="Interfaces\Entities\IDALKeyEntity.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Mappers\IMapperDAL.cs" />
     <Compile Include="Interfaces\Repositories\IKeyRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
