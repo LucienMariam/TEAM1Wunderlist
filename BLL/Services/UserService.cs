@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using BLL.Interfaces;
 using DAL.Concrete.Entities;
 using BLL.Interfaces.Services;
+using DAL.Interfaces;
+using DAL.Interfaces.Repositories;
+using BLL.Concrete.Entities;
 
 namespace BLL
 {
@@ -14,6 +14,11 @@ namespace BLL
                                               >, IUserService
     {
         public UserService(IUserRepository repository, IUnitOfWork uow) : base(repository, uow) { }
+
+        public UserEntity GetById(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
 
         public UserEntity GetUserEntityById(Guid userId)
         {
@@ -39,6 +44,5 @@ namespace BLL
                 Photo = userDAL.Photo
             };
         }
-
     }
 }

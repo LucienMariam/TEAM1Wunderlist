@@ -1,5 +1,5 @@
-﻿using BLL.Interfaces;
-using DAL.Concrete.Entities;
+﻿using DAL.Concrete.Entities;
+using BLL.Concrete.Entities;
 
 
 namespace BLL

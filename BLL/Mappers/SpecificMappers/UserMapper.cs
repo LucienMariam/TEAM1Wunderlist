@@ -1,4 +1,4 @@
-﻿using BLL.Interfaces;
+﻿using BLL.Concrete.Entities;
 using DAL.Concrete.Entities;
 
 namespace BLL

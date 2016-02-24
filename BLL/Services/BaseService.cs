@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BLL.Interfaces;
+using DAL.Interfaces;
+using BLL.Interfaces.Services;
+using BLL.Interfaces.Entities;
 using DAL.Interfaces.Entities;
+using DAL.Interfaces.Repositories;
 
 namespace BLL
 {

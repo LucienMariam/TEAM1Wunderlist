@@ -1,4 +1,4 @@
-﻿using BLL.Interfaces;
+﻿using BLL.Concrete.Entities;
 using DAL.Concrete.Entities;
 
 namespace BLL
@@ -11,7 +11,7 @@ namespace BLL
             {
                 Id = task.Id,              
                 Title = task.Title,
-                Desciption=task.Desciption,
+                Description=task.Description,
                 DueTime=task.DueTime,
                 IsCompleted=task.IsCompleted
             };
@@ -24,7 +24,7 @@ namespace BLL
                 {
                     Id = task.Id,
                     Title = task.Title,
-                    Desciption=task.Desciption,
+                    Description=task.Description,
                     DueTime=task.DueTime,
                     IsCompleted=task.IsCompleted
                 };
