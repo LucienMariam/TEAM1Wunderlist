@@ -5,7 +5,7 @@ namespace ORM
 {
     public class Task : IORMKeyEntity
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }  // set? May be private set?
         public string Title { get; set; }        
         public string Description { get; set; }
         public DateTime? DueTime { get; set; }
