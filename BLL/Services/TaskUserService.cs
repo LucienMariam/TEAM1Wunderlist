@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BLL.Interfaces;
+using DAL.Interfaces;
 using DAL.Concrete.Entities;
+using BLL.Concrete.Entities;
+using BLL.Interfaces.Services;
+using DAL.Interfaces.Repositories;
 
 namespace BLL
 {
@@ -26,7 +29,7 @@ namespace BLL
 
         public TaskEntity GetTaskEntity(Guid taskId)
         {
-            TaskDAL taskDAL = ((ITaskUserRepository)_repository).GetTaskDAL(taskId);
+            TaskDAL taskDAL = ((ITaskUserRepository)_repository).GetTask(taskId);
             return new TaskEntity()
             {
                 Id = taskDAL.Id,
@@ -36,19 +39,17 @@ namespace BLL
         }
         public IEnumerable<TaskUserEntity> GetTaskByUser(string userName)
         {
-            return ((ITaskUserRepository)_repository).GetTaskByUser(userName).Select(dalEntity => _entityMapper.ToBLL(dalEntity));
+            return ((ITaskUserRepository)_repository).GetByUsername(userName).Select(dalEntity => _entityMapper.ToBLL(dalEntity));
         }
         public void ResolveTask(Guid id, string userName)
         {
             var taskUser = GetTaskByUser(userName).Where(t=>t.TaskId == id).FirstOrDefault();
-            taskUser.Progress = 100;
             Edit(taskUser);
         }
 
         public void ReopenTask(Guid id, string userName)
         {
             var taskUser = GetTaskByUser(userName).Where(t => t.TaskId == id).FirstOrDefault();
-            taskUser.Progress = 0;
             Edit(taskUser);
         }
 
@@ -59,14 +60,13 @@ namespace BLL
         }
 
 
-        public void CreateTask(Guid taskID, string userName)
+        public void CreateTask(string taskName, string userName)
         {
-            TaskUserDAL td = ((ITaskUserRepository)_repository).CreateUserTask(taskID, userName);
+            TaskUserDAL td = ((ITaskUserRepository)_repository).CreateUserTask(taskName, userName);
             TaskUserEntity tue = new TaskUserEntity()
             {
                 TaskId = td.TaskId,
                 UserId = td.UserId,
-                Progress = td.Progress
             };
             Add(tue);
         }
