@@ -15,3 +15,6 @@ C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\DAL\obj\Debug\DAL.csprojResol
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\DAL\obj\Debug\DAL.dll
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\DAL\obj\Debug\DAL.pdb
 >>>>>>> origin/Develop
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\bin\Debug\DAL.dll.config
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\DAL\bin\Debug\EntityFramework.SqlServer.xml
