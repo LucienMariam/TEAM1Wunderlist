@@ -9,7 +9,7 @@ namespace ORM
         public string Title { get; set; }        
         public string Description { get; set; }
         public DateTime? DueTime { get; set; }
-        public bool IsCompleted { get; set; } = false;
+        public bool IsCompleted { get; set; }
         public virtual ICollection<TaskUser> Users { get; set; }
         public Task()
         {
