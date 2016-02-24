@@ -14,6 +14,6 @@ namespace BLL.Interfaces.Services
         void ReopenTask(Guid id, string userName);
         void DeleteTask(Guid id, string userName);
         TaskEntity GetTaskEntity(Guid taskId);
-        void CreateTask(Guid taskID, string userName);
+        void CreateTask(string taskName, string userName);
     }
 }
