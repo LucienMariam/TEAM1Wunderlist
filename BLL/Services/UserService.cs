@@ -17,12 +17,12 @@ namespace BLL
 
         public UserEntity GetById(Guid Id)
         {
-            throw new NotImplementedException();
+            return _entityMapper.ToBLL(((IUserRepository)_repository).GetById(Id)); 
         }
 
         public UserEntity GetUserEntityById(Guid userId)
         {
-            UserDAL userDAL = ((IUserRepository)_repository).GetUserDAL(userId);
+            UserDAL userDAL = ((IUserRepository)_repository).GetById(userId);
             return new UserEntity()
             {
                Email= userDAL.Email,
@@ -32,9 +32,9 @@ namespace BLL
                Photo= userDAL.Photo
             };
         }
-        public UserEntity GetUserEntityByName(string userName)
+        public UserEntity GetUserEntityByName(string email)
         {
-            UserDAL userDAL = ((IUserRepository)_repository).GetUserDAL(userName);
+            UserDAL userDAL = ((IUserRepository)_repository).GetByEmail(email);
             return new UserEntity()
             {
                 Email = userDAL.Email,
