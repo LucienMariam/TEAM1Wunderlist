@@ -159,14 +159,24 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\TaskModel.cs" />
+    <Compile Include="Models\TaskUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\common.css" />
+    <Content Include="Content\font_lato_default.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\menubar.css" />
+    <Content Include="Content\signup.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -177,6 +187,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\Lato_normal_300_default.woff" />
+    <Content Include="fonts\Lato_normal_400_default.woff" />
+    <Content Include="fonts\Lato_normal_700_default.woff" />
+    <Content Include="fonts\Lato_normal_900_default.woff" />
+    <Content Include="fonts\wundercon-light.otf" />
+    <Content Include="fonts\wundercon-light.woff" />
+    <Content Include="Content\Lato_normal_300_default.woff" />
+    <Content Include="Content\Lato_normal_400_default.woff" />
+    <Content Include="Content\Lato_normal_700_default.woff" />
+    <Content Include="Content\Lato_normal_900_default.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -203,12 +223,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\LogIn.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Authentification\Attributes\" />
     <Folder Include="Infrastructure\Config\" />
-    <Folder Include="Models\" />
     <Folder Include="Provider\" />
   </ItemGroup>
   <ItemGroup>
