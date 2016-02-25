@@ -8,6 +8,6 @@ C:\Users\SHUSTRICK\Documents\GitHub\TEAM1Wunderlist\UnitTests\obj\Debug\UnitTest
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\UnitTests\bin\Debug\UnitTests.dll
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\UnitTests\bin\Debug\UnitTests.pdb
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\UnitTests\obj\Debug\UnitTests.dll
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\UnitTests\obj\Debug\UnitTests.pdb
+C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
