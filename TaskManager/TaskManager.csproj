@@ -159,28 +159,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\TaskModel.cs" />
-    <Compile Include="Models\TaskUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\common.css" />
     <Content Include="Content\font_lato_default.css" />
     <Content Include="Content\Images\checkmark.svg" />
     <Content Include="Content\Images\pictos.svg" />
     <Content Include="Content\Images\reminder.svg" />
     <Content Include="Content\Images\shared.svg" />
-    <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\menubar.css" />
-    <Content Include="Content\signup.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -231,14 +224,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\User\Registration.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\LogIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Authentification\Attributes\" />
     <Folder Include="Infrastructure\Config\" />
+    <Folder Include="Models\" />
     <Folder Include="Provider\" />
   </ItemGroup>
   <ItemGroup>
@@ -249,12 +240,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{d768716e-da5e-4f23-aad4-77298667d279}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

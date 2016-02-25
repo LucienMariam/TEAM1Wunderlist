@@ -113,8 +113,6 @@ C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\bin\Newtonsoft.Js
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\bin\System.Net.Http.Formatting.xml
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\bin\System.Web.Http.xml
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\bin\System.Web.Http.WebHost.xml
+C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\obj\Debug\TaskManager.csprojResolveAssemblyReference.cache
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\obj\Debug\TaskManager.dll
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\obj\Debug\TaskManager.pdb
-C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\bin\BLL.dll
-C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\bin\BLL.pdb
-C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\TaskManager\obj\Debug\TaskManager.csprojResolveAssemblyReference.cache

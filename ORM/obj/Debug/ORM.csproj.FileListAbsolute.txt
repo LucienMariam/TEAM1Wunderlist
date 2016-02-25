@@ -15,5 +15,6 @@ C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\ORM\bin\Debug\EntityFramework
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\ORM\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\ORM\bin\Debug\EntityFramework.xml
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\ORM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\ORM\obj\Debug\ORM.csprojResolveAssemblyReference.cache
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\ORM\obj\Debug\ORM.dll
 C:\Users\Villovik\Documents\GitHub\TEAM1Wunderlist\ORM\obj\Debug\ORM.pdb
