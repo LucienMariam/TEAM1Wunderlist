@@ -1,7 +1,9 @@
 # Remember to Do:
 - Architecture
-  * Compose DAL layer:
-    2) Compose repositories
-    3) Create UnitOfWork
+  * Create task repository
+  * create task service
+  * implement user repository functions
+  * create dependency resolver
+  * configure ninject
 - Unit tests
 - Logging
