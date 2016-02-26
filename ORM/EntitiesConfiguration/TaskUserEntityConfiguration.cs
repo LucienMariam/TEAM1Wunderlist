@@ -6,7 +6,7 @@ namespace ORM
     {
         public TaskUserEntityConfiguration()
         {
-            this.HasKey(u => new { u.UserId, u.TaskId });
+            this.HasKey(u => new { u.UserId, u.TaskId }); //this remove
         }
     }
 }
