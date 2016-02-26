@@ -26,7 +26,7 @@ namespace TaskManager.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Registration(RegisterModel model)
         {          
 
             if (ModelState.IsValid)
