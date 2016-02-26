@@ -4,6 +4,6 @@ namespace DAL.Interfaces.Repositories
 {
     public interface IUserRepository: IKeyRepository<UserDAL>
     {
-        UserDAL GetByEmail(string Email);
+        UserDAL GetByEmail(string email);
     }
 }

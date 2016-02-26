@@ -4,6 +4,6 @@ namespace BLL.Interfaces.Services
 {
     public interface IUserService :IKeyService<UserEntity>
     {
-        UserEntity GetUserEntityByName(string userName);
+        UserEntity GetUserEntityByEmail(string userEmail);
     }
 }

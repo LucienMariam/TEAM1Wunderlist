@@ -19,10 +19,10 @@ namespace BLL
         protected readonly IUnitOfWork _uow;
         protected IMapper<TDto, TEntity> _entityMapper = new TEntityMapper();
 
-        public BaseService(TRepository repository, IUnitOfWork uow)
+        protected BaseService(TRepository repository, IUnitOfWork uow)
         { 
-            this._repository = repository;
-            this._uow = uow;
+            _repository = repository;
+            _uow = uow;
         }
 
         public virtual IEnumerable<TEntity> GetAll()
