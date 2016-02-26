@@ -60,9 +60,9 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
+    <ProjectReference Include="..\DAL\Epam.Wunderlist.DataAccess.csproj">
       <Project>{702ad799-bc92-4adb-8982-9d8934e263e6}</Project>
-      <Name>DAL</Name>
+      <Name>Epam.Wunderlist.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
