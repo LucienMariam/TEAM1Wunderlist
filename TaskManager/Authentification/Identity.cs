@@ -6,21 +6,6 @@ namespace TaskManager.Authentification
 {
     public class Identity : IIdentity
     {
-        public Identity(IPrincipal user)
-        {
-            var current = (null == user) ? null : user.Identity as Identity;
-            if (current == null)
-            {
-                Login = "Guest";
-                return;
-            }
-
-            Id = current.Id;
-            Login = current.Login;
-            Email = current.Email;
-            RememberMe = current.RememberMe;
-        }
-
         public Identity(UserEntity user)
         {
             if (user == null)
