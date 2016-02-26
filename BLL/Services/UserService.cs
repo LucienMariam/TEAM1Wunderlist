@@ -8,41 +8,32 @@ using BLL.Concrete.Entities;
 namespace BLL
 {
     public class UserService : BaseService<UserDAL,
-                                               UserEntity,
-                                               IRepository<UserDAL>,
-                                               UserMapper
-                                              >, IUserService
+        UserEntity,
+        IRepository<UserDAL>,
+        UserMapper
+        >, IUserService
     {
-        public UserService(IUserRepository repository, IUnitOfWork uow) : base(repository, uow) { }
-
-        public UserEntity GetById(Guid Id)
+        private readonly IUserRepository _userRepository;
+        public UserService(IUserRepository repository, IUnitOfWork uow) : base(repository, uow)
         {
-            return _entityMapper.ToBLL(((IUserRepository)_repository).GetById(Id)); 
+            _userRepository = ((IUserRepository) _repository);
+        }
+
+        public UserEntity GetById(Guid id)
+        {
+            return _entityMapper.ToBLL(_userRepository.GetById(id));
         }
 
         public UserEntity GetUserEntityById(Guid userId)
         {
-            UserDAL userDAL = ((IUserRepository)_repository).GetById(userId);
-            return new UserEntity()
-            {
-               Email= userDAL.Email,
-               Id= userDAL.Id,
-               Login= userDAL.Login,
-               Password= userDAL.Password,
-               Photo= userDAL.Photo
-            };
+            UserDAL userDAL = _userRepository.GetById(userId);
+            return _entityMapper.ToBLL(userDAL);
         }
-        public UserEntity GetUserEntityByName(string email)
+
+        public UserEntity GetUserEntityByEmail(string email)
         {
-            UserDAL userDAL = ((IUserRepository)_repository).GetByEmail(email);
-            return new UserEntity()
-            {
-                Email = userDAL.Email,
-                Id = userDAL.Id,
-                Login = userDAL.Login,
-                Password = userDAL.Password,
-                Photo = userDAL.Photo
-            };
+            UserDAL userDAL = _userRepository.GetByEmail(email);
+            return _entityMapper.ToBLL(userDAL);
         }
     }
 }
