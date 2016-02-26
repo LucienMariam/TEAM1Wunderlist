@@ -27,14 +27,16 @@ namespace BLL
             return ((ITaskUserRepository)_repository).GetByTaskId(taskId).Select(dalEntity => _entityMapper.ToBLL(dalEntity));
         }
 
-        public TaskEntity GetTaskEntity(Guid taskId)
+        public TaskEntity GetTaskEntity(Guid taskId)  // some functional should be replaced into TaskService => need to create TaskRepository
         {
             TaskDAL taskDAL = ((ITaskUserRepository)_repository).GetTask(taskId);
             return new TaskEntity()
             {
                 Id = taskDAL.Id,
                 Title = taskDAL.Title,
-                Description = taskDAL.Description
+                Description = taskDAL.Description,
+                DueTime = taskDAL.DueTime,
+                IsCompleted = taskDAL.IsCompleted
             };
         }
         public IEnumerable<TaskUserEntity> GetTaskByUser(string userName)
@@ -63,11 +65,7 @@ namespace BLL
         public void CreateTask(string taskName, string userName)
         {
             TaskUserDAL td = ((ITaskUserRepository)_repository).CreateUserTask(taskName, userName);
-            TaskUserEntity tue = new TaskUserEntity()
-            {
-                TaskId = td.TaskId,
-                UserId = td.UserId,
-            };
+            TaskUserEntity tue = _entityMapper.ToBLL(td);
             Add(tue);
         }
     }

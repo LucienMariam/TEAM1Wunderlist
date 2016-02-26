@@ -22,27 +22,13 @@ namespace BLL
 
         public UserEntity GetUserEntityById(Guid userId)
         {
-            UserDAL userDAL = ((IUserRepository)_repository).GetUserDAL(userId);
-            return new UserEntity()
-            {
-               Email= userDAL.Email,
-               Id= userDAL.Id,
-               Login= userDAL.Login,
-               Password= userDAL.Password,
-               Photo= userDAL.Photo
-            };
+            UserDAL userDAL = ((IUserRepository)_repository).GetById(userId);
+            return _entityMapper.ToBLL(userDAL);
         }
         public UserEntity GetUserEntityByName(string userName)
         {
             UserDAL userDAL = ((IUserRepository)_repository).GetUserDAL(userName);
-            return new UserEntity()
-            {
-                Email = userDAL.Email,
-                Id = userDAL.Id,
-                Login = userDAL.Login,
-                Password = userDAL.Password,
-                Photo = userDAL.Photo
-            };
+            return _entityMapper.ToBLL(userDAL);
         }
     }
 }
