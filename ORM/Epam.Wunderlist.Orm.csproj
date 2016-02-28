@@ -57,7 +57,7 @@
     <Compile Include="Models\Concrete\Task.cs" />
     <Compile Include="Models\Concrete\TaskUser.cs" />
     <Compile Include="Models\Concrete\User.cs" />
-    <Compile Include="Models\Interface\IORMEtity.cs" />
+    <Compile Include="Models\Interface\IORMEntity.cs" />
     <Compile Include="Models\Interface\IORMKeyEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
