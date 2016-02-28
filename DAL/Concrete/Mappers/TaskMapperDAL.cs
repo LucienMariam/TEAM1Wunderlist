@@ -4,9 +4,9 @@ using ORM;
 
 namespace DAL.Concrete.Mappers
 {
-    public class TaskMapperDAL: IMapperDAL<Task, TaskDAL>
+    public class TaskMapperDal: IMapperDal<Task, TaskDal>
     {
-        public Task ToORM(TaskDAL item)
+        public Task ToOrm(TaskDal item)
         {
             return new Task()
             {
@@ -18,9 +18,9 @@ namespace DAL.Concrete.Mappers
             };
         }
 
-        public TaskDAL ToDAL(Task item)
+        public TaskDal ToDal(Task item)
         {
-            return new TaskDAL()
+            return new TaskDal()
             {
                 Id = item.Id,
                 Title = item.Title,

@@ -8,8 +8,8 @@ using DAL.Interfaces.Repositories;
 namespace BLL
 {
     public class KeyService<TDto, TEntity, TRepository, TEntityMapper> : BaseService<TDto, TEntity, TRepository, TEntityMapper>, IKeyService<TEntity>
-        where TDto : class, IDALKeyEntity
-        where TEntity : class, IBLLKeyEntity 
+        where TDto : class, IDalKeyEntity
+        where TEntity : class, IBllKeyEntity 
         where TRepository : IKeyRepository<TDto>
         where TEntityMapper : IMapper<TDto, TEntity>, new()
     {
@@ -17,7 +17,7 @@ namespace BLL
 
         public TEntity GetById(Guid key)
         {
-            return _entityMapper.ToBLL(_repository.GetById(key));
+            return EntityMapper.ToBll(Repository.GetById(key));
         }
     }
 }

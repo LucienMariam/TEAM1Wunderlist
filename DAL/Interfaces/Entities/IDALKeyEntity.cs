@@ -2,8 +2,8 @@
 
 namespace DAL.Interfaces.Entities
 {
-    public interface IDALKeyEntity: IDALEntity
+    public interface IDalKeyEntity: IDalEntity
     {
-        Guid Id { get; set; }
+        Guid Id { get; }
     }
 }

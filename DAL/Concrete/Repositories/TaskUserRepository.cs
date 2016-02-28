@@ -10,32 +10,32 @@ using DAL.Interfaces.Repositories;
 
 namespace DAL.Concrete.Repositories
 {
-    public class TaskUserRepository : Repository<TaskUser, TaskUserDAL, TaskUserMapperDAL>, ITaskUserRepository
+    public class TaskUserRepository : Repository<TaskUser, TaskUserDal, TaskUserMapperDal>, ITaskUserRepository
     {
         public TaskUserRepository(DbContext context) : base(context) { }
 
-        public IEnumerable<TaskUserDAL> GetByUserId(Guid userId)
+        public IEnumerable<TaskUserDal> GetByUserId(Guid userId)
         {
-            Func<TaskUser, TaskUserDAL> f = (obj) => _entityMapper.ToDAL(obj);
-            return _context.Set<TaskUser>().AsNoTracking().Where(x => x.UserId == userId).Select(f);
+            Func<TaskUser, TaskUserDal> f = (obj) => EntityMapper.ToDal(obj);
+            return Context.Set<TaskUser>().AsNoTracking().Where(x => x.UserId == userId).Select(f);
         }
 
-        public IEnumerable<TaskUserDAL> GetByTaskId(Guid taskId)
+        public IEnumerable<TaskUserDal> GetByTaskId(Guid taskId)
         {
-            Func<TaskUser, TaskUserDAL> f = (obj) => _entityMapper.ToDAL(obj);
-            return _context.Set<TaskUser>().AsNoTracking().Where(x => x.TaskId == taskId).Select(f);
+            Func<TaskUser, TaskUserDal> f = (obj) => EntityMapper.ToDal(obj);
+            return Context.Set<TaskUser>().AsNoTracking().Where(x => x.TaskId == taskId).Select(f);
         }
 
-        public IEnumerable<TaskUserDAL> GetByUsername(string username)
+        public IEnumerable<TaskUserDal> GetByUsername(string username)
         {
-            Func<TaskUser, TaskUserDAL> f = (obj) => _entityMapper.ToDAL(obj);
-            Guid userId = _context.Set<User>().AsNoTracking().Where(u => u.Login == username).Select(u => u.Id).FirstOrDefault();
-            return _context.Set<TaskUser>().AsNoTracking().Where(x => x.UserId == userId).Select(f);
+            Func<TaskUser, TaskUserDal> f = (obj) => EntityMapper.ToDal(obj);
+            Guid userId = Context.Set<User>().AsNoTracking().Where(u => u.Login == username).Select(u => u.Id).FirstOrDefault();
+            return Context.Set<TaskUser>().AsNoTracking().Where(x => x.UserId == userId).Select(f);
         }
-        public TaskDAL GetTask(Guid taskId)
+        public TaskDal GetTask(Guid taskId)
         {
-            Task task = _context.Set<Task>().AsNoTracking().Where(x => x.Id == taskId).FirstOrDefault();
-            return new TaskDAL()
+            Task task = Context.Set<Task>().AsNoTracking().Where(x => x.Id == taskId).FirstOrDefault();
+            return new TaskDal()
             {
                 Id = task.Id,
                 Title = task.Title,
@@ -44,11 +44,11 @@ namespace DAL.Concrete.Repositories
                 IsCompleted = task.IsCompleted
             };
         }
-        public TaskUserDAL CreateUserTask(string taskName, string userName)
+        public TaskUserDal CreateUserTask(string taskName, string userName)
         {
-            Guid userId = _context.Set<User>().Where(u => u.Login == userName).FirstOrDefault().Id;
-            Guid taskId = _context.Set<Task>().Where(u => u.Title == taskName).FirstOrDefault().Id;
-            return new TaskUserDAL()
+            Guid userId = Context.Set<User>().Where(u => u.Login == userName).FirstOrDefault().Id;
+            Guid taskId = Context.Set<Task>().Where(u => u.Title == taskName).FirstOrDefault().Id;
+            return new TaskUserDal()
             {
                 TaskId = taskId,
                 UserId = userId,

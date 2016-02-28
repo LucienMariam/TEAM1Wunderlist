@@ -10,43 +10,43 @@ using ORM;
 
 namespace DAL.Concrete.Repositories
 {
-    public abstract class Repository<TEntity, TDALEntity, TEntityMapper>: IRepository<TDALEntity>
-        where TEntity : class, IORMEntity, new()
-        where TDALEntity : class, IDALEntity, new()
-        where TEntityMapper : IMapperDAL<TEntity, TDALEntity>, new()
+    public abstract class Repository<TEntity, TDalEntity, TEntityMapper>: IRepository<TDalEntity>
+        where TEntity : class, IOrmEntity, new()
+        where TDalEntity : class, IDalEntity, new()
+        where TEntityMapper : IMapperDal<TEntity, TDalEntity>, new()
     {
-        protected readonly DbContext _context;
-        protected IMapperDAL<TEntity, TDALEntity> _entityMapper = new TEntityMapper();
+        protected readonly DbContext Context;
+        protected IMapperDal<TEntity, TDalEntity> EntityMapper = new TEntityMapper();
 
         public Repository(DbContext context)
         {
-            _context = context;
+            Context = context;
         }
 
-        public virtual IEnumerable<TDALEntity> GetAll()
+        public virtual IEnumerable<TDalEntity> GetAll()
         {
-            Func<TEntity, TDALEntity> f = (obj) => _entityMapper.ToDAL(obj);
-            return _context.Set<TEntity>().AsNoTracking().Select(f);
+            Func<TEntity, TDalEntity> f = (obj) => EntityMapper.ToDal(obj);
+            return Context.Set<TEntity>().AsNoTracking().Select(f);
         }
 
-        public virtual void Create(TDALEntity entity)
+        public virtual void Create(TDalEntity entity)
         {
-            TEntity modelEntity = _entityMapper.ToORM(entity);
-            DbEntityEntry<TEntity> dbEntity = _context.Entry<TEntity>(modelEntity);
+            TEntity modelEntity = EntityMapper.ToOrm(entity);
+            DbEntityEntry<TEntity> dbEntity = Context.Entry<TEntity>(modelEntity);
             dbEntity.State = EntityState.Added;
         }
 
-        public virtual void Delete(TDALEntity entity)
+        public virtual void Delete(TDalEntity entity)
         {
-            TEntity modelEntity = _entityMapper.ToORM(entity);
-            DbEntityEntry<TEntity> dbEntity = _context.Entry<TEntity>(modelEntity);
+            TEntity modelEntity = EntityMapper.ToOrm(entity);
+            DbEntityEntry<TEntity> dbEntity = Context.Entry<TEntity>(modelEntity);
             dbEntity.State = EntityState.Deleted;
         }
 
-        public virtual void Update(TDALEntity entity)
+        public virtual void Update(TDalEntity entity)
         {
-            TEntity modelEntity = _entityMapper.ToORM(entity);
-            DbEntityEntry<TEntity> dbEntity = _context.Entry<TEntity>(modelEntity);
+            TEntity modelEntity = EntityMapper.ToOrm(entity);
+            DbEntityEntry<TEntity> dbEntity = Context.Entry<TEntity>(modelEntity);
             dbEntity.State = EntityState.Modified;
         }
     }

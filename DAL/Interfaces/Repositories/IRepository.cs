@@ -3,7 +3,7 @@ using DAL.Interfaces.Entities;
 
 namespace DAL.Interfaces.Repositories
 {
-    public interface IRepository<TEntity> where TEntity: IDALEntity
+    public interface IRepository<TEntity> where TEntity: IDalEntity
     {
         IEnumerable<TEntity> GetAll();
 

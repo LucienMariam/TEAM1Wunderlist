@@ -1,6 +1,6 @@
 ﻿namespace ORM
 {
-    public interface IORMEntity
+    public interface IOrmEntity
     {
     }
 }

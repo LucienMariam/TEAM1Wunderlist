@@ -5,17 +5,16 @@ namespace TaskManager.App_Start
 {
     using System;
     using System.Web;
-
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Web.Common;
     using Authentification;
     using CustomNinjectDependencyResolver;
     using Infrastructure;
+
     public static class NinjectWebCommon
     {
-        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+        private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
@@ -24,7 +23,7 @@ namespace TaskManager.App_Start
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-            bootstrapper.Initialize(CreateKernel);
+            Bootstrapper.Initialize(CreateKernel);
         }
 
         /// <summary>
@@ -32,8 +31,8 @@ namespace TaskManager.App_Start
         /// </summary>
         public static void Stop()
         {
-            bootstrapper.Kernel.Reconfiguration();
-            bootstrapper.ShutDown();
+            Bootstrapper.Kernel.Reconfiguration();
+            Bootstrapper.ShutDown();
         }
 
         /// <summary>
@@ -45,7 +44,7 @@ namespace TaskManager.App_Start
             var kernel = new StandardKernel();
             try
             {
-                kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+                kernel.Bind<Func<IKernel>>().ToMethod(context => (() => new Bootstrapper().Kernel));
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 kernel.Bind<ICustomAuthenticationService>().To<CustomAuthenticationService>();

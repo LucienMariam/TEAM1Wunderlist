@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace ORM
 {
-    public class Task : IORMKeyEntity
+    public class Task : IOrmKeyEntity
     {
-        public Guid Id { get; set; }  // set? May be private set?
+        public Guid Id { get; set; }
         public string Title { get; set; }        
         public string Description { get; set; }
         public DateTime? DueTime { get; set; }

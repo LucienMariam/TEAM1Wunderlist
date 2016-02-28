@@ -10,47 +10,47 @@ using DAL.Interfaces.Repositories;
 namespace BLL
 {
     public abstract class BaseService<TDto, TEntity, TRepository, TEntityMapper> : IService<TEntity>
-        where TDto : class, IDALEntity
-        where TEntity : class, IBLLEntity
+        where TDto : class, IDalEntity
+        where TEntity : class, IBllEntity
         where TRepository : IRepository<TDto>
         where TEntityMapper : IMapper<TDto, TEntity>, new()
     {
-        public readonly TRepository _repository;
-        protected readonly IUnitOfWork _uow;
-        protected IMapper<TDto, TEntity> _entityMapper = new TEntityMapper();
+        public readonly TRepository Repository;
+        protected readonly IUnitOfWork Uow;
+        protected IMapper<TDto, TEntity> EntityMapper = new TEntityMapper();
 
         protected BaseService(TRepository repository, IUnitOfWork uow)
         { 
-            _repository = repository;
-            _uow = uow;
+            Repository = repository;
+            Uow = uow;
         }
 
         public virtual IEnumerable<TEntity> GetAll()
         {
-            return _repository.GetAll().Select(dalEntity => _entityMapper.ToBLL(dalEntity));
+            return Repository.GetAll().Select(dalEntity => EntityMapper.ToBll(dalEntity));
         }
 
         public virtual TEntity Find(Func<TEntity, bool> f)
         {
-            return _repository.GetAll().Select(dalEntity => _entityMapper.ToBLL(dalEntity)).FirstOrDefault(f);
+            return Repository.GetAll().Select(dalEntity => EntityMapper.ToBll(dalEntity)).FirstOrDefault(f);
         }
 
         public virtual void Add(TEntity entity)
         {            
-            _repository.Create(_entityMapper.ToDAL(entity));
-            _uow.Commit();
+            Repository.Create(EntityMapper.ToDal(entity));
+            Uow.Commit();
         }
 
         public virtual void Edit(TEntity entity)
         {
-            _repository.Update(_entityMapper.ToDAL(entity));
-            _uow.Commit();
+            Repository.Update(EntityMapper.ToDal(entity));
+            Uow.Commit();
         }
 
         public virtual void Delete(TEntity entity)
         {
-            _repository.Delete(_entityMapper.ToDAL(entity));
-            _uow.Commit();
+            Repository.Delete(EntityMapper.ToDal(entity));
+            Uow.Commit();
         } 
     }
 }

@@ -3,11 +3,11 @@ using DAL.Concrete.Entities;
 
 namespace BLL
 {
-    public class UserMapper : IMapper<UserDAL, UserEntity>
+    public class UserMapper : IMapper<UserDal, UserEntity>
     {
-        public UserDAL ToDAL(UserEntity user)
+        public UserDal ToDal(UserEntity user)
         {
-            return new UserDAL()
+            return new UserDal()
             {
                 Id = user.Id,
                 Login = user.Login,
@@ -17,7 +17,7 @@ namespace BLL
             };
         }
 
-        public UserEntity ToBLL(UserDAL user)
+        public UserEntity ToBll(UserDal user)
         {
             return (null == user) ? null :
                 new UserEntity()

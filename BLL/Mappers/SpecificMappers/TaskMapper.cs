@@ -3,11 +3,11 @@ using DAL.Concrete.Entities;
 
 namespace BLL
 {
-    public class TaskMapper : IMapper<TaskDAL, TaskEntity>
+    public class TaskMapper : IMapper<TaskDal, TaskEntity>
     {
-        public TaskDAL ToDAL(TaskEntity task)
+        public TaskDal ToDal(TaskEntity task)
         {
-            return new TaskDAL()
+            return new TaskDal()
             {
                 Id = task.Id,              
                 Title = task.Title,
@@ -17,7 +17,7 @@ namespace BLL
             };
         }
 
-        public TaskEntity ToBLL(TaskDAL task)
+        public TaskEntity ToBll(TaskDal task)
         {
             return (null == task) ? null :
                 new TaskEntity()

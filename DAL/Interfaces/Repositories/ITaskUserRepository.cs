@@ -4,12 +4,12 @@ using DAL.Concrete.Entities;
 
 namespace DAL.Interfaces.Repositories
 {
-    public interface ITaskUserRepository: IRepository<TaskUserDAL>
+    public interface ITaskUserRepository: IRepository<TaskUserDal>
     {
-        IEnumerable<TaskUserDAL> GetByUserId(Guid userId);
-        IEnumerable<TaskUserDAL> GetByTaskId(Guid taskId);
-        IEnumerable<TaskUserDAL> GetByUsername(string userName);
-        TaskDAL GetTask(Guid taskId);
-        TaskUserDAL CreateUserTask(string taskName, string userName);
+        IEnumerable<TaskUserDal> GetByUserId(Guid userId);
+        IEnumerable<TaskUserDal> GetByTaskId(Guid taskId);
+        IEnumerable<TaskUserDal> GetByUsername(string userName);
+        TaskDal GetTask(Guid taskId);
+        TaskUserDal CreateUserTask(string taskName, string userName);
     }
 }

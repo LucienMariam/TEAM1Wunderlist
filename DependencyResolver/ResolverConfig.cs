@@ -18,16 +18,16 @@ namespace CustomNinjectDependencyResolver
     {
         public static void ConfigurateResolver(this IKernel kernel)
         {
-            Database.SetInitializer<EntityModel>(new InitializeEntityModel());
+            Database.SetInitializer(new InitializeEntityModel());
             kernel.Bind<DbContext>().To<EntityModel>().InRequestScope();
 
-            kernel.Bind<IKeyRepository<TaskDAL>>().To<KeyRepository<Task, TaskDAL, TaskMapperDAL>>();
-            kernel.Bind<IKeyRepository<UserDAL>>().To<KeyRepository<User, UserDAL, UserMapperDAL>>();
+            kernel.Bind<IKeyRepository<TaskDal>>().To<KeyRepository<Task, TaskDal, TaskMapperDal>>();
+            kernel.Bind<IKeyRepository<UserDal>>().To<KeyRepository<User, UserDal, UserMapperDal>>();
             kernel.Bind<ITaskUserRepository>().To<TaskUserRepository>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
 
-            kernel.Bind<IKeyService<TaskEntity>>().To<KeyService<TaskDAL, TaskEntity, IKeyRepository<TaskDAL>, TaskMapper>>();
-            kernel.Bind<IKeyService<UserEntity>>().To<KeyService<UserDAL, UserEntity, IKeyRepository<UserDAL>, UserMapper>>();
+            kernel.Bind<IKeyService<TaskEntity>>().To<KeyService<TaskDal, TaskEntity, IKeyRepository<TaskDal>, TaskMapper>>();
+            kernel.Bind<IKeyService<UserEntity>>().To<KeyService<UserDal, UserEntity, IKeyRepository<UserDal>, UserMapper>>();
             kernel.Bind<ITaskUserService>().To<TaskUserService>();
             kernel.Bind<IUserService>().To<UserService>();
 
