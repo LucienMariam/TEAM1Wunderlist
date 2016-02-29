@@ -60,7 +60,7 @@ namespace TaskManager.Controllers
                 {
                     var setCockie = DependencyResolver.Current.GetService<ICustomAuthenticationService>();
                     setCockie.SignIn(new Identity(user), true);
-                    result = RedirectToAction("Index", "Home");
+                    result = RedirectToAction("Index", "User");
                 }
                 else
                 {
