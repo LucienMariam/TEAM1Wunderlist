@@ -32,6 +32,7 @@ namespace CustomNinjectDependencyResolver
             kernel.Bind<IUserService>().To<UserService>();
 
 
+
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
         }
 
