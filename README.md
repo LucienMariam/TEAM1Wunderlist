@@ -2,8 +2,9 @@
 - Architecture
   * Create task repository
   * create task service
-  * implement user repository functions
-  * create dependency resolver
-  * configure ninject
 - Unit tests
 - Logging
+- Perform database creation.
+- Establish users database registration
+- Establish users database authentication
+- Perform layers final adjustments
