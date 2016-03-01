@@ -18,7 +18,7 @@ namespace DAL.Concrete.Repositories
         protected readonly DbContext Context;
         protected IMapperDal<TEntity, TDalEntity> EntityMapper = new TEntityMapper();
 
-        public Repository(DbContext context)
+        protected Repository(DbContext context)
         {
             Context = context;
         }

@@ -25,7 +25,7 @@ namespace TaskManager.Authentification
                 if (null != userCookie) _context.User = new Principal(new Identity(userCookie));
             }
 
-            if (null != _context.User && _context.User is Principal) return _context.User;
+            if (_context.User is Principal) return _context.User;
 
             return new Principal(new Identity(_context.User));
         }

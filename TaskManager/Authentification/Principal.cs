@@ -6,23 +6,23 @@ namespace TaskManager.Authentification
 {
     public class Principal : IPrincipal
     {
-        private readonly Identity identity;
+        private readonly Identity _identity;
 
         public Principal(Identity identity)
         {
-            this.identity = identity;
+            _identity = identity;
         }
 
         #region IPrincipal Members
 
         public bool IsInRole(string roleName)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public IIdentity Identity
         {
-            get { return identity; }
+            get { return _identity; }
         }
 
         #endregion
