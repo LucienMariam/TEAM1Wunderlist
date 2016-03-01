@@ -65,7 +65,7 @@ namespace TaskManager.Authentification
             get { return !(Id == Guid.Empty || string.IsNullOrWhiteSpace(Email)); }
         }
 
-        public string Name { get { return Login; } }
+        public string Name { get { return Email; } }
 
         #endregion
     }
