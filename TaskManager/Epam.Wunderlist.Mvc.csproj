@@ -201,6 +201,7 @@
     <Compile Include="Provider\CustomMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Wunderlist.mdf" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\common.css" />
@@ -269,9 +270,7 @@
     <Content Include="Views\User\LogIn.cshtml" />
     <Content Include="Views\User\Registration.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

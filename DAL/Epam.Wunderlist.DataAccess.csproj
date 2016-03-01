@@ -57,6 +57,7 @@
     <Compile Include="Concrete\Mappers\UserMapperDAL.cs" />
     <Compile Include="Concrete\Repositories\KeyRepository.cs" />
     <Compile Include="Concrete\Repositories\Repository.cs" />
+    <Compile Include="Concrete\Repositories\TaskRepository.cs" />
     <Compile Include="Concrete\Repositories\TaskUserRepository.cs" />
     <Compile Include="Concrete\Repositories\UserRepository.cs" />
     <Compile Include="Concrete\UnitOfWork.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Interfaces\Mappers\IMapperDAL.cs" />
     <Compile Include="Interfaces\Repositories\IKeyRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITaskRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITaskUserRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
