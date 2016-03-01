@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace TaskManager.Models
@@ -8,7 +9,6 @@ namespace TaskManager.Models
         [Required]
         [Display(Name = "E-mail or Login")]
         public string EmailOrLogin { get; set; }
-
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -34,5 +34,12 @@ namespace TaskManager.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
     }
-
+    public class User
+    {
+        public Guid Id { get; set; }
+        public string Email { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public byte[] Photo { get; set; }
+    }
 }
