@@ -29,8 +29,12 @@ namespace TaskManager.Controllers
         }
 
         // POST: api/Default
-        public void Post([FromBody]string value)
+        public void Post(User value)
         {
+            var temp = users.GetUserEntityByEmail(value.Email);
+            var userForUpdate=new UserEntity() { Id = temp.Id, Email = (value.Email != null ? value.Email : temp.Email), Login = (value.Login != null ? value.Login : temp.Login),
+                Password = (value.Password != null ? value.Password : temp.Password), Photo = (value.Photo != null ? value.Photo : temp.Photo)};
+            users.Edit(userForUpdate);
         }
 
         // PUT: api/Default/5

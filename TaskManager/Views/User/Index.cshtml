@@ -266,33 +266,54 @@
                                 <div class="modal-header">                                      
                                 </div>
                                 <div class="modal-body">
-                                    <table class="sample-show-hide table ">
-                                        <thead>
-                                            <tr>
-                                                <th>Edit</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr >
-                                                <td ng-class-odd="odd">
-                                                    <button class="btn" ng-click="editCustomer('@User.Identity.Name')">
-                                                        <span class="glyphicon glyphicon-pencil" style="color:blue"></span>&nbsp;&nbsp;Edit
-                                                    </button>
-                                                </td>
-                                                <td ng-class-odd="odd">{{ Customer.Login }}</td>
-                                                <td ng-class-odd="odd">{{ Customer.Email }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+
+                                     <button class="btn" >
+                                         <span class="glyphicon glyphicon-pencil" style="color:blue"></span>&nbsp;&nbsp;Edit
+                                     </button>
+                 
+                                    <form class="form-horizontal" id="cusForm">
+
+                                        <hr />
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                        <div class="form-group">
+                                            <label class = "control-label col-md-2">Login</label>
+                                            <div class="col-md-10">
+                                                <input type="text" ng-model="formInfo.Login"  placeholder="{{ Customer.Login }}" class = "form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">Email</label>
+                                            <div class="col-md-10">
+                                                <input type="text" ng-model="formInfo.Email" placeholder="{{ Customer.Email }}"  class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                <input type="hidden" ng-model="formInfo.Id" placeholder="{{ Customer.ID }}" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">Password</label>
+                                            <div class="col-md-10">
+                                                <input type="text" ng-model="formInfo.Password"  class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer('@User.Identity.Name')" />
+                                            </div>
+                                        </div>
+                                    </form>
+
+
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
                                     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
                                 </div>
                             </script>
-                             <a href="#" ng-click="open('lg','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Hello @User.Identity.Name </a>                          
+                             <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Hello @User.Identity.Name </a>                          
                         </li>
                         <li>
                             <a  href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
