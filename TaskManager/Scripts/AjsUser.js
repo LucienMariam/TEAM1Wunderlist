@@ -3,8 +3,9 @@ angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibMo
    
 
     $scope.animationsEnabled = true;
-
+    $scope.formInfo = {};
     $scope.open = function (size, email) {
+       
         $scope.email = email
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
@@ -40,46 +41,57 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
     // Get customer list   
         $http.get('/api/Default/' + email)
     .success(function (response) {
-        $scope.Customer = response
+        $scope.Customer = response,
+        $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Id: $scope.Customer.Id };
+        
     });
     // Initial   
     $scope.edit = true;
     $scope.error = false;
     $scope.incomplete = false;
     // Edit   
-    //$scope.editCustomer = function (id) {
-    //    if (id == 'new') {
-    //        $scope.edit = true;
-    //        $scope.incomplete = true;
-    //        $scope.ID = 0;
-    //        $scope.Name = '';
-    //        $scope.Email = '';
-    //    } else {
-    //        $scope.edit = false;
-    //        $scope.ID = $scope.Customer[id].ID;
-    //        $scope.Name = $scope.Customer[id].Name.trim();
-    //        $scope.Phone = $scope.Customer[id].Phone.trim();
-    //        $scope.Address = $scope.Customer[id].Address.trim();
-    //        $scope.Email = $scope.Customer[id].Email.trim();
-    //        $("#idEmail").val($scope.Email.trim());
-    //        $scope.incomplete = false;
-    //    }
-    //};
+    $scope.editCustomer = function (id) {
+       
+        if (id == 'new') {
+            $scope.edit = true;
+            $scope.incomplete = true;
+            $scope.ID = 0;
+            $scope.Login = '';
+            $scope.Email = '';
+        } 
+            $scope.edit = false;
+            $scope.ID = $scope.Customer.Id;
+            $scope.Photo = $scope.Customer.Photo;
+            $scope.Login = $scope.Customer.Login.trim();
+            $scope.Email = $scope.Customer.Email.trim();
+            $("#idEmail").val($scope.Email.trim());
+            $scope.incomplete = false;
+            
+            $scope.PostCustomer();
+    };
     // Update or add new one    
-    //$scope.PostCustomer = function () {
-    //    $.post("api/Default",
-    //       $("#cusForm").serialize(),
-    //       function (value) {
-    //           // Refresh list   
-    //           $http.get("/api/Default")
-    //           .success(function (response) {
-    //               $scope.Customer = response
-    //           });
-    //           alert("Saved successfully.");
-    //       },
-    //       "json"
-    //      );
-    //}
+    $scope.PostCustomer = function () {
+        var value = {
+            login: $scope.formInfo.Login,
+            email: $scope.formInfo.Email,
+            password: $scope.formInfo.Password
+            //id: $scope.formInfo.Id
+
+        };
+       
+        $.post("api/Default",
+          value,
+           function (value) {
+               // Refresh list   
+               $http.get("/api/Default")
+               .success(function (response) {
+                   $scope.Customer = response
+               });
+               alert("Saved successfully.");
+           },
+           "json"
+          );
+    }
     // Delete one customer based on id.   
     //$scope.delCustomer = function (id) {
     //    if (confirm("Are you sure you want to delete this customer?")) {
