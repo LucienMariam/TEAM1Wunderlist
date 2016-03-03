@@ -77,7 +77,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ORM\Epam.Wunderlist.Orm.csproj">
+    <ProjectReference Include="..\Epam.Wunderlist.Orm\Epam.Wunderlist.Orm.csproj">
       <Project>{bcb7dcbe-f3f6-4bcf-9661-10d41ca329ce}</Project>
       <Name>Epam.Wunderlist.Orm</Name>
     </ProjectReference>

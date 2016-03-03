@@ -73,7 +73,7 @@
       <Project>{702ad799-bc92-4adb-8982-9d8934e263e6}</Project>
       <Name>Epam.Wunderlist.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ORM\Epam.Wunderlist.Orm.csproj">
+    <ProjectReference Include="..\Epam.Wunderlist.Orm\Epam.Wunderlist.Orm.csproj">
       <Project>{bcb7dcbe-f3f6-4bcf-9661-10d41ca329ce}</Project>
       <Name>Epam.Wunderlist.Orm</Name>
     </ProjectReference>
