@@ -3,7 +3,7 @@ using DAL.Interfaces.Entities;
 
 namespace DAL.Concrete.Entities
 {
-    public class TaskDAL: IDALKeyEntity
+    public class TaskDal: IDalKeyEntity
     {
         public Guid Id { get; set; }
         public string Title { get; set; }

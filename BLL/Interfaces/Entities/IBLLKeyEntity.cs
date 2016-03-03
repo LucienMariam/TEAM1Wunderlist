@@ -2,8 +2,8 @@
 
 namespace BLL.Interfaces.Entities
 {
-    public interface IBLLKeyEntity : IBLLEntity
+    public interface IBllKeyEntity : IBllEntity
     {
-        Guid Id { get; set; }
+        Guid Id { get; }
     }
 }

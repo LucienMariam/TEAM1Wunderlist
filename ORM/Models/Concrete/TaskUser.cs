@@ -2,7 +2,7 @@
 
 namespace ORM
 {
-    public class TaskUser : IORMEntity
+    public class TaskUser : IOrmEntity
     {
         public Guid UserId { get; set; } 
         public Guid TaskId { get; set; }

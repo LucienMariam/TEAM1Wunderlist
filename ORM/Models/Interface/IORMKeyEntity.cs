@@ -2,8 +2,8 @@
 
 namespace ORM
 {
-    public interface IORMKeyEntity : IORMEntity
+    public interface IOrmKeyEntity : IOrmEntity
     {
-        Guid Id { get; set; }
+        Guid Id { get; }
     }
 }

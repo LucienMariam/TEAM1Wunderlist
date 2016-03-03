@@ -4,18 +4,18 @@ using BLL.Concrete.Entities;
 
 namespace BLL
 {
-    public class TaskUserMapper : IMapper<TaskUserDAL, TaskUserEntity>
+    public class TaskUserMapper : IMapper<TaskUserDal, TaskUserEntity>
     {
-        public TaskUserDAL ToDAL(TaskUserEntity taskUser)
+        public TaskUserDal ToDal(TaskUserEntity taskUser)
         {
-            return new TaskUserDAL()
+            return new TaskUserDal()
             {
                 UserId = taskUser.UserId,
                 TaskId = taskUser.TaskId                
             };
         }
 
-        public TaskUserEntity ToBLL(TaskUserDAL taskUser)
+        public TaskUserEntity ToBll(TaskUserDal taskUser)
         {
             return (null == taskUser) ? null :
                 new TaskUserEntity()

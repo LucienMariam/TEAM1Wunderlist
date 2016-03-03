@@ -4,9 +4,9 @@ using DAL.Concrete.Entities;
 
 namespace DAL.Concrete.Mappers
 {
-    public class UserMapperDAL: IMapperDAL<User, UserDAL>
+    public class UserMapperDal: IMapperDal<User, UserDal>
     {
-        public User ToORM(UserDAL item)
+        public User ToOrm(UserDal item)
         {
             return new User()
             {
@@ -17,9 +17,9 @@ namespace DAL.Concrete.Mappers
                 Photo = item.Photo
             };
         }
-        public UserDAL ToDAL(User item)
+        public UserDal ToDal(User item)
         {
-            return new UserDAL()
+            return new UserDal()
             {
                 Id = item.Id,
                 Email = item.Email,

@@ -8,16 +8,16 @@ using System.Data.Entity;
 
 namespace DAL.Concrete.Repositories
 {
-    public class KeyRepository<TEntity, TDALEntity, TEntityMapper>: Repository<TEntity, TDALEntity, TEntityMapper>, IKeyRepository<TDALEntity>
-        where TEntity: class, IORMKeyEntity, new()
-        where TDALEntity: class, IDALKeyEntity, new()
-        where TEntityMapper: class, IMapperDAL<TEntity, TDALEntity>, new()
+    public class KeyRepository<TEntity, TDalEntity, TEntityMapper>: Repository<TEntity, TDalEntity, TEntityMapper>, IKeyRepository<TDalEntity>
+        where TEntity: class, IOrmKeyEntity, new()
+        where TDalEntity: class, IDalKeyEntity, new()
+        where TEntityMapper: class, IMapperDal<TEntity, TDalEntity>, new()
     {
         public KeyRepository(DbContext context): base(context) { }
-        public TDALEntity GetById(Guid id)
+        public TDalEntity GetById(Guid id)
         {
-            Func<TEntity, TDALEntity> f = (obj) => _entityMapper.ToDAL(obj);
-            return _context.Set<TEntity>().AsNoTracking().Where(x => x.Id == id).Select(f).FirstOrDefault();
+            Func<TEntity, TDalEntity> f = (obj) => EntityMapper.ToDal(obj);
+            return Context.Set<TEntity>().AsNoTracking().Where(x => x.Id == id).Select(f).FirstOrDefault();
         }
     }
 }

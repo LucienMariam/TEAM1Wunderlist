@@ -1,5 +1,4 @@
-﻿using System;
-using DAL.Concrete.Entities;
+﻿using DAL.Concrete.Entities;
 using BLL.Interfaces.Services;
 using DAL.Interfaces;
 using DAL.Interfaces.Repositories;
@@ -7,33 +6,22 @@ using BLL.Concrete.Entities;
 
 namespace BLL
 {
-    public class UserService : BaseService<UserDAL,
+    public class UserService : KeyService<UserDal,
         UserEntity,
-        IRepository<UserDAL>,
+        IUserRepository,
         UserMapper
         >, IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UserService(IUserRepository repository, IUnitOfWork uow) : base(repository, uow)
+        public UserService(IUserRepository repository, IUnitOfWork contextChanger) : base(repository, contextChanger)
         {
-            _userRepository = ((IUserRepository) _repository);
-        }
-
-        public UserEntity GetById(Guid id)
-        {
-            return _entityMapper.ToBLL(_userRepository.GetById(id));
-        }
-
-        public UserEntity GetUserEntityById(Guid userId)
-        {
-            UserDAL userDAL = _userRepository.GetById(userId);
-            return _entityMapper.ToBLL(userDAL);
+            _userRepository = Repository;
         }
 
         public UserEntity GetUserEntityByEmail(string email)
         {
-            UserDAL userDAL = _userRepository.GetByEmail(email);
-            return _entityMapper.ToBLL(userDAL);
+            UserDal userDal = _userRepository.GetByEmail(email);
+            return EntityMapper.ToBll(userDal);
         }
     }
 }

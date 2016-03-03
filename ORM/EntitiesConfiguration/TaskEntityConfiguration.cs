@@ -6,13 +6,11 @@ namespace ORM
     {
         public TaskEntityConfiguration()
         {
-            this.HasKey(u => u.Id);
-
-            this.Property(t => t.Title).IsRequired();
-
-            this.Property(t => t.Description).IsRequired();
-            this.Property(t => t.DueTime).IsOptional();
-            this.Property(t => t.IsCompleted);
+            HasKey(u => u.Id);
+            Property(t => t.Title).IsRequired();
+            Property(t => t.Description).IsRequired();
+            Property(t => t.DueTime).IsOptional();
+            Property(t => t.IsCompleted);
         }
     }
 }

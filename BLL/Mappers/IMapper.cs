@@ -3,11 +3,11 @@ using BLL.Interfaces.Entities;
 
 namespace BLL
 {
-    public interface IMapper<TDALEntity, TBLLEntity>
-        where TDALEntity : IDALEntity
-        where TBLLEntity : IBLLEntity
+    public interface IMapper<TDalEntity, TBllEntity>
+        where TDalEntity : IDalEntity
+        where TBllEntity : IBllEntity
     {
-        TDALEntity ToDAL(TBLLEntity bllEntity);
-        TBLLEntity ToBLL(TDALEntity dalEntity);
+        TDalEntity ToDal(TBllEntity bllEntity);
+        TBllEntity ToBll(TDalEntity dalEntity);
     }
 }

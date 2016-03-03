@@ -9,60 +9,60 @@ using DAL.Interfaces.Repositories;
 
 namespace BLL
 {
-    public class TaskUserService : BaseService<TaskUserDAL, 
+    public class TaskUserService : BaseService<TaskUserDal, 
                                                TaskUserEntity, 
-                                               IRepository<TaskUserDAL>,
+                                               ITaskUserRepository,
                                                TaskUserMapper
                                               >, ITaskUserService
     {
-        public TaskUserService(ITaskUserRepository repository, IUnitOfWork uow) : base(repository, uow) { }
+        public TaskUserService(ITaskUserRepository repository, IUnitOfWork contextChanger) : base(repository, contextChanger) { }
 
         public IEnumerable<TaskUserEntity> GetByUserId(Guid userId)
         {
-            return ((ITaskUserRepository)_repository).GetByUserId(userId).Select(dalEntity => _entityMapper.ToBLL(dalEntity));
+            return Repository.GetByUserId(userId).Select(dalEntity => EntityMapper.ToBll(dalEntity));
         }
 
         public IEnumerable<TaskUserEntity> GetByTaskId(Guid taskId)
         {
-            return ((ITaskUserRepository)_repository).GetByTaskId(taskId).Select(dalEntity => _entityMapper.ToBLL(dalEntity));
+            return Repository.GetByTaskId(taskId).Select(dalEntity => EntityMapper.ToBll(dalEntity));
         }
 
         public TaskEntity GetTaskEntity(Guid taskId)
         {
-            TaskDAL taskDAL = ((ITaskUserRepository)_repository).GetTask(taskId);
+            TaskDal taskDal = Repository.GetTask(taskId);
             return new TaskEntity()
             {
-                Id = taskDAL.Id,
-                Title = taskDAL.Title,
-                Description = taskDAL.Description
+                Id = taskDal.Id,
+                Title = taskDal.Title,
+                Description = taskDal.Description
             };
         }
         public IEnumerable<TaskUserEntity> GetTaskByUser(string userName)
         {
-            return ((ITaskUserRepository)_repository).GetByUsername(userName).Select(dalEntity => _entityMapper.ToBLL(dalEntity));
+            return Repository.GetByUsername(userName).Select(dalEntity => EntityMapper.ToBll(dalEntity));
         }
         public void ResolveTask(Guid id, string userName)
         {
-            var taskUser = GetTaskByUser(userName).Where(t=>t.TaskId == id).FirstOrDefault();
+            var taskUser = GetTaskByUser(userName).FirstOrDefault(t => t.TaskId == id);
             Edit(taskUser);
         }
 
         public void ReopenTask(Guid id, string userName)
         {
-            var taskUser = GetTaskByUser(userName).Where(t => t.TaskId == id).FirstOrDefault();
+            var taskUser = GetTaskByUser(userName).FirstOrDefault(t => t.TaskId == id);
             Edit(taskUser);
         }
 
         public void DeleteTask(Guid id, string userName)
         {
-            var taskUser = GetTaskByUser(userName).Where(t => t.TaskId == id).FirstOrDefault();
+            var taskUser = GetTaskByUser(userName).FirstOrDefault(t => t.TaskId == id);
             Delete(taskUser);
         }
 
 
         public void CreateTask(string taskName, string userName)
         {
-            TaskUserDAL td = ((ITaskUserRepository)_repository).CreateUserTask(taskName, userName);
+            TaskUserDal td = Repository.CreateUserTask(taskName, userName);
             TaskUserEntity tue = new TaskUserEntity()
             {
                 TaskId = td.TaskId,

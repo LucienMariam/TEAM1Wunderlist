@@ -25,7 +25,7 @@ namespace TaskManager.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+     
         public ActionResult Registration(RegisterModel model)
         {          
 
@@ -45,6 +45,30 @@ namespace TaskManager.Controllers
             }
 
             return View(model);
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Login(LoginModel model)
+        {
+            ActionResult result = View(model);
+            if (ModelState.IsValid)
+            {
+                UserEntity user = CustomMembershipProvider.ValidateUserAndReturn(model.EmailOrLogin, model.Password);
+                if (null != user)
+                {
+                    var setCockie = DependencyResolver.Current.GetService<ICustomAuthenticationService>();
+                    setCockie.SignIn(new Identity(user), true);
+                    result = RedirectToAction("Index", "User");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                }
+            }
+
+            return result;
         }
     }
 }

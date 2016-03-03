@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ORM
 {
-    public class User : IORMKeyEntity
+    public class User : IOrmKeyEntity
     {
         public Guid Id { get; set; }
         public string Email { get; set; }

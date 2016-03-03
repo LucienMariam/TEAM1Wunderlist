@@ -3,10 +3,10 @@ using DAL.Interfaces.Entities;
 
 namespace DAL.Interfaces.Mappers
 {
-    public interface IMapperDAL< TORMEntity, TDALEntity> where TORMEntity : IORMEntity
-                                                  where TDALEntity : IDALEntity
+    public interface IMapperDal< TOrmEntity, TDalEntity> where TOrmEntity : IOrmEntity
+                                                  where TDalEntity : IDalEntity
     {
-        TORMEntity ToORM(TDALEntity entity);
-        TDALEntity ToDAL(TORMEntity entity);
+        TOrmEntity ToOrm(TDalEntity entity);
+        TDalEntity ToDal(TOrmEntity entity);
     }
 }

@@ -3,7 +3,7 @@ using BLL.Interfaces.Entities;
 
 namespace BLL.Concrete.Entities
 {
-    public class UserEntity : IBLLKeyEntity
+    public class UserEntity : IBllKeyEntity
     {
         public Guid Id { get; set; }
         public string Email { get; set; }

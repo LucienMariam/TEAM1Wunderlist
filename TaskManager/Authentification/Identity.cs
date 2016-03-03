@@ -6,6 +6,22 @@ namespace TaskManager.Authentification
 {
     public class Identity : IIdentity
     {
+        public Identity(IPrincipal user)
+        {
+            var current = user?.Identity as Identity;
+            if (current == null)
+            {
+                Login = "Guest";
+                return;
+            }
+
+            Id = current.Id;
+            Login = current.Login;
+            Email = current.Email;
+            RememberMe = current.RememberMe;
+        }
+
+
         public Identity(UserEntity user)
         {
             if (user == null)
@@ -49,7 +65,7 @@ namespace TaskManager.Authentification
             get { return !(Id == Guid.Empty || string.IsNullOrWhiteSpace(Email)); }
         }
 
-        public string Name { get { return Login; } }
+        public string Name { get { return Email; } }
 
         #endregion
     }
