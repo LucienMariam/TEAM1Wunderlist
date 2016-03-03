@@ -25,13 +25,13 @@ namespace TaskManager.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-     
-        public ActionResult Registration(RegisterModel model)
-        {          
 
+        public ActionResult Registration(RegisterModel model)
+        {
+            string Photo = "UploadedFiles/BbYcwnFaN3o.jpg";
             if (ModelState.IsValid)
             {
-                UserEntity user = CustomMembershipProvider.CreateUser(model.Login, model.Email, model.Password);
+                UserEntity user = CustomMembershipProvider.CreateUser(model.Login, model.Email, model.Password, Photo);
                 if (null != user)
                 {
                     var setCockie = DependencyResolver.Current.GetService<ICustomAuthenticationService>();

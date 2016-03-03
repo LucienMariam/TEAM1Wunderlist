@@ -18,8 +18,9 @@ namespace TaskManager.Providers
         /// create new user
         /// </summary>
         /// <returns>null if user exist</returns>
-        public static UserEntity CreateUser(string login, string email, string password)
+        public static UserEntity CreateUser(string login, string email, string password, string Photo)
         {
+
             IKeyService<UserEntity> users = (IKeyService<UserEntity>)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IKeyService<UserEntity>));
             UserEntity membershipUser = null;
 
@@ -30,7 +31,9 @@ namespace TaskManager.Providers
                     Id = Guid.NewGuid(),
                     Login = login,
                     Email = email,
-                    Password = Crypto.HashPassword(password)
+                    Password = Crypto.HashPassword(password),
+                    Photo = Photo
+
                 };
                 users.Add(user);
                 membershipUser = user;
