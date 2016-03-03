@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.Services", "BLL\Epam.Wunderlist.Services.csproj", "{D768716E-DA5E-4F23-AAD4-77298667D279}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.Services", "Epam.Wunderlist.Services\Epam.Wunderlist.Services.csproj", "{D768716E-DA5E-4F23-AAD4-77298667D279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.DataAccess", "DAL\Epam.Wunderlist.DataAccess.csproj", "{702AD799-BC92-4ADB-8982-9D8934E263E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.DataAccess", "Epam.Wunderlist.DataAccess\Epam.Wunderlist.DataAccess.csproj", "{702AD799-BC92-4ADB-8982-9D8934E263E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.DependencyResolver", "DependencyResolver\Epam.Wunderlist.DependencyResolver.csproj", "{D7A83A75-A5B7-46EA-BA12-A1FC7E313F10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.DependencyResolver", "Epam.Wunderlist.DependencyResolver\Epam.Wunderlist.DependencyResolver.csproj", "{D7A83A75-A5B7-46EA-BA12-A1FC7E313F10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.Orm", "ORM\Epam.Wunderlist.Orm.csproj", "{BCB7DCBE-F3F6-4BCF-9661-10D41CA329CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.Orm", "Epam.Wunderlist.Orm\Epam.Wunderlist.Orm.csproj", "{BCB7DCBE-F3F6-4BCF-9661-10D41CA329CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.Mvc", "TaskManager\Epam.Wunderlist.Mvc.csproj", "{5B462B17-8363-4F16-AF38-219222300147}"
 EndProject
