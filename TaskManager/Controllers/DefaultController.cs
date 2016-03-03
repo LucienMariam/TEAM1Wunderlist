@@ -24,7 +24,7 @@ namespace TaskManager.Controllers
         public User Get(string id)
         {
             var user = users.GetUserEntityByEmail(id);
-            return new User() { Email = user.Email, Login = user.Login };
+            return new User() { Email = user.Email, Login = user.Login, Photo=user.Photo };
 
         }
 

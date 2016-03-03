@@ -1,7 +1,7 @@
 ﻿@{ 
     Layout = null;
 
-    }
+}
 <html ng-app="AngularJS">
 <head >
 
@@ -12,7 +12,7 @@
     <!-- Custom CSS -->
     <link href="~/Content/sb-admin-2.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
-
+   
 </head>
 
 <body>
@@ -262,57 +262,53 @@
                             <!-- /input-group -->
                         </li>
                         <li ng-controller="ModalDemoCtrl">
-                            <script type="text/ng-template" id="myModalContent.html">
-                                <div class="modal-header">                                      
+                            <script type="text/ng-template" id="Content.html">
+                                <div class="modal-header"> 
+                                    <img style="max-height:400px;max-width:400px" ng-src='{{formInfo.Photo}}' />
+                                    <input type="file" name="upload" id="uploadFile" /><br />
+                                    <button ng-click="send()">Save</button>                                     
                                 </div>
-                                <div class="modal-body">
-
-                                     <button class="btn" >
-                                         <span class="glyphicon glyphicon-pencil" style="color:blue"></span>&nbsp;&nbsp;Edit
-                                     </button>
-                 
-                                    <form class="form-horizontal" id="cusForm">
-
-                                        <hr />
-                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                                        <div class="form-group">
-                                            <label class = "control-label col-md-2">Login</label>
-                                            <div class="col-md-10">
-                                                <input type="text" ng-model="formInfo.Login"  placeholder="{{ Customer.Login }}" class = "form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-2">Email</label>
-                                            <div class="col-md-10">
-                                                <input type="text" ng-model="formInfo.Email" placeholder="{{ Customer.Email }}"  class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-10">
-                                                <input type="hidden" ng-model="formInfo.Id" placeholder="{{ Customer.ID }}" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-2">Password</label>
-                                            <div class="col-md-10">
-                                                <input type="text" ng-model="formInfo.Password"  class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-offset-2 col-md-10">
-                                                <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer('@User.Identity.Name')" />
-                                            </div>
-                                        </div>
-                                    </form>
-
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-                                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-                                </div>
-                            </script>
+                                  <div class="modal-body">
+                                  <form class="form-horizontal" id="cusForm">
+                           
+                                     <hr />
+                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                           
+                                     <div class="form-group">
+                                         <label class="control-label col-md-2">Login</label>
+                                         <div class="col-md-10">
+                                             <input type="text" ng-model="formInfo.Login" placeholder="{{ Customer.Login }}" class="form-control" />
+                                         </div>
+                                     </div>
+                                     <div class="form-group">
+                                         <label class="control-label col-md-2">Email</label>
+                                         <div class="col-md-10">
+                                             <input type="text" ng-model="formInfo.Email" placeholder="{{ Customer.Email }}" class="form-control" />
+                                         </div>
+                                     </div>
+                                     <div class="form-group">
+                                         <div class="col-md-10">
+                                             <input type="hidden" ng-model="formInfo.Id" placeholder="{{ Customer.ID }}" class="form-control" />
+                                         </div>
+                                     </div>
+                                     <div class="form-group">
+                                         <label class="control-label col-md-2">Password</label>
+                                         <div class="col-md-10">
+                                             <input type="text" ng-model="formInfo.Password" class="form-control" />
+                                         </div>
+                                     </div>
+                                     <div class="form-group">
+                                         <div class="col-md-offset-2 col-md-10">
+                                             <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer('@User.Identity.Name')" />
+                                         </div>
+                                     </div>
+                                 </form>
+                             </div>
+                             <div class="modal-footer">
+                                 <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                                 <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                             </div>
+</script>
                              <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Hello @User.Identity.Name </a>                          
                         </li>
                         <li>
@@ -401,10 +397,7 @@
                         </li>
                     </ul>
                 </div>
-
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
         </nav>
 
         <div id="page-wrapper" style="min-height: 330px;">
@@ -443,7 +436,6 @@
             
             <!-- /.row -->
         </div>
-        <!-- /#page-wrapper -->
 
     </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -454,6 +446,11 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/metisMenu.min.js"></script>
     <script src="~/Scripts/sb-admin-2.js"></script>
+    @section scripts{
+        <script type="text/javascript">
 
+     
+        </script>
+    }
 </body>
 </html>

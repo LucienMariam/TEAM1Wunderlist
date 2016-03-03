@@ -189,10 +189,10 @@
     <Compile Include="Authentification\Identity.cs" />
     <Compile Include="Authentification\Principal.cs" />
     <Compile Include="Authentification\SupportPrincipalService.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1075,7 +1075,9 @@
     <Content Include="Views\User\Registration.cshtml" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
