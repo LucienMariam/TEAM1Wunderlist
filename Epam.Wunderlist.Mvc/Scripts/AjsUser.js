@@ -106,8 +106,6 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
                 login: $scope.formInfo.Login,
                 email: $scope.formInfo.Email,
                 password: $scope.formInfo.Password
-
-
             };
 
             $.post("api/Default",
