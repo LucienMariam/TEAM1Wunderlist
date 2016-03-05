@@ -17,17 +17,17 @@ namespace BLL
     {
         public TaskUserService(ITaskUserRepository repository, IUnitOfWork contextChanger) : base(repository, contextChanger) { }
 
-        public IEnumerable<TaskUserEntity> GetByUserId(Guid userId)
+        public IEnumerable<TaskUserEntity> GetByUserId(int userId)
         {
             return Repository.GetByUserId(userId).Select(dalEntity => EntityMapper.ToBll(dalEntity));
         }
 
-        public IEnumerable<TaskUserEntity> GetByTaskId(Guid taskId)
+        public IEnumerable<TaskUserEntity> GetByTaskId(int taskId)
         {
             return Repository.GetByTaskId(taskId).Select(dalEntity => EntityMapper.ToBll(dalEntity));
         }
 
-        public TaskEntity GetTaskEntity(Guid taskId)
+        public TaskEntity GetTaskEntity(int taskId)
         {
             TaskDal taskDal = Repository.GetTask(taskId);
             return new TaskEntity()
@@ -41,19 +41,19 @@ namespace BLL
         {
             return Repository.GetByUsername(userName).Select(dalEntity => EntityMapper.ToBll(dalEntity));
         }
-        public void ResolveTask(Guid id, string userName)
+        public void ResolveTask(int id, string userName)
         {
             var taskUser = GetTaskByUser(userName).FirstOrDefault(t => t.TaskId == id);
             Edit(taskUser);
         }
 
-        public void ReopenTask(Guid id, string userName)
+        public void ReopenTask(int id, string userName)
         {
             var taskUser = GetTaskByUser(userName).FirstOrDefault(t => t.TaskId == id);
             Edit(taskUser);
         }
 
-        public void DeleteTask(Guid id, string userName)
+        public void DeleteTask(int id, string userName)
         {
             var taskUser = GetTaskByUser(userName).FirstOrDefault(t => t.TaskId == id);
             Delete(taskUser);

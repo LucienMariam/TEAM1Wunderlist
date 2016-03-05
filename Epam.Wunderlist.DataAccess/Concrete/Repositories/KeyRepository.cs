@@ -14,7 +14,7 @@ namespace DAL.Concrete.Repositories
         where TEntityMapper: class, IMapperDal<TEntity, TDalEntity>, new()
     {
         public KeyRepository(DbContext context): base(context) { }
-        public TDalEntity GetById(Guid id)
+        public TDalEntity GetById(int id)
         {
             Func<TEntity, TDalEntity> f = (obj) => EntityMapper.ToDal(obj);
             return Context.Set<TEntity>().AsNoTracking().Where(x => x.Id == id).Select(f).FirstOrDefault();

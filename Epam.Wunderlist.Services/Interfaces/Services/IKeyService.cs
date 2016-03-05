@@ -6,6 +6,6 @@ namespace BLL.Interfaces.Services
     public interface IKeyService<TEntity> : IService<TEntity>
            where TEntity : class, IBllKeyEntity
     {
-        TEntity GetById(Guid id);
+        TEntity GetById(int id);
     }
 }
