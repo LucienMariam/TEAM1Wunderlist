@@ -65,8 +65,8 @@ namespace TaskManager.Authentification
             get { return !(Id == 0 || string.IsNullOrWhiteSpace(Email)); }
         }
 
-        public string Name { get { return Email; } }
-
+        public string Name { get { return Id.ToString(); } }
+      
         #endregion
     }
 }
