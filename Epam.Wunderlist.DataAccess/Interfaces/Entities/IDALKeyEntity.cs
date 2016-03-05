@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DAL.Interfaces.Entities
+﻿namespace DAL.Interfaces.Entities
 {
     public interface IDalKeyEntity: IDalEntity
     {
