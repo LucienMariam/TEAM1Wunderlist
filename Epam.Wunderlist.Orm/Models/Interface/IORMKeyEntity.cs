@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ORM
+﻿namespace ORM
 {
     public interface IOrmKeyEntity : IOrmEntity
     {
