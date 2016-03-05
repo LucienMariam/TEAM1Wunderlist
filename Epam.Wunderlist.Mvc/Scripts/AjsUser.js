@@ -1,5 +1,8 @@
 ﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap']);
-angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal) {
+
+
+
+angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal, myService) {
 
     $scope.animationsEnabled = true;
     $scope.formInfo = {};

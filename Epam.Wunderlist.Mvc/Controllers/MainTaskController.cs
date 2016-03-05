@@ -9,7 +9,7 @@ using TaskManager.Models;
 
 namespace TaskManager.Controllers
 {
-    public class TaskController : ApiController
+    public class MainTaskController : ApiController
     {
         IUserService users = (IUserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IUserService));
         // GET: api/Task
@@ -21,7 +21,7 @@ namespace TaskManager.Controllers
         // GET: api/Task/5
         public IEnumerable<TaskModel> Get(string id)
         {
-            var x = new List<TaskModel>() { new TaskModel() { Title = "Hi" }, new TaskModel() { Title = "Hello" } };
+            var x = new List<TaskModel>() { new TaskModel() { Title = "Hi", Id=1 }, new TaskModel() { Title = "Hello",Id=2 } };
             return x;
         }
 
