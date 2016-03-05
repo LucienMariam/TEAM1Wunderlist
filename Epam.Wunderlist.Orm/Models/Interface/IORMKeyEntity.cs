@@ -4,6 +4,6 @@ namespace ORM
 {
     public interface IOrmKeyEntity : IOrmEntity
     {
-        Guid Id { get; }
+        int Id { get; }
     }
 }

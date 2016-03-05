@@ -15,7 +15,7 @@ namespace BLL
     {
         public KeyService(TRepository repository, IUnitOfWork uow) : base(repository, uow) { }
 
-        public TEntity GetById(Guid key)
+        public TEntity GetById(int key)
         {
             return EntityMapper.ToBll(Repository.GetById(key));
         }

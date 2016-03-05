@@ -28,7 +28,6 @@ namespace TaskManager.Providers
             {
                 UserEntity user = new UserEntity()
                 {
-                    Id = Guid.NewGuid(),
                     Login = login,
                     Email = email,
                     Password = Crypto.HashPassword(password),

@@ -14,13 +14,13 @@ namespace DAL.Concrete.Repositories
     {
         public TaskUserRepository(DbContext context) : base(context) { }
 
-        public IEnumerable<TaskUserDal> GetByUserId(Guid userId)
+        public IEnumerable<TaskUserDal> GetByUserId(int userId)
         {
             Func<TaskUser, TaskUserDal> f = (obj) => EntityMapper.ToDal(obj);
             return Context.Set<TaskUser>().AsNoTracking().Where(x => x.UserId == userId).Select(f);
         }
 
-        public IEnumerable<TaskUserDal> GetByTaskId(Guid taskId)
+        public IEnumerable<TaskUserDal> GetByTaskId(int taskId)
         {
             Func<TaskUser, TaskUserDal> f = (obj) => EntityMapper.ToDal(obj);
             return Context.Set<TaskUser>().AsNoTracking().Where(x => x.TaskId == taskId).Select(f);
@@ -29,10 +29,10 @@ namespace DAL.Concrete.Repositories
         public IEnumerable<TaskUserDal> GetByUsername(string username)
         {
             Func<TaskUser, TaskUserDal> f = (obj) => EntityMapper.ToDal(obj);
-            Guid userId = Context.Set<User>().AsNoTracking().Where(u => u.Login == username).Select(u => u.Id).FirstOrDefault();
+            int userId = Context.Set<User>().AsNoTracking().Where(u => u.Login == username).Select(u => u.Id).FirstOrDefault();
             return Context.Set<TaskUser>().AsNoTracking().Where(x => x.UserId == userId).Select(f);
         }
-        public TaskDal GetTask(Guid taskId)
+        public TaskDal GetTask(int taskId)
         {
             Task task = Context.Set<Task>().AsNoTracking().Where(x => x.Id == taskId).FirstOrDefault();
             return new TaskDal()
@@ -46,8 +46,8 @@ namespace DAL.Concrete.Repositories
         }
         public TaskUserDal CreateUserTask(string taskName, string userName)
         {
-            Guid userId = Context.Set<User>().Where(u => u.Login == userName).FirstOrDefault().Id;
-            Guid taskId = Context.Set<Task>().Where(u => u.Title == taskName).FirstOrDefault().Id;
+            int userId = Context.Set<User>().Where(u => u.Login == userName).FirstOrDefault().Id;
+            int taskId = Context.Set<Task>().Where(u => u.Title == taskName).FirstOrDefault().Id;
             return new TaskUserDal()
             {
                 TaskId = taskId,
