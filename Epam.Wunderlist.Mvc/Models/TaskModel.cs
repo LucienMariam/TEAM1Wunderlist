@@ -5,7 +5,7 @@ namespace TaskManager.Models
 {
     public class TaskModel
     {
-        public Guid Guid { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "Title")]
@@ -18,7 +18,7 @@ namespace TaskManager.Models
 
     public class UserTask
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "Title")]

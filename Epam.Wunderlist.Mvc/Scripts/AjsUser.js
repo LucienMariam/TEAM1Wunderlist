@@ -1,5 +1,8 @@
 ﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap']);
-angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal) {
+
+
+
+angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal, myService) {
 
     $scope.animationsEnabled = true;
     $scope.formInfo = {};
@@ -106,8 +109,6 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
                 login: $scope.formInfo.Login,
                 email: $scope.formInfo.Email,
                 password: $scope.formInfo.Password
-
-
             };
 
             $.post("api/Default",
