@@ -11,6 +11,7 @@ namespace DAL.Concrete.Mappers
             return new Task()
             {
                 Id = item.Id,
+                FolderId = item.FolderId,
                 Title = item.Title,
                 Description = item.Description,
                 DueTime = item.DueTime,

@@ -9,7 +9,8 @@ namespace BLL
         {
             return new TaskDal()
             {
-                Id = task.Id,              
+                Id = task.Id,
+                FolderId = task.FolderId,
                 Title = task.Title,
                 Description=task.Description,
                 DueTime=task.DueTime,
@@ -23,6 +24,7 @@ namespace BLL
                 new TaskEntity()
                 {
                     Id = task.Id,
+                    FolderId = task.FolderId,
                     Title = task.Title,
                     Description=task.Description,
                     DueTime=task.DueTime,
