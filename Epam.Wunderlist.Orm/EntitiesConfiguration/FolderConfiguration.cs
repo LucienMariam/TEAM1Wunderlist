@@ -8,6 +8,7 @@ namespace ORM.EntitiesConfiguration
         {
             HasKey(u => u.Id);
             Property(t => t.Title).IsRequired();
+            Property(t => t.ParentFolderId).IsOptional();
         }
     }
 }
