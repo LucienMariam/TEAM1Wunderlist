@@ -189,13 +189,12 @@
     <Compile Include="Authentification\Identity.cs" />
     <Compile Include="Authentification\Principal.cs" />
     <Compile Include="Authentification\SupportPrincipalService.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainTaskController.cs" />
     <Compile Include="Controllers\TaskListController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

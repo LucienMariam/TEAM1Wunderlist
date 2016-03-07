@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+  
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -281,17 +281,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-2">Email</label>
-                                            <div class="col-md-10">
-                                                <input type="text" ng-model="formInfo.Email" placeholder="{{ Customer.Email }}" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-10">
-                                                <input type="hidden" ng-model="formInfo.Id" placeholder="{{ Customer.ID }}" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
                                             <label class="control-label col-md-2">Password</label>
                                             <div class="col-md-10">
                                                 <input type="text" ng-model="formInfo.Password" class="form-control" />
@@ -299,7 +288,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
-                                                <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer('@User.Identity.Name')" />
+                                                <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer(@User.Identity.Name)" />
                                             </div>
                                         </div>
                                     </form>

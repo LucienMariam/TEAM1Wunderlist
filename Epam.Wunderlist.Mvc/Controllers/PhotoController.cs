@@ -1,12 +1,13 @@
 ﻿using BLL.Concrete.Entities;
 using BLL.Interfaces.Services;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace TaskManager.Controllers
 {
-    public class ValuesController : ApiController
+    public class PhotoController : ApiController
     {
         IUserService users = (IUserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IUserService));
 
@@ -30,17 +31,9 @@ namespace TaskManager.Controllers
                 {
                     await fs.WriteAsync(fileArray, 0, fileArray.Length);
                 }
-                var temp = users.GetUserEntityByEmail(User.Identity.Name);
+                var temp = users.GetById(Convert.ToInt32(User.Identity.Name));
                 temp.Photo = "UploadedFiles/" + filename;
-                var userForUpdate = new UserEntity()
-                {
-                    Id = temp.Id,
-                    Email = temp.Email,
-                    Login = temp.Login,
-                    Password = temp.Password,
-                    Photo = temp.Photo
-                };
-                users.Edit(userForUpdate);
+                users.Edit(temp);
             }
 
             return Ok("OK");

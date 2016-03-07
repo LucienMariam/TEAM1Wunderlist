@@ -7,7 +7,7 @@ using TaskManager.Models;
 
 namespace TaskManager.Controllers
 {
-    public class DefaultController : ApiController
+    public class ProfileController : ApiController
     {
         IUserService users = (IUserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IUserService));
 
@@ -18,17 +18,17 @@ namespace TaskManager.Controllers
         }
 
         // GET: api/Default/5
-        public User Get(string id)
+        public User Get(int id)
         {
-            var user = users.GetUserEntityByEmail(id);
-            return new User() { Email = user.Email, Login = user.Login, Photo = user.Photo };
+            var user = users.GetById(id);
+            return new User() { Email = user.Email, Login = user.Login, Photo = user.Photo, Id= user.Id };
 
         }
 
         // POST: api/Default
         public void Post(User value)
         {
-            var temp = users.GetUserEntityByEmail(value.Email);
+            var temp = users.GetById(value.Id);
             var userForUpdate = new UserEntity()
             {
                 Id = temp.Id,
