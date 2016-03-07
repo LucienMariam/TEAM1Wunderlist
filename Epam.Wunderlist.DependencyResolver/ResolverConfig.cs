@@ -21,17 +21,21 @@ namespace CustomNinjectDependencyResolver
             Database.SetInitializer(new InitializeEntityModel());
             kernel.Bind<DbContext>().To<EntityModel>().InRequestScope();
 
+            #region Repository binding
             kernel.Bind<IKeyRepository<TaskDal>>().To<KeyRepository<Task, TaskDal, TaskMapperDal>>();
             kernel.Bind<IKeyRepository<UserDal>>().To<KeyRepository<User, UserDal, UserMapperDal>>();
             kernel.Bind<ITaskUserRepository>().To<TaskUserRepository>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
+            kernel.Bind<ITaskRepository>().To<TaskRepository>();
+            kernel.Bind<IFolderRepository>().To<FolderRepository>();
+            #endregion
 
+            #region Service binding
             kernel.Bind<IKeyService<TaskEntity>>().To<KeyService<TaskDal, TaskEntity, IKeyRepository<TaskDal>, TaskMapper>>();
             kernel.Bind<IKeyService<UserEntity>>().To<KeyService<UserDal, UserEntity, IKeyRepository<UserDal>, UserMapper>>();
             kernel.Bind<ITaskUserService>().To<TaskUserService>();
             kernel.Bind<IUserService>().To<UserService>();
-
-
+            #endregion
 
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
         }
