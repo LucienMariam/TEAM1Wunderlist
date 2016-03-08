@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Concrete.Entities;
+using BLL.Interfaces.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -8,8 +10,9 @@ using TaskManager.Models;
 
 namespace TaskManager.Controllers
 {
-    public class TaskListController : ApiController
+    public class TaskController : ApiController
     {
+        ITaskService tasks = (ITaskService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(ITaskService));
         // GET: api/TaskList
         public IEnumerable<string> Get()
         {
@@ -19,22 +22,15 @@ namespace TaskManager.Controllers
         // GET: api/TaskList/5
         public IEnumerable<TaskModel> Get(int id)
         {
-            IEnumerable<TaskModel> result;
-            if (id>1)
-            {
-                result = new List<TaskModel>() { new TaskModel() { Title = "Hi", Id = 1 }, new TaskModel() { Title = "Hello", Id = 2 } };
-            }
-            else
-            {
-                result = new List<TaskModel>() { new TaskModel() { Title = "Hi", Id = 1 } };
-            }
-            
-            return result;
+            IEnumerable<TaskModel> result = tasks.GetTaskList(id).Select(x=>new TaskModel() {Description = x.Description, DueTime = x.DueTime, FolderId = x.FolderId, Id = x.Id, IsCompleted = x.IsCompleted, Title = x.Title });
+
+             return result;
         }
 
         // POST: api/TaskList
-        public void Post([FromBody]string value)
+        public void Post(TaskModel value)
         {
+            tasks.Add(new TaskEntity() { Title = value.Title, IsCompleted = value.IsCompleted, FolderId = value.FolderId });
         }
 
         // PUT: api/TaskList/5

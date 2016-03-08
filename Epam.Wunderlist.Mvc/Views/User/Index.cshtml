@@ -308,7 +308,7 @@
                             </script>
                             <a href="#"  ng-click="getTask('@User.Identity.Name')"><i class="fa fa-bar-chart-o fa-fw"></i> Your's tasks<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li class="alert alert-success" ng-repeat="task in mainTasks"><a href="#" ng-click="showMainListTask(task.Id)"  class="alert-link">{{task.Title}}</a><button type="button" class="close" ng-click="closeAlert($index, task.Title)" aria-label="Close"><span aria-hidden="true">&times;</span></button> </li> 
+                                <li class="alert alert-success" ng-repeat="task in folder"><a href="#" ng-click="showListTask(task.Id)"  class="alert-link">{{task.Title}}</a><button type="button" class="close" ng-click="closeAlert($index, task.Id)" aria-label="Close"><span aria-hidden="true">&times;</span></button> </li> 
                                 <input type="text" id="newListTaskList" name="Title" placeholder="New one" class="form-control" />
                                 <button type="button" class='btn btn-default' ng-click="addAlert('@User.Identity.Name')">Add</button>                                                        
                             </ul>
@@ -322,22 +322,17 @@
         </nav>
 
         <div ng-controller="TasksCtrl" id="page-wrapper" style="min-height: 330px;">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Add Task For  {{getId()}}</h1>
-                </div>
-            </div>
-            <!-- /.row -->
+                <!-- /.row -->
             <div class="row" ng-repeat="tasks in getValue()">
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-3x">{{tasks.Title}}</i>
+                                    <i class="fa fa-comments fa-3x"> {{tasks.Title}}</i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div  class="huge">26</div>
+                                    <div class="huge">26</div>
 
                                 </div>
                             </div>
@@ -352,8 +347,23 @@
                     </div>
                 </div>
             </div>
+            <span ng-if="checked" class="animate-if">
+                This is removed when the checkbox is unchecked.
+            </span>
 
-        </div>
+            <div  ng-if="getValue()!=undefinded" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="text" id="newTaskList" name="Title" placeholder="New one" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <button type="button" class='btn btn-default' ng-click="addTask(getId())">Add</button>
+                    </div>
+                </div>
+            </div>
+         </div>
 
     </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>

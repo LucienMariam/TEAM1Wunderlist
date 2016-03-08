@@ -191,8 +191,8 @@
     <Compile Include="Authentification\SupportPrincipalService.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MainTaskController.cs" />
-    <Compile Include="Controllers\TaskListController.cs" />
+    <Compile Include="Controllers\FolderController.cs" />
+    <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\FolderModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Models\TaskUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1057,6 +1058,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sb-admin-2.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="UploadedFiles\BbYcwnFaN3o.jpg" />
+    <Content Include="UploadedFiles\p5esefl02Ok.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1076,9 +1079,7 @@
     <Content Include="Views\User\Registration.cshtml" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UploadedFiles\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
