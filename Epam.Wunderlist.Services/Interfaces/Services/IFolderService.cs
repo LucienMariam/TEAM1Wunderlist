@@ -11,5 +11,9 @@ namespace BLL.Interfaces.Services
     {
         IEnumerable<FolderEntity> GetFolderList(int parentFolderId);
         IEnumerable<FolderEntity> GetRootFolders();
+
+        void Rename(int id, string newTitle);
+        void CreateFolder(); // model or BllEntity
+        void DeleteFolder(int id);
     }
 }
