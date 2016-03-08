@@ -11,6 +11,7 @@ namespace DAL.Concrete.Mappers
             return new Folder()
             {
                 Id = item.Id,
+                UserId = item.UserId,
                 ParentFolderId = item.ParentFolderId,
                 Title = item.Title
             };
@@ -21,6 +22,7 @@ namespace DAL.Concrete.Mappers
             return new FolderDal()
             {
                 Id = item.Id,
+                UserId = item.UserId,
                 ParentFolderId = item.ParentFolderId,
                 Title = item.Title
             };

@@ -1,7 +1,7 @@
 ﻿using BLL.Concrete.Entities;
 using DAL.Concrete.Entities;
 
-namespace BLL.Concrete.Mappers
+namespace BLL
 {
     public class FolderMapper: IMapper<FolderDal, FolderEntity>
     {
@@ -10,6 +10,7 @@ namespace BLL.Concrete.Mappers
             return new FolderEntity()
             {
                 Id = item.Id,
+                UserId = item.UserId,
                 ParentFolderId = item.ParentFolderId,
                 Title = item.Title
             };
@@ -20,6 +21,7 @@ namespace BLL.Concrete.Mappers
             return new FolderDal()
             {
                 Id = item.Id,
+                UserId = item.UserId,
                 ParentFolderId = item.ParentFolderId,
                 Title = item.Title
             };

@@ -51,7 +51,7 @@ namespace DAL.Concrete.Repositories
             return new TaskUserDal()
             {
                 TaskId = taskId,
-                UserId = userId,
+                UserId = userId
             };
         }
     }
