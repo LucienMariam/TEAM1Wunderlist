@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using DAL.Interfaces.Entities;
 
-namespace ORM
+namespace DAL.Concrete.Entities
 {
-    public class Folder: IOrmKeyEntity
+    public class FolderDal: IDalKeyEntity
     {
         public int Id { get; set; }
         public int UserId { get; set; }
         public int? ParentFolderId { get; set; }
         public string Title { get; set; }
-        public virtual ICollection<Task> Tasks { get; set; } 
     }
 }

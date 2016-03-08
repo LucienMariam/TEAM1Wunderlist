@@ -34,7 +34,7 @@ namespace DAL.Concrete.Repositories
         }
         public TaskDal GetTask(int taskId)
         {
-            Task task = Context.Set<Task>().AsNoTracking().Where(x => x.Id == taskId).FirstOrDefault();
+            Task task = Context.Set<Task>().AsNoTracking().FirstOrDefault(x => x.Id == taskId);
             return new TaskDal()
             {
                 Id = task.Id,
@@ -46,12 +46,12 @@ namespace DAL.Concrete.Repositories
         }
         public TaskUserDal CreateUserTask(string taskName, string userName)
         {
-            int userId = Context.Set<User>().Where(u => u.Login == userName).FirstOrDefault().Id;
-            int taskId = Context.Set<Task>().Where(u => u.Title == taskName).FirstOrDefault().Id;
+            int userId = Context.Set<User>().FirstOrDefault(u => u.Login == userName).Id;
+            int taskId = Context.Set<Task>().FirstOrDefault(u => u.Title == taskName).Id;
             return new TaskUserDal()
             {
                 TaskId = taskId,
-                UserId = userId,
+                UserId = userId
             };
         }
     }

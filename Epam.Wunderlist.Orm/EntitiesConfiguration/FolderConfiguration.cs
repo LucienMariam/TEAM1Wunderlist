@@ -7,7 +7,9 @@ namespace ORM.EntitiesConfiguration
         public FolderConfiguration()
         {
             HasKey(u => u.Id);
+            Property(t => t.UserId).IsRequired();
             Property(t => t.Title).IsRequired();
+            Property(t => t.ParentFolderId).IsOptional();
         }
     }
 }

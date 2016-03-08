@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DAL.Interfaces;
 using DAL.Concrete.Entities;
@@ -44,12 +43,14 @@ namespace BLL
         public void ResolveTask(int id, string userName)
         {
             var taskUser = GetTaskByUser(userName).FirstOrDefault(t => t.TaskId == id);
+            //taskUser.IsCompleted = true;
             Edit(taskUser);
         }
 
         public void ReopenTask(int id, string userName)
         {
             var taskUser = GetTaskByUser(userName).FirstOrDefault(t => t.TaskId == id);
+            //taskUser.IsCompleted = false;
             Edit(taskUser);
         }
 
@@ -66,7 +67,7 @@ namespace BLL
             TaskUserEntity tue = new TaskUserEntity()
             {
                 TaskId = td.TaskId,
-                UserId = td.UserId,
+                UserId = td.UserId
             };
             Add(tue);
         }
