@@ -11,6 +11,7 @@
     <AssemblyName>DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ProjectGuid>{702AD799-BC92-4ADB-8982-9D8934E263E6}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,12 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Entities\FolderDAL.cs" />
     <Compile Include="Concrete\Entities\TaskDAL.cs" />
     <Compile Include="Concrete\Entities\TaskUserDAL.cs" />
     <Compile Include="Concrete\Entities\UserDAL.cs" />
+    <Compile Include="Concrete\Mappers\FolderMapperDAL.cs" />
     <Compile Include="Concrete\Mappers\TaskMapperDAL.cs" />
     <Compile Include="Concrete\Mappers\TaskUserMapperDAL.cs" />
     <Compile Include="Concrete\Mappers\UserMapperDAL.cs" />
+    <Compile Include="Concrete\Repositories\FolderRepository.cs" />
     <Compile Include="Concrete\Repositories\KeyRepository.cs" />
     <Compile Include="Concrete\Repositories\Repository.cs" />
     <Compile Include="Concrete\Repositories\TaskRepository.cs" />
@@ -65,6 +69,7 @@
     <Compile Include="Interfaces\Entities\IDALKeyEntity.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Mappers\IMapperDAL.cs" />
+    <Compile Include="Interfaces\Repositories\IFolderRepository.cs" />
     <Compile Include="Interfaces\Repositories\IKeyRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITaskRepository.cs" />

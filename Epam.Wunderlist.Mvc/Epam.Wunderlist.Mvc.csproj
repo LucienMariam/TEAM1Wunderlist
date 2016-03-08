@@ -206,10 +206,6 @@
     <Compile Include="Provider\CustomMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Wunderlist.mdf" />
-    <Content Include="App_Data\Wunderlist_log.ldf">
-      <DependentUpon>Wunderlist.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1079,6 +1075,7 @@
     <Content Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>

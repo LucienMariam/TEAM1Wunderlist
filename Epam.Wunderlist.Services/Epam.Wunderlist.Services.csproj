@@ -11,6 +11,7 @@
     <AssemblyName>BLL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ProjectGuid>{D768716E-DA5E-4F23-AAD4-77298667D279}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,13 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Entities\FolderEntity.cs" />
+    <Compile Include="Concrete\Mappers\FolderMapper.cs" />
+    <Compile Include="Concrete\Services\FolderService.cs" />
+    <Compile Include="Concrete\Services\TaskService.cs" />
     <Compile Include="Interfaces\Entities\IBLLEntity.cs" />
     <Compile Include="Interfaces\Entities\IBLLKeyEntity.cs" />
     <Compile Include="Concrete\Entities\TaskEntity.cs" />
     <Compile Include="Concrete\Entities\TaskUserEntity.cs" />
     <Compile Include="Concrete\Entities\UserEntity.cs" />
+    <Compile Include="Interfaces\Services\IFolderService.cs" />
     <Compile Include="Interfaces\Services\IKeyService.cs" />
     <Compile Include="Interfaces\Services\IService.cs" />
+    <Compile Include="Interfaces\Services\ITaskService.cs" />
     <Compile Include="Interfaces\Services\ITaskUserService.cs" />
     <Compile Include="Interfaces\Services\IUserService.cs" />
     <Compile Include="Interfaces\Mappers\IMapper.cs" />
