@@ -2,9 +2,9 @@
 
 namespace ORM.EntitiesConfiguration
 {
-    public class FolderConfiguration: EntityTypeConfiguration<Folder>
+    public class FolderEntityConfiguration: EntityTypeConfiguration<Folder>
     {
-        public FolderConfiguration()
+        public FolderEntityConfiguration()
         {
             HasKey(u => u.Id);
             Property(t => t.UserId).IsRequired();
