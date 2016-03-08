@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntitiesConfiguration\FolderConfiguration.cs" />
+    <Compile Include="EntitiesConfiguration\FolderEntityConfiguration.cs" />
     <Compile Include="EntitiesConfiguration\TaskEntityConfiguration.cs" />
     <Compile Include="EntitiesConfiguration\TaskUserEntityConfiguration.cs" />
     <Compile Include="EntitiesConfiguration\UserEntityConfiguration.cs" />
