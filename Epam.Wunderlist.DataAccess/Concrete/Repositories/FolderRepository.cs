@@ -16,13 +16,15 @@ namespace DAL.Concrete.Repositories
         public IEnumerable<FolderDal> GetFolderList(int parentFolderId)
         {
             Func<Folder, FolderDal> f = (obj) => EntityMapper.ToDal(obj);
-            return Context.Set<Folder>().AsNoTracking().Where(x => x.ParentFolderId == parentFolderId).Select(f);
+            return Context.Set<Folder>().AsNoTracking()
+                .Where(x => x.ParentFolderId == parentFolderId).Select(f);
         }
 
-        public IEnumerable<FolderDal> GetRootFolders()
+        public IEnumerable<FolderDal> GetRootFolders(int userId)
         {
             Func<Folder, FolderDal> f = (obj) => EntityMapper.ToDal(obj);
-            return Context.Set<Folder>().AsNoTracking().Where(x => x.ParentFolderId == null).Select(f);
+            return Context.Set<Folder>().AsNoTracking()
+                .Where(x => (x.UserId == userId && x.ParentFolderId == null)).Select(f);
         } 
     }
 }
