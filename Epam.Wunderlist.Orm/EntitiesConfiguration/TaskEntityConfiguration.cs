@@ -12,6 +12,7 @@ namespace ORM
             Property(t => t.Description).IsOptional();
             Property(t => t.DueTime).IsOptional();
             Property(t => t.IsCompleted);
+            Property(t => t.PresentationPriority).IsOptional();
         }
     }
 }

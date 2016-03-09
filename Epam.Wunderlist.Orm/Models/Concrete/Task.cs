@@ -2,7 +2,7 @@
 
 namespace ORM
 {
-    public class Task : IOrmKeyEntity
+    public class Task : IOrmEntity
     {
         public int Id { get; set; }
         public int FolderId { get; set; }
@@ -10,5 +10,6 @@ namespace ORM
         public string Description { get; set; }
         public DateTime? DueTime { get; set; }
         public bool IsCompleted { get; set; }
+        public int? PresentationPriority { get; set; }
     }
 }
