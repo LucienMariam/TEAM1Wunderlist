@@ -12,12 +12,14 @@ namespace TaskManager.Controllers
         IUserService users = (IUserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IUserService));
 
         // GET: api/Default
+        [ActionName("DefaultAction")]
         public IEnumerable<User> Get()
         {
             return users.GetAll().Select(x => new User() { Email = x.Email, Login = x.Login, Photo = x.Photo, Password = x.Password });
         }
 
         // GET: api/Default/5
+        [ActionName("DefaultAction")]
         public User Get(int id)
         {
             var user = users.GetById(id);
@@ -26,6 +28,7 @@ namespace TaskManager.Controllers
         }
 
         // POST: api/Default
+        [ActionName("DefaultAction")]
         public void Post(User value)
         {
             var temp = users.GetById(value.Id);
@@ -41,11 +44,13 @@ namespace TaskManager.Controllers
         }
 
         // PUT: api/Default/5
+        [ActionName("DefaultAction")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE: api/Default/5
+        [ActionName("DefaultAction")]
         public void Delete(int id)
         {
         }
