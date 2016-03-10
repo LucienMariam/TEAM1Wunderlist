@@ -10,7 +10,7 @@ namespace TaskManager.Controllers
     public class PhotoController : ApiController
     {
         IUserService users = (IUserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IUserService));
-
+        [ActionName("DefaultAction")]
         public async Task<IHttpActionResult> Post()
         {
             if (!Request.Content.IsMimeMultipartContent())

@@ -25,7 +25,7 @@ namespace BLL.Concrete.Services
 
         public IEnumerable<FolderEntity> GetRootFolders()
         {
-            return _folderRepository.GetRootFolders().Select(dal => EntityMapper.ToBll(dal));
+            throw new NotImplementedException();
         }
 
         public void Rename(int id, string newTitle)
