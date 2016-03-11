@@ -1,12 +1,16 @@
-﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap']);
+﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap', 'dndLists' ]);
 
 
 
 angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal, myService) {
 
+
+
+
     $scope.animationsEnabled = true;
     $scope.formInfo = {};
     $scope.open = function (size, id) {
+
 
         $scope.id = id
         var modalInstance = $uibModal.open({
