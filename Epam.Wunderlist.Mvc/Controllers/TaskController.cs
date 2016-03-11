@@ -57,8 +57,9 @@ namespace TaskManager.Controllers
         // POST: api/TaskList
         [ActionName("DefaultAction")]
         public void Post(TaskModel value)
-        {
-            tasks.Add(new TaskEntity() { Title = value.Title, IsCompleted = value.IsCompleted, FolderId = value.FolderId });
+        {   if(value.Title==null) { }
+            else { tasks.Add(new TaskEntity() { Title = value.Title, IsCompleted = value.IsCompleted, FolderId = value.FolderId }); }
+       
         }
         [ActionName("PutTask")]
         public void PostTask(TaskModel value)

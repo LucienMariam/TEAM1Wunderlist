@@ -72,6 +72,21 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
     $scope.post = [{}];
     $scope.formInfo = [{}];
 
+    
+    $scope.models = {
+        selected: null,
+        lists: { "A": [], "B": [] }
+    };
+
+
+    // Model to JSON for demo purpose
+    $scope.$watch('models', function (model) {
+        $scope.modelAsJson = angular.toJson(model, true);
+    }, true);
+
+
+
+
     $scope.open = function (size, taskId) {
         $scope.taskId = taskId
         var modalInstance = $uibModal.open({
@@ -87,11 +102,7 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
             }
         });
     };
-    
-
-
-
-
+ 
     $scope.addOneTask = function (parentId, inputValue) {
       
             //
@@ -165,8 +176,10 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
         $http.get('/api/Folder/GetByParentId/' + listId).success(function (response) {
             $scope.taskList = response;
             myService.taskList = response;
+            $scope.models.items = response;
+
       })
-    }
+    }                              
 
     $scope.addTaskList = function (taskId) {
         var temp = document.getElementById('newTaskList').value;
