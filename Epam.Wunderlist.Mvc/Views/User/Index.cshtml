@@ -1,6 +1,16 @@
 ﻿@{
     Layout = null;
-
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/angular.min.js"></script>
+        <script src="~/Scripts/angular-animate.min.js"></script>
+        <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+        <script src="~/Scripts/angular-drag-and-drop-lists.min.js" ></script >
+        <script src="~/Scripts/AjsUser.js"></script>
+        <script src="~/Scripts/AjsTask.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/metisMenu.min.js"></script>
+        <script src="~/Scripts/sb-admin-2.js"></script>
+        <link href ="/Content/multi.css" rel="stylesheet"/>
 }
 <html ng-app="AngularJS">
 <head>
@@ -19,7 +29,9 @@
   
     <div id="wrapper">
 
-        <!-- Navigation -->
+  
+
+         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -281,12 +293,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-2">Password</label>
-                                            <div class="col-md-10">
-                                                <input type="text" ng-model="formInfo.Password" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
                                                 <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer(@User.Identity.Name)" />
                                             </div>
@@ -299,13 +305,14 @@
                             </script>
                             <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Hello @User.Identity.Name </a>
                         </li>
-
                         <li ng-controller="TasksCtrl">
                             <script type="text/ng-template">
                                 <div class="tasks" style="background-color:#fa39c3;color:white" role="alert">
                                     <div ng-transclude></div>
                                 </div>
                             </script>
+
+
                             <a href="#"  ng-click="getTask('@User.Identity.Name')"><i class="fa fa-bar-chart-o fa-fw"></i> Your's tasks<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li class="alert alert-success" ng-repeat="task in folder"><a href="#" ng-click="showListTask(task.Id)"  class="alert-link">{{task.Title}}</a><button type="button" class="close" ng-click="closeAlert($index, task.Id)" aria-label="Close"><span aria-hidden="true">&times;</span></button> </li> 
@@ -313,6 +320,7 @@
                                 <button type="button" class='btn btn-default' ng-click="addAlert('@User.Identity.Name')">Add</button>                                                        
                             </ul>
                           
+
                             <!-- /.nav-second-level -->
                         </li>
                        
@@ -322,36 +330,7 @@
         </nav>
 
         <div ng-controller="TasksCtrl" id="page-wrapper" style="min-height: 330px;">
-                <!-- /.row -->
-            <div class="row" ng-repeat="tasks in getValue()">
-                <div class="col-lg-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-3x"> {{tasks.Title}}</i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <span ng-if="checked" class="animate-if">
-                This is removed when the checkbox is unchecked.
-            </span>
-
-            <div  ng-if="getValue()!=undefinded" class="form-horizontal">
+            <div ng-if="getValue()!=undefinded" class="form-horizontal">
                 <div class="form-group">
                     <div class="col-md-10">
                         <input type="text" id="newTaskList" name="Title" placeholder="New one" class="form-control" />
@@ -359,22 +338,110 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-10">
-                        <button type="button" class='btn btn-default' ng-click="addTask(getId())">Add</button>
+                        <button type="button" class='btn btn-default' ng-click="addTaskList(getId())">Add</button>
                     </div>
                 </div>
             </div>
+            <div class="directlyWorkWith">
+
+                <div class="simpleDemo row">
+
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div ng-repeat="tasks in getValue()" class="col-md-12">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">List {{tasks.Title}}</h3>
+                                        <div ng-click="getTaskFromParentFolder(tasks.Id)">
+                                            <a ng-click="isReplyFormOpen = !isReplyFormOpen">Details</a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" ng-show="isReplyFormOpen"  id="replyForm" >
+                                        <div dnd-list="taskWithParentFolderId[tasks.Id]">
+                                            <div ng-repeat="item in taskWithParentFolderId[tasks.Id]"  
+                                                dnd-draggable="item"
+                                                dnd-moved="taskWithParentFolderId[tasks.Id].splice($index, 1)"
+                                                dnd-effect-allowed="move"
+                                                dnd-selected="models.selected = item"
+                                                ng-class="{'selected': models.selected === item}">
+                                                <span ng-click="open('',item.Id)" class="pull-left"><i class="fa fa-arrow-circle-right"></i>&nbsp; &nbsp; &nbsp; </span>
+                                                <span class="clearfix">{{item.Title}}</span>
+                                            </div>
+                                            <input type="text" ng-model="post[tasks.Id]" name="Value" placeholder="New one" class="form-control">
+                                            <button ng-click="addOneTask(tasks.Id, post[tasks.Id])">Add</button>                   
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Generated Model</h3>
+                            </div>
+                            <div class="panel-body">
+                                <pre class="code">{{modelAsJson}}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <script type="text/ng-template" id="Task.html">
+                <div class="modal-header">
+                    <img style="max-height:400px;max-width:400px" />
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="cusForm">
+
+                        <hr />
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Title</label>
+                            <div class="col-md-10">
+                                <input type="text" ng-model="formInfo.Title" placeholder="{{ taskForm.Title }}" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Description</label>
+                            <div class="col-md-10">
+                                <input type="text" ng-model="formInfo.Description" placeholder="{{ taskForm.Description }}" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">DueTime</label>
+                            <div class="col-md-10">
+                                <input type="date" ng-model="formInfo.DueTime" placeholder="{{ taskForm.DueTime }}" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">IsCompleted</label>
+                            <div class="col-md-10">
+                                <input type="checkbox" ng-model="formInfo.IsCompleted" placeholder="{{ taskForm.IsCompleted }}" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" ng-click="editTask(taskForm.Id)" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+
+
+          
          </div>
 
     </div>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/angular.min.js"></script>
-    <script src="~/Scripts/angular-animate.min.js"></script>
-    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-    <script src="~/Scripts/AjsUser.js"></script>
-    <script src="~/Scripts/AjsTask.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/metisMenu.min.js"></script>
-    <script src="~/Scripts/sb-admin-2.js"></script>
+
     @section scripts{
         <script type="text/javascript">
         </script>

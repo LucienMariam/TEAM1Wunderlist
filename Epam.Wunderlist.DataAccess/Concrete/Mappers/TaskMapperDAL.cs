@@ -25,6 +25,7 @@ namespace DAL.Concrete.Mappers
             {
                 Id = item.Id,
                 Title = item.Title,
+                FolderId = item.FolderId,
                 Description = item.Description,
                 DueTime = item.DueTime,
                 IsCompleted = item.IsCompleted

@@ -1,12 +1,16 @@
-﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap']);
+﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap', 'dndLists' ]);
 
 
 
 angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal, myService) {
 
+
+
+
     $scope.animationsEnabled = true;
     $scope.formInfo = {};
     $scope.open = function (size, id) {
+
 
         $scope.id = id
         var modalInstance = $uibModal.open({
@@ -43,7 +47,7 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
 
     {
         // Get customer list   
-        $http.get('/api/Profile/' + id)
+        $http.get('/api/Profile/DefaultAction/' + id)
     .success(function (response) {
 
         $scope.Customer = response,
@@ -65,12 +69,12 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
                     }
                     $.ajax({
                         type: "POST",
-                        url: 'api/Photo/post',
+                        url: 'api/Photo/DefaultAction',
                         contentType: false,
                         processData: false,
                         data: data,
                         success: function (result) {
-                            $http.get('/api/Profile/' + id)
+                            $http.get('/api/Profile/DefaultAction/' + id)
                             .success(function (response) {
                                 $scope.Customer = response,
                                $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo, Id: $scope.Customer.Id }
@@ -113,11 +117,11 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
                 id: $scope.formInfo.Id
             };
 
-            $.post("api/Profile",
+            $.post("api/Profile/DefaultAction",
               value,
                function (value) {
                    // Refresh list   
-                   $http.get('/api/Profile/' + id)
+                   $http.get('/api/Profile/DefaultAction/' + id)
                     .success(function (response) {
                         $scope.Customer = response,
                        $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo, Id:$scope.Customer.Id };
