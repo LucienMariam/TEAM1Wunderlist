@@ -276,7 +276,7 @@
                         <li ng-controller="ModalDemoCtrl">
                             <script type="text/ng-template" id="Content.html">
                                 <div class="modal-header">
-                                    <img style="max-height:400px;max-width:400px" ng-src='{{formInfo.Photo}}' />
+                                    <img style="width:200px; height:200px;  display:block; background-position-y:50%;  border-radius:50%;" ng-src='{{formInfo.Photo}}' />
                                     <input type="file" name="upload" id="uploadFile" /><br />
                                     <button ng-click="send()">Save</button>
                                 </div>
@@ -357,8 +357,8 @@
                                         </div>
                                     </div>
                                     <div class="panel-body" ng-show="isReplyFormOpen"  id="replyForm" >
-                                        <div dnd-list="taskWithParentFolderId[tasks.Id]">
-                                            <div ng-repeat="item in taskWithParentFolderId[tasks.Id]"  
+                                        <div dnd-list="taskWithParentFolderId" dnd-drop="onDrop(tasks, item, index)">
+                                            <div ng-repeat="item in taskWithParentFolderId[tasks.Id]"
                                                 dnd-draggable="item"
                                                 dnd-moved="taskWithParentFolderId[tasks.Id].splice($index, 1)"
                                                 dnd-effect-allowed="move"
@@ -374,10 +374,10 @@
                                 </div>
                             </div>
                         </div>
-
+                        @*<div view-source="multi"></div>*@
                     </div>
 
-                    <div class="col-md-4">
+                    @*<div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Generated Model</h3>
@@ -386,7 +386,7 @@
                                 <pre class="code">{{modelAsJson}}</pre>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
 
                 </div>
             </div>
