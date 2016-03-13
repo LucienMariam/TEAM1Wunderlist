@@ -77,6 +77,14 @@ namespace TaskManager.Controllers
             tasks.Edit(taskForUpdate);
         }
 
+        [ActionName("RerangeTask")]
+        public void PostRerangeTask(RerangeTaskModel value)
+        {
+            var forUpdate = tasks.Find(x => x.Id == value.TaskId);
+            forUpdate.FolderId = value.ListId;
+            tasks.Edit(forUpdate);
+        }
+
         // PUT: api/TaskList/5
         [ActionName("DefaultAction")]
         public void Put(int id, [FromBody]string value)

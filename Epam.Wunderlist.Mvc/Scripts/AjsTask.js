@@ -68,14 +68,14 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
     $scope.taskList = myService.taskLis;
     $scope.tasks = [{}];
     $scope.userId;
-    $scope.taskWithParentFolderId = [{}];
+    $scope.taskWithParentFolderId = [];
     $scope.post = [{}];
     $scope.formInfo = [{}];
 
     
     $scope.models = {
         selected: null,
-        lists: { "A": [], "B": [] }
+        lists: $scope.taskWithParentFolderId
     };
 
 
@@ -84,6 +84,32 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
         $scope.modelAsJson = angular.toJson(model, true);
     }, true);
 
+    $scope.onDrop = function (list, item, index) {
+
+        var value = {
+            ListId: list.Id,
+            TaskId: item.Id,
+            Index: index
+        };
+        $.post("api/Task/RerangeTask",
+              value,
+               function (value) {
+                   // Refresh list   
+                   $http.get('/api/Task/GetByParentId/' + list.Id)
+                    .success(function (response) {
+                        $scope.taskWithParentFolderId[list.Id] = response;
+                    });
+
+                   $http.get('/api/Task/GetByParentId/' + item.FolderId)
+                      .success(function (response) {
+                          $scope.taskWithParentFolderId[item.FolderId] = response;
+                      });
+
+               },
+               "json"
+              );
+        return true;
+    }
 
 
 

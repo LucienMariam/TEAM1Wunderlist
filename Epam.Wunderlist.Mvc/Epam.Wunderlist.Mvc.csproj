@@ -201,6 +201,7 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\FolderModel.cs" />
+    <Compile Include="Models\RerangeTaskModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Models\TaskUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
