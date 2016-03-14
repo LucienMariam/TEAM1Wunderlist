@@ -1,5 +1,5 @@
-﻿using BLL.Concrete.Entities;
-using BLL.Interfaces.Services;
+﻿using UserService;
+using BLL.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
