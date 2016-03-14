@@ -11,6 +11,7 @@ namespace TaskManager.Models
         public string Description { get; set; }
         public DateTime? DueTime { get; set; }
         public bool IsCompleted { get; set; }
+        public int PresentationPriority { get; set; }
     }
 
     public class UserTask

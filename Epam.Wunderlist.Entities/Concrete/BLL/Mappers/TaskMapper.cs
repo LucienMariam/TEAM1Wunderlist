@@ -15,7 +15,8 @@ namespace BLL.Mappers
                 Title = task.Title,
                 Description=task.Description,
                 DueTime=task.DueTime,
-                IsCompleted=task.IsCompleted
+                IsCompleted=task.IsCompleted,
+                PresentationPriority = task.PresentationPriority
             };
         }
 
@@ -29,7 +30,8 @@ namespace BLL.Mappers
                     Title = task.Title,
                     Description=task.Description,
                     DueTime=task.DueTime,
-                    IsCompleted=task.IsCompleted
+                    IsCompleted=task.IsCompleted,
+                    PresentationPriority = task.PresentationPriority
                 };
         }
     }
