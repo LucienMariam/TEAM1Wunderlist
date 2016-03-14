@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ORM
+﻿namespace ORM
 {
     public class User : IOrmEntity
     {
@@ -9,6 +7,5 @@ namespace ORM
         public string Login { get; set; }
         public string Password { get; set; }
         public string Photo { get; set; }
-        public virtual ICollection<Folder> Folders { get; set; }
     }
 }
