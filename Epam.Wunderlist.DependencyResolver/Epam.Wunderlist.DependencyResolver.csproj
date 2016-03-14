@@ -11,6 +11,7 @@
     <AssemblyName>DependencyResolver</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ProjectGuid>{D7A83A75-A5B7-46EA-BA12-A1FC7E313F10}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,17 +66,33 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Epam.Wunderlist.Services\Epam.Wunderlist.Services.csproj">
-      <Project>{d768716e-da5e-4f23-aad4-77298667d279}</Project>
-      <Name>Epam.Wunderlist.Services</Name>
+    <ProjectReference Include="..\Epam.Wunderlist.DataAccess.Interfaces\Epam.Wunderlist.DataAccess.Interfaces.csproj">
+      <Project>{a88ad77a-ad81-4029-91ad-392271f9a04c}</Project>
+      <Name>Epam.Wunderlist.DataAccess.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Epam.Wunderlist.DataAccess\Epam.Wunderlist.DataAccess.csproj">
-      <Project>{702ad799-bc92-4adb-8982-9d8934e263e6}</Project>
-      <Name>Epam.Wunderlist.DataAccess</Name>
+    <ProjectReference Include="..\Epam.Wunderlist.DataAccess.MsSql\Epam.Wunderlist.DataAccess.MsSql.csproj">
+      <Project>{18abc1e9-1d10-4735-be28-f6d5055d3603}</Project>
+      <Name>Epam.Wunderlist.DataAccess.MsSql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Wunderlist.FolderService\Epam.Wunderlist.FolderService.csproj">
+      <Project>{3a07e794-abf3-44ef-8b0c-56e3c69c8c15}</Project>
+      <Name>Epam.Wunderlist.FolderService</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epam.Wunderlist.Orm\Epam.Wunderlist.Orm.csproj">
       <Project>{bcb7dcbe-f3f6-4bcf-9661-10d41ca329ce}</Project>
       <Name>Epam.Wunderlist.Orm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Wunderlist.ServiceAbstraction\Epam.Wunderlist.ServiceAbstraction.csproj">
+      <Project>{d768716e-da5e-4f23-aad4-77298667d279}</Project>
+      <Name>Epam.Wunderlist.ServiceAbstraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Wunderlist.TaskService\Epam.Wunderlist.TaskService.csproj">
+      <Project>{561385df-7d39-49c4-881a-323bcc808141}</Project>
+      <Name>Epam.Wunderlist.TaskService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Wunderlist.UserService\Epam.Wunderlist.UserService.csproj">
+      <Project>{168f007d-75ed-40a7-903c-1dd63b63b570}</Project>
+      <Name>Epam.Wunderlist.UserService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

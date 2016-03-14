@@ -1,5 +1,5 @@
-﻿using BLL.Concrete.Entities;
-using BLL.Interfaces.Services;
+﻿using TaskService;
+using BLL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
