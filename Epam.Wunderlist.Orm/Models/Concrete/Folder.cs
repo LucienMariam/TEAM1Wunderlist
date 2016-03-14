@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace ORM
+﻿namespace ORM
 {
-    public class Folder: IOrmKeyEntity
+    public class Folder: IOrmEntity
     {
         public int Id { get; set; }
         public int UserId { get; set; }

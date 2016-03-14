@@ -1,5 +1,4 @@
-﻿using BLL.Concrete.Entities;
-using BLL.Interfaces.Services;
+﻿using UserService;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;

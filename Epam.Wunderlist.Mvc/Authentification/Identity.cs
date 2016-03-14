@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Security.Principal;
-using BLL.Concrete.Entities;
+using BLL.Entities;
 
 namespace TaskManager.Authentification
 {
