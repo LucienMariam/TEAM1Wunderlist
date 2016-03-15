@@ -45,7 +45,7 @@ namespace TaskManager.Controllers
         [ActionName("GetByParentId")]
         public IEnumerable<TaskModel> GetByParentId(int id)
         {
-            
+
             var task = tasks.GetTaskList(id).Select(x =>
                                      new TaskModel()
                                      {
@@ -56,18 +56,26 @@ namespace TaskManager.Controllers
                                          IsCompleted = x.IsCompleted,
                                          Title = x.Title,
                                          PresentationPriority = x.PresentationPriority
-                                         
-                                     }); 
-            return task.OrderBy(x=>x.PresentationPriority);
+
+                                     });
+            return task.OrderBy(x => x.PresentationPriority);
         }
 
         // POST: api/TaskList
         [ActionName("DefaultAction")]
         public void Post(TaskModel value)
-        {   if(value.Title==null) { }
-            else { tasks.Add(new TaskEntity() { Title = value.Title, IsCompleted = value.IsCompleted, FolderId = value.FolderId,
-                PresentationPriority = tasks.GetAll().Where(x=>x.FolderId== value.FolderId).Count() }); }
-            return ;
+        {
+            if (value.Title == null) { }
+            else {
+                tasks.Add(new TaskEntity()
+                {
+                    Title = value.Title,
+                    IsCompleted = value.IsCompleted,
+                    FolderId = value.FolderId,
+                    PresentationPriority = tasks.GetAll().Where(x => x.FolderId == value.FolderId).Count()
+                });
+            }
+            return;
         }
         [ActionName("PutTask")]
         public void PostTask(TaskModel value)
@@ -92,25 +100,25 @@ namespace TaskManager.Controllers
             forUpdate.FolderId = value.ListId;
             forUpdate.PresentationPriority = 100000000;
             tasks.Edit(forUpdate);
-        
 
-            IEnumerable<TaskEntity> arrForUpdate = tasks.GetAll().Where(x => x.FolderId == value.ListId).OrderBy(x=>x.PresentationPriority).ToArray();
-            for (int i = 0; i < arrForUpdate.Count()-1; i++)
+
+            IEnumerable<TaskEntity> arrForUpdate = tasks.GetAll().Where(x => x.FolderId == value.ListId).OrderBy(x => x.PresentationPriority).ToArray();
+            for (int i = 0; i < arrForUpdate.Count() - 1; i++)
             {
-               
+
                 arrForUpdate.ElementAt(i).PresentationPriority = i;
             }
 
-            for (int i = value.Index; i < arrForUpdate.Count()-1; i++)
+            for (int i = value.Index; i < arrForUpdate.Count() - 1; i++)
             {
 
                 arrForUpdate.ElementAt(i).PresentationPriority += 1;
             }
-            for (int i = 0; i < arrForUpdate.Count()-1; i++)
+            for (int i = 0; i < arrForUpdate.Count() - 1; i++)
             {
                 tasks.Edit(arrForUpdate.ElementAt(i));
             }
-            
+
             forUpdate.PresentationPriority = value.Index;
             tasks.Edit(forUpdate);
         }
@@ -125,6 +133,7 @@ namespace TaskManager.Controllers
         [ActionName("DefaultAction")]
         public void Delete(int id)
         {
+            tasks.DeleteTask(id);
         }
     }
 }

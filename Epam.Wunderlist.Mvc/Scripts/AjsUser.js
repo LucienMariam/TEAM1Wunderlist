@@ -1,4 +1,4 @@
-﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap', 'dndLists' ]);
+﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap', 'dndLists']);
 
 
 
@@ -30,8 +30,7 @@ angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibMo
 });
 
 
-// Please note that $uibModalInstance represents a modal window (instance) dependency.
-// It is not the same as the $uibModal service used above.
+
 
 angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $http, id) {
 
@@ -91,13 +90,6 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
         };
         $scope.editCustomer = function (id) {
 
-            //if (id == 'new') {
-            //    $scope.edit = true;
-            //    $scope.incomplete = true;
-            //    $scope.ID = 0;
-            //    $scope.Login = '';
-            //    $scope.Email = '';
-            //} 
             $scope.edit = false;
             $scope.Id = $scope.Customer.Id;
             $scope.Photo = $scope.Customer.Photo;
@@ -124,7 +116,7 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
                    $http.get('/api/Profile/DefaultAction/' + id)
                     .success(function (response) {
                         $scope.Customer = response,
-                       $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo, Id:$scope.Customer.Id };
+                       $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo, Id: $scope.Customer.Id };
                     });
                },
                "json"

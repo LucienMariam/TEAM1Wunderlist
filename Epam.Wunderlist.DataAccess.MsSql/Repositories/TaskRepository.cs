@@ -16,7 +16,7 @@ namespace DataAccess.MsSql
         public IEnumerable<TaskDal> GetTaskList(int folderId)
         {
             Func<Task, TaskDal> f = (obj) => EntityMapper.ToDal(obj);
-            return Context.Set<Task>().AsNoTracking().Where(x => (x.FolderId == folderId && x.IsCompleted == false)).Select(f);
+            return Context.Set<Task>().AsNoTracking().Where(x => (x.FolderId == folderId)).Select(f);
         }
         public IEnumerable<TaskDal> GetResolvedTaskList(int folderId)
         {

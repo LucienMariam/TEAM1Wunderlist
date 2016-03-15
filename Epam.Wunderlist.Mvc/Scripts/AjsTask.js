@@ -24,62 +24,115 @@ angular.module('AngularJS').controller('ModalTaskCtrl', function ($scope, $uibMo
 
 });
 
-    $scope.editTask = function (taskId) {
 
-        Id = $scope.formInfo.Id,
-        FolderId = $scope.formInfo.FolderId,
-        Title = $scope.formInfo.Title,
-        Description = $scope.formInfo.Description,
-        DueTime = $scope.formInfo.DueTime,
-        IsCompleted = $scope.formInfo.IsCompleted
-
-        $scope.putTask();
+    $scope.editTask = function (Id, DueTime, Description) {
+        $scope.putTask(Id, DueTime, Description);
     };
 
-    $scope.putTask = function () {
+    $scope.putTask = function (Id, DueTime, Description) {
+
         var value = {
-            Id: $scope.formInfo.Id,
-            FolderId: $scope.formInfo.FolderId,
-            Title: $scope.formInfo.Title,
-            Description: $scope.formInfo.Description,
-            DueTime: $scope.formInfo.DueTime,
-            IsCompleted: $scope.formInfo.IsCompleted
+            Id: Id,
+            Description: Description,
+            DueTime: DueTime
         };
 
         $.post("api/Task/PutTask",
           value,
-           function (value) {
-               // Refresh list   
-               $http.get('/api/Task/DefaultAction/' + taskId)
-                .success(function (response) {
-                    $scope.taskForm = response,
-                    $scope.formInfo = { Id: $scope.taskForm.Id, FolderId: $scope.taskForm.FolderId, Title: $scope.taskForm.Title, Description: $scope.taskForm.Description, DueTime: $scope.taskForm.DueTime, IsCompleted: $scope.taskForm.IsCompleted };
+        function (value) {
+            // Refresh list   
+            $http.get('/api/Task/DefaultAction/' + taskId)
+             .success(function (response) {
+                 $scope.taskForm = response,
+                 $scope.formInfo = { Id: $scope.taskForm.Id, FolderId: $scope.taskForm.FolderId, Title: $scope.taskForm.Title, Description: $scope.taskForm.Description, DueTime: $scope.taskForm.DueTime, IsCompleted: $scope.taskForm.IsCompleted };
 
-                });
-           },
-           "json"
-          );
+             });
+        },
+         "json"
+        );
     }
 
 });
 
+
 angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $uibModal, myService) {
     $scope.folder = [{}];
+    $scope.folderInfo = {};
     $scope.taskList = myService.taskLis;
     $scope.tasks = [{}];
     $scope.userId;
     $scope.taskWithParentFolderId = [];
     $scope.post = [{}];
     $scope.formInfo = [{}];
+    $scope.search = false;
 
-    
     $scope.models = {
         selected: null,
         lists: $scope.taskWithParentFolderId
     };
 
 
-    // Model to JSON for demo purpose
+    $scope.closeTask = function (taskId, folderId) {
+        $http.delete('api/Task/DefaultAction/' + taskId).success(function () {
+            $http.get('/api/Task/GetByParentId/' + folderId)
+                 .success(function (response) {
+                     $scope.taskWithParentFolderId[folderId] = response;
+                 });
+        });
+    }
+
+
+
+    $scope.editBoolInTask = function (IsCompleted, Id) {
+        $scope.putTaskFotBool(IsCompleted, Id);
+    };
+    $scope.putTaskFotBool = function (IsCompleted, Id) {
+        var value = {
+            Id: Id,
+            IsCompleted: IsCompleted
+        };
+
+        $.post("api/Task/PutTask",
+          value,
+           //function (value) {
+           //    // Refresh list   
+           //    $http.get('/api/Task/DefaultAction/' + taskId)
+           //     .success(function (response) {
+           //         $scope.taskForm = response,
+           //         $scope.formInfo = { Id: $scope.taskForm.Id, FolderId: $scope.taskForm.FolderId, Title: $scope.taskForm.Title, Description: $scope.taskForm.Description, DueTime: $scope.taskForm.DueTime, IsCompleted: $scope.taskForm.IsCompleted };
+
+           //     });
+           //},
+           "json"
+          );
+    }
+
+
+    $scope.editFolder = function (folderId, folderTitle) {
+
+        Id = folderId,
+        Title = folderTitle,
+        $scope.putFolder(Id, Title);
+    };
+
+    $scope.putFolder = function (Id, Title) {
+        var value = {
+            Id: Id,
+            Title: Title,
+        };
+
+        $.post("api/Folder/PostFolder",
+          value,
+           function () {
+               // Refresh list               
+           },
+           "json"
+          );
+    }
+
+
+
+     //Model to JSON for demo purpose
     $scope.$watch('models', function (model) {
         $scope.modelAsJson = angular.toJson(model, true);
     }, true);
@@ -129,6 +182,25 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
         });
     };
  
+    $scope.openFolderInfo = function (size, folderId, userId) {
+        $scope.folderId = folderId;
+        $scope.userId = userId;
+        var modalFolderInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'Folder.html',
+            controller: 'ModalFolderCtrl',
+            size: size,
+            resolve: {
+                folderId: function () {
+                    return $scope.folderId;
+                },
+                userId: function () {
+                    return $scope.userId;
+               }
+            }
+        });
+    };
+
     $scope.addOneTask = function (parentId, inputValue) {
       
             //
@@ -193,6 +265,8 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
     $scope.closeAlert = function (index, folderId) {
         $http.delete('api/Folder/DefaultAction/' + folderId).success(function () {
             $scope.folder.splice(index, 1);
+            myService.taskList=null;
+            $scope.taskList=null;
         });
     }
 
