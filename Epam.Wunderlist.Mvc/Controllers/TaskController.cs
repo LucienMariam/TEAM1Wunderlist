@@ -57,7 +57,7 @@ namespace TaskManager.Controllers
                                          PresentationPriority = x.PresentationPriority
 
                                      });
-            return task.OrderByDescending(x => x.PresentationPriority);
+            return task;
         }
 
         // POST: api/TaskList

@@ -357,8 +357,7 @@
                                     </div>
                                     <div class="panel-body" style ="background-color: transparent; fill-opacity: 0.5;" ng-show="isReplyFormOpen" id="replyForm">
                                         <div dnd-list="taskWithParentFolderId" dnd-drop="onDrop(tasks, item, index)">
-                                            <input type="text" ng-model="post[tasks.Id]" name="Value" placeholder="New one" class="form-control">
-                                            <button ng-click="addOneTask(tasks.Id, post[tasks.Id])">Add</button><hr/>
+                                         
                                             <div style="margin-bottom: 15px;" ng-repeat="item in taskWithParentFolderId[tasks.Id]|filter:search "
                                                  dnd-draggable="item"
                                                  dnd-moved="taskWithParentFolderId[tasks.Id].splice($index, 1)"
@@ -374,7 +373,8 @@
                                                 <span ng-click="open('',item.Id)" class="glyphicon glyphicon-search"></span>
                                                 <span ng-click="closeTask(item.Id, item.FolderId)" class="glyphicon glyphicon-remove"></span>
                                             </div>
-
+                                            <input type="text" ng-model="post[tasks.Id]" name="Value" placeholder="New one" class="form-control">
+                                            <button ng-click="addOneTask(tasks.Id, post[tasks.Id])">Add</button><hr />
                                         </div>
                                     </div>
                                 </div>
