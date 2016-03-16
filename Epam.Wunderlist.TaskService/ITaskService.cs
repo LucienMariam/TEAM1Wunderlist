@@ -15,7 +15,7 @@ namespace TaskService
         void ResolveTask(int id);
         void DeleteTask(int id);
         void CreateTask(TaskEntity newTask);
-        void ChangeTasksPriority(int higherTaskId, int lowerTaskId);
+        void ChangeTasksPriority(int taskId, int folderId, int insertionIndex);
         void MoveTaskToFolder(int taskId, int folderId);
     }
 }

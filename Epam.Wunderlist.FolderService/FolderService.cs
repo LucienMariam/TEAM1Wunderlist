@@ -1,5 +1,4 @@
-﻿using System;
-using ServiceAbstraction;
+﻿using ServiceAbstraction;
 using DAL.Entities;
 using DataAccess.Interfaces;
 using System.Collections.Generic;
@@ -25,22 +24,22 @@ namespace FolderService
 
         public IEnumerable<FolderEntity> GetRootFolders(int userId)
         {
-            throw new NotImplementedException();
+            return _folderRepository.GetRootFolders(userId).Select(dal => EntityMapper.ToBll(dal));
         }
 
         public void Rename(int id, string newTitle)
         {
-            FolderEntity folder = EntityMapper.ToBll(_folderRepository.GetById(id));
+            FolderEntity folder = GetById(id);
             folder.Title = newTitle;
             Edit(folder);
         }
         public void CreateFolder(FolderEntity newFolder)
         {
-            throw new NotImplementedException();
+            Add(newFolder);
         }
         public void DeleteFolder(int id)
         {
-            FolderEntity folder = EntityMapper.ToBll(_folderRepository.GetById(id));
+            FolderEntity folder = GetById(id);
             Delete(folder);
         }
     }

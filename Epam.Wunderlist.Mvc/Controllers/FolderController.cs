@@ -23,7 +23,7 @@ namespace TaskManager.Controllers
         [ActionName("DefaultAction")]
         public IEnumerable<FolderModel> Get(int id)
         {
-            var folderList = folders.GetAll().Where(x => x.UserId == id).Select(x => new FolderModel() { Id = x.Id, ParentFolderId = x.ParentFolderId, UserId = x.UserId, Title = x.Title });
+            var folderList = folders.GetRootFolders(id).Select(x => new FolderModel() { Id = x.Id, ParentFolderId = x.ParentFolderId, UserId = x.UserId, Title = x.Title });
             return folderList;
         }
 
@@ -36,7 +36,7 @@ namespace TaskManager.Controllers
         [ActionName("GetByParentId")]
         public IEnumerable<FolderModel> GetByParentId(int id)
         {
-            var folderList = folders.GetAll().Where(x => x.ParentFolderId == id).Select(x => new FolderModel() { Id = x.Id, ParentFolderId = x.ParentFolderId, UserId = x.UserId, Title = x.Title });
+            var folderList = folders.GetFolderList(id).Select(x => new FolderModel() { Id = x.Id, ParentFolderId = x.ParentFolderId, UserId = x.UserId, Title = x.Title });
             return folderList;
         }
 

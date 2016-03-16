@@ -33,33 +33,33 @@ namespace TaskService
 
         public void RenameTask(int id, string newTitle)
         {
-            TaskEntity task = EntityMapper.ToBll(_taskRepository.GetById(id));
+            TaskEntity task = GetById(id);
             task.Title = newTitle;
             Edit(task);
         }
 
         public void AddNoteToTask(int taskId, string note)
         {
-            TaskEntity task = EntityMapper.ToBll(_taskRepository.GetById(taskId));
+            TaskEntity task = GetById(taskId);
             task.Description = note;
             Edit(task);
         }
 
         public void SetDateInTask(int taskId, DateTime? date)
         {
-            TaskEntity task = EntityMapper.ToBll(_taskRepository.GetById(taskId));
+            TaskEntity task = GetById(taskId);
             task.DueTime = date;
             Edit(task);
         }
         public void ResolveTask(int id)
         {
-            TaskEntity task = EntityMapper.ToBll(_taskRepository.GetById(id));
+            TaskEntity task = GetById(id);
             task.IsCompleted = true;
             Edit(task);
         }
         public void DeleteTask(int id)
         {
-            TaskEntity task = EntityMapper.ToBll(_taskRepository.GetById(id));
+            TaskEntity task = GetById(id);
             Delete(task);
         }
         public void CreateTask(TaskEntity newTask)
@@ -67,20 +67,33 @@ namespace TaskService
             Add(newTask);
         }
 
-        public void ChangeTasksPriority(int higherTaskId, int lowerTaskId)
+        public void ChangeTasksPriority(int taskId, int folderId, int insertionIndex)
         {
-            TaskEntity higherTask = EntityMapper.ToBll(_taskRepository.GetById(higherTaskId));
-            TaskEntity lowerTask = EntityMapper.ToBll(_taskRepository.GetById(lowerTaskId));
-            higherTask.PresentationPriority = lowerTaskId;
-            lowerTask.PresentationPriority = higherTaskId;
-            Edit(higherTask);
-            Edit(lowerTask);
+            IEnumerable<TaskEntity> tasks = GetTaskList(folderId).ToArray();
+            int taskNumber = tasks.Count();
+
+            for(int i = 0; i < taskNumber; i++)
+            {
+                tasks.ElementAt(i).PresentationPriority = taskNumber - i;
+                Edit(tasks.ElementAt(i));
+            }
+
+            for (int i = insertionIndex; i < taskNumber; i++)
+            {
+                tasks.ElementAt(i).PresentationPriority -= 1;
+                Edit(tasks.ElementAt(i));
+            }
+
+            TaskEntity task = GetById(taskId);
+            task.PresentationPriority = taskNumber - insertionIndex;
+            Edit(task);
         }
 
         public void MoveTaskToFolder(int taskId, int folderId)
         {
-            TaskEntity task = EntityMapper.ToBll(_taskRepository.GetById(taskId));
+            TaskEntity task = GetById(taskId);
             task.FolderId = folderId;
+            task.PresentationPriority = GetTaskList(folderId).Count();
             Edit(task);
         }
     }
