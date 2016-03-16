@@ -14,8 +14,7 @@ namespace TaskManager.Controllers
 {
     public class TaskController : ApiController
     {
-        ITaskService tasks = (ITaskService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(ITaskService));
-        IFolderService folders = (IFolderService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IFolderService));
+        ITaskService _tasks = (ITaskService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(ITaskService));
         // GET: api/TaskList
         [ActionName("DefaultAction")]
         public IEnumerable<string> Get()
@@ -27,7 +26,7 @@ namespace TaskManager.Controllers
         [ActionName("DefaultAction")]
         public TaskModel Get(int id)
         {
-            var result = tasks.GetById(id);
+            var result = _tasks.GetById(id);
 
             return new TaskModel()
             {
@@ -46,7 +45,7 @@ namespace TaskManager.Controllers
         public IEnumerable<TaskModel> GetByParentId(int id)
         {
 
-            var task = tasks.GetTaskList(id).Select(x =>
+            var task = _tasks.GetTaskList(id).Select(x =>
                                      new TaskModel()
                                      {
                                          Description = x.Description,
@@ -58,7 +57,7 @@ namespace TaskManager.Controllers
                                          PresentationPriority = x.PresentationPriority
 
                                      });
-            return task.OrderBy(x => x.PresentationPriority);
+            return task;
         }
 
         // POST: api/TaskList
@@ -67,12 +66,12 @@ namespace TaskManager.Controllers
         {
             if (value.Title == null) { }
             else {
-                tasks.Add(new TaskEntity()
+                _tasks.Add(new TaskEntity()
                 {
                     Title = value.Title,
                     IsCompleted = value.IsCompleted,
                     FolderId = value.FolderId,
-                    PresentationPriority = tasks.GetAll().Where(x => x.FolderId == value.FolderId).Count()
+                    PresentationPriority = _tasks.GetTaskList(value.FolderId).Count()
                 });
             }
             return;
@@ -80,7 +79,7 @@ namespace TaskManager.Controllers
         [ActionName("PutTask")]
         public void PostTask(TaskModel value)
         {
-            var temp = tasks.GetById(value.Id);
+            var temp = _tasks.GetById(value.Id);
             var taskForUpdate = new TaskEntity()
             {
                 Id = temp.Id,
@@ -90,37 +89,19 @@ namespace TaskManager.Controllers
                 IsCompleted = value.IsCompleted,
                 Title = (value.Title != null ? value.Title : temp.Title)
             };
-            tasks.Edit(taskForUpdate);
+            _tasks.Edit(taskForUpdate);
         }
 
         [ActionName("RerangeTask")]
         public void PostRerangeTask(RerangeTaskModel value)
         {
-            var forUpdate = tasks.Find(x => x.Id == value.TaskId);
-            forUpdate.FolderId = value.ListId;
-            forUpdate.PresentationPriority = 100000000;
-            tasks.Edit(forUpdate);
-
-
-            IEnumerable<TaskEntity> arrForUpdate = tasks.GetAll().Where(x => x.FolderId == value.ListId).OrderBy(x => x.PresentationPriority).ToArray();
-            for (int i = 0; i < arrForUpdate.Count() - 1; i++)
+            if (value.ListId != _tasks.GetById(value.TaskId).FolderId)
             {
-
-                arrForUpdate.ElementAt(i).PresentationPriority = i;
+                _tasks.MoveTaskToFolder(value.TaskId, value.ListId);
+                return;
             }
-
-            for (int i = value.Index; i < arrForUpdate.Count() - 1; i++)
-            {
-
-                arrForUpdate.ElementAt(i).PresentationPriority += 1;
-            }
-            for (int i = 0; i < arrForUpdate.Count() - 1; i++)
-            {
-                tasks.Edit(arrForUpdate.ElementAt(i));
-            }
-
-            forUpdate.PresentationPriority = value.Index;
-            tasks.Edit(forUpdate);
+            
+            _tasks.ChangeTasksPriority(value.TaskId, value.ListId, value.Index);
         }
 
         // PUT: api/TaskList/5
@@ -133,7 +114,7 @@ namespace TaskManager.Controllers
         [ActionName("DefaultAction")]
         public void Delete(int id)
         {
-            tasks.DeleteTask(id);
+            _tasks.DeleteTask(id);
         }
     }
 }
