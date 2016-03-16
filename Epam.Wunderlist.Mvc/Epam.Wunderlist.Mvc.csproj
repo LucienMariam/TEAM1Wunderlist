@@ -219,6 +219,7 @@
     <Content Include="Content\common.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font_lato_default.css" />
+    <Content Include="Content\Images\06.jpg" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\menubar.css" />
@@ -304,6 +305,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\Images\checkmark.svg" />
+    <Content Include="Content\Images\pictos.svg" />
+    <Content Include="Content\Images\reminder.svg" />
+    <Content Include="Content\Images\shared.svg" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
