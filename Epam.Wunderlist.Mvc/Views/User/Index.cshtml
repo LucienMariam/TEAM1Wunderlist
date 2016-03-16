@@ -25,9 +25,9 @@
 
 </head>
 
-<body>
-
-    <div id="wrapper">
+<body >
+    
+    <div id="wrapper" style="background: url(/Content/Images/06.jpg) no-repeat; background-size: cover;   min-height: 330px">
 
 
 
@@ -258,7 +258,7 @@
 
             <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" style="background-color: transparent" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
 
                     <ul class="nav" id="side-menu">
@@ -295,7 +295,7 @@
                                 </div>
                             </script>
 
-                            <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Hello @User.Identity.Name </a>
+                            <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Account information </a>
                         </li>
                         <li ng-controller="TasksCtrl">
                             <div class="panel-title" ng-click="getTask('@User.Identity.Name')">
@@ -324,7 +324,7 @@
             </div>
         </nav>
 
-        <div ng-controller="TasksCtrl" id="page-wrapper" style="min-height: 330px;">
+        <div ng-controller="TasksCtrl" id="page-wrapper">
             <div ng-if="getValue()!=undefinded" class="form-horizontal">
                 <div class="form-group">
                     <div class="col-md-10">
@@ -344,7 +344,7 @@
                     <div class="col-md-10">
                         <div class="row">
                             <div ng-repeat="tasks in getValue()" class="col-md-12">
-                                <div class="panel panel-info">
+                                <div class="panel panel-info" style="background-color: transparent; border-color: transparent">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">List {{tasks.Title}}</h3>
                                         <div class="top-right" style="text-align: right;">
@@ -355,9 +355,10 @@
                                             <a ng-click="isReplyFormOpen = !isReplyFormOpen">List</a>
                                         </div>
                                     </div>
-                                    <div class="panel-body" ng-show="isReplyFormOpen" id="replyForm">
+                                    <div class="panel-body" style ="background-color: transparent; fill-opacity: 0.5;" ng-show="isReplyFormOpen" id="replyForm">
                                         <div dnd-list="taskWithParentFolderId" dnd-drop="onDrop(tasks, item, index)">
-                                            <div ng-repeat="item in taskWithParentFolderId[tasks.Id]|filter:search "
+                                         
+                                            <div style="margin-bottom: 15px;" ng-repeat="item in taskWithParentFolderId[tasks.Id]|filter:search "
                                                  dnd-draggable="item"
                                                  dnd-moved="taskWithParentFolderId[tasks.Id].splice($index, 1)"
                                                  dnd-effect-allowed="move"
@@ -365,7 +366,7 @@
                                                  ng-class="{'selected': models.selected === item}">
                                                 <div class="checkbox">
                                                     <label><input ng-change="editBoolInTask(item.IsCompleted, item.Id)" ng-model="item.IsCompleted" type="checkbox" value="">Completed</label>
-                                                    <input style="border: 0;" type="text" ng-model="item.Title" placeholder="{{item.Title}}" class="form-control" />
+                                                    <input style="border: 0;" type="text" ng-model="item.Title" placeholder="{{item.Title}}" class="form-control"/>
                                                 </div>
 
                                                 <span ng-click="editTask(item)" class="glyphicon glyphicon-check"></span>
@@ -373,7 +374,7 @@
                                                 <span ng-click="closeTask(item.Id, item.FolderId)" class="glyphicon glyphicon-remove"></span>
                                             </div>
                                             <input type="text" ng-model="post[tasks.Id]" name="Value" placeholder="New one" class="form-control">
-                                            <button ng-click="addOneTask(tasks.Id, post[tasks.Id])">Add</button>
+                                            <button ng-click="addOneTask(tasks.Id, post[tasks.Id])">Add</button><hr />
                                         </div>
                                     </div>
                                 </div>
