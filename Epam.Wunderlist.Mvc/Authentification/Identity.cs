@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Security.Principal;
-using BLL.Entities;
+using BLL.Concrete.Entities;
 
 namespace TaskManager.Authentification
 {
@@ -48,7 +48,7 @@ namespace TaskManager.Authentification
             Email = user.Email;
         }
 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Login { get; set; }
         public string Email { get; set; }
         public bool RememberMe { get; set; }
@@ -62,11 +62,11 @@ namespace TaskManager.Authentification
 
         public bool IsAuthenticated
         {
-            get { return !(Id == 0 || string.IsNullOrWhiteSpace(Email)); }
+            get { return !(Id == Guid.Empty || string.IsNullOrWhiteSpace(Email)); }
         }
 
-        public string Name { get { return Id.ToString(); } }
-      
+        public string Name { get { return Email; } }
+
         #endregion
     }
 }
