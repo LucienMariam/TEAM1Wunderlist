@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap', 'dndLists']);
 
 
@@ -7,10 +6,6 @@ angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibMo
 
 
 
-=======
-﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap']);
-angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal) {
->>>>>>> master
 
     $scope.animationsEnabled = true;
     $scope.formInfo = {};
@@ -110,14 +105,8 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
             var value = {
                 login: $scope.formInfo.Login,
                 email: $scope.formInfo.Email,
-<<<<<<< HEAD
                 password: $scope.formInfo.Password,
                 id: $scope.formInfo.Id
-=======
-                password: $scope.formInfo.Password
-
-
->>>>>>> master
             };
 
             $.post("api/Profile/DefaultAction",
