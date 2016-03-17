@@ -222,7 +222,7 @@
     <Content Include="Content\common.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font_lato_default.css" />
-    <Content Include="Content\Images\06.jpg" />
+    <Content Include="Content\Images\bg_berlin.jpg" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\menubar.css" />
