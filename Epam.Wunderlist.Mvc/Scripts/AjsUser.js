@@ -1,4 +1,4 @@
-angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap']);
+п»їangular.module('AngularJS', ['ngAnimate', 'ui.bootstrap']);
 angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal) {
 
     $scope.animationsEnabled = true;
@@ -77,7 +77,7 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
                         }
                     });
                 } else {
-                    alert("Браузер не поддерживает загрузку файлов HTML5!");
+                    alert("Р‘СЂР°СѓР·РµСЂ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ Р·Р°РіСЂСѓР·РєСѓ С„Р°Р№Р»РѕРІ HTML5!");
                 }
             }
         };
@@ -104,9 +104,10 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
         $scope.PostCustomer = function () {
             var value = {
                 login: $scope.formInfo.Login,
-                email: $scope.formInfo.Email
-                password: $scope.formInfo.Password,
-                id: $scope.formInfo.Id
+                email: $scope.formInfo.Email,
+                password: $scope.formInfo.Password
+
+
             };
 
             $.post("api/Default",
