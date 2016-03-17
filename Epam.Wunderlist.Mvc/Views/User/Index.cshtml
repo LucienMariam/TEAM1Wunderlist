@@ -22,54 +22,32 @@
     <!-- Custom CSS -->
     <link href="~/Content/sb-admin-2.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
-    <style>
-        .fon_scroll {
-            background-image: url(/Content/Images/bg_berlin.jpg);
-            margin: 0 auto;
-            width: 1300px;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-            background-position: 0px 0px;
-            min-height: 100%;
-        }
-    </style>
+
 </head>
 
 <body >
+    
+    <div id="wrapper" style="background: url(/Content/Images/06.jpg) no-repeat; background-size: cover;   min-height: 330px">
 
-    <div class="fon_scroll" id="wrapper">
+
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: darkgreen; margin-bottom: 0">
-        <div class="navbar-header">
-            <style>
-                p0 {
-                    flex: 1;
-                    font: bold 30px/45px Georgia, serif;
-                    padding: 10px 14px;
-                    font-weight: 200;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    -o-text-overflow: ellipsis;
-                    text-overflow: ellipsis;
-                }
-            </style>
-            <p0><a style="color: white">Inbox</a></p0>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-        </div>
+            </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i style="color: white" class="fa fa-envelope fa-fw"></i>  <i style="color: white" class="fa fa-caret-down"></i>
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
@@ -120,7 +98,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i style="color: white" class="fa fa-tasks fa-fw"></i>  <i style="color: white"  class="fa fa-caret-down"></i>
+                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-tasks">
                         <li>
@@ -199,7 +177,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i style="color: white"  class="fa fa-bell fa-fw"></i>  <i style="color: white" class="fa fa-caret-down"></i>
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
@@ -259,7 +237,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i style="color: white"  class="fa fa-user fa-fw"></i>  <i style="color: white"  class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
@@ -301,7 +279,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-2">Login</label>
                                             <div class="col-md-10">
-                                                <input type="text" ng-model="formInfo.Login" placeholder="{{ Customer.Login }}" class="form-control3" />
+                                                <input type="text" ng-model="formInfo.Login" placeholder="{{ Customer.Login }}" class="form-control" />
                                             </div>
 
                                         </div>
@@ -318,33 +296,6 @@
                                 </div>
                             </script>
 <<<<<<< HEAD
-                            <style>
-                                p44 {
-                                    border: 2px solid blue;
-                                    padding: 8px;
-                                    width: 500px;
-                                    background-color: white;
-                                    font: bold 25px/90px Georgia, serif;
-                                }
-                            </style>
-                            <p44><a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> @User.Identity.AuthenticationType </a></p44>
-                        </li>
-<<<<<<< HEAD
-                        <li ng-controller="TasksCtrl">
-                            <div class="panel-title" ng-click="getTask('@User.Identity.Name')">
-                                <i class="fa fa-bar-chart-o fa-fw"></i>
-                                <style>
-                                    p42 {
-                                        border: 1px solid blue;
-                                        padding: 3px;
-                                        width: 85px;
-                                        background-color: white;
-                                        font: bold 15px/30px Georgia, serif;
-                                    }
-                                </style>
-                                <p42><a style="color: blue; cursor:pointer" ng-click="isReplyForm = !isReplyForm">FOLDERS</a></p42>
-=======
-<<<<<<< HEAD
 
                             <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Account information </a>
                         </li>
@@ -352,49 +303,27 @@
                             <div class="panel-title" ng-click="getTask('@User.Identity.Name')">
                                 <i class="fa fa-bar-chart-o fa-fw"></i>
                                 <a ng-click="isReplyForm = !isReplyForm">Your's tasks</a>
->>>>>>> Develop
                             </div>
                             <div ng-show="isReplyForm">
                                 <div class="alert alert-success" ng-repeat="task in folder">
 
-<<<<<<< HEAD
-                                    <input type="text" id="addnewtaskfield" ng-model="task.Title" placeholder="{{ task.Title }}" />
-=======
                                     <input type="text" ng-model="task.Title" placeholder="{{ task.Title }}" />
->>>>>>> Develop
                                     <span ng-click="editFolder(task.Id,task.Title)" class="glyphicon glyphicon-check"></span>
                                     <span ng-click="showListTask(task.Id)" class="glyphicon glyphicon-search"></span>
                                     <span ng-click="closeAlert($index, task.Id)" class="glyphicon glyphicon-remove"></span>
 
                                 </div>
-<<<<<<< HEAD
-                                <style>
-                                    input[type="text"]::-webkit-input-placeholder {
-                                        color: white;
-                                    }
-                                    .form-control {
-                                        color: white
-                                    }
-                                </style>
-                                <input type="text" style="background-color: green" id="newListTaskList" name="Title" placeholder="+ Add a folder" class="form-control" />
-=======
                                 <input type="text" id="newListTaskList" name="Title" placeholder="New one" class="form-control" />
->>>>>>> Develop
                                 <button type="button" class='btn btn-default' ng-click="addAlert('@User.Identity.Name')">Add</button>
                             </div>
 
 
                             <!-- /.nav-second-level -->
-<<<<<<< HEAD
-=======
                         </li>
 
 =======
                             <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Hello @User.Identity.Name </a>
->>>>>>> Develop
                         </li>
-
-=======
                         <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
@@ -489,7 +418,7 @@
             <div ng-if="getValue()!=undefinded" class="form-horizontal">
                 <div class="form-group">
                     <div class="col-md-10">
-                        <input type="text" style="background-color: green" id="newTaskList" name="Title" placeholder = "+ Add a tasklist..." class="form-control" />
+                        <input type="text" id="newTaskList" name="Title" placeholder="New one" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -513,36 +442,29 @@
                                         </div>
 
                                         <div ng-click="getTaskFromParentFolder(tasks.Id)">
-                                            <style>
-                                                p {
-                                                    border: 1px solid blue;
-                                                    padding: 3px;
-                                                    width: 85px;
-                                                }
-                                            </style>
-                                            <a style="cursor: pointer" ng-click="isReplyFormOpen = !isReplyFormOpen"> <p>Show tasks</p></a>
+                                            <a ng-click="isReplyFormOpen = !isReplyFormOpen">List</a>
                                         </div>
                                     </div>
                                     <div class="panel-body" style ="background-color: transparent; fill-opacity: 0.5;" ng-show="isReplyFormOpen" id="replyForm">
                                         <div dnd-list="taskWithParentFolderId" dnd-drop="onDrop(tasks, item, index)">
-
+                                         
                                             <div style="margin-bottom: 15px;" ng-repeat="item in taskWithParentFolderId[tasks.Id]|filter:search "
                                                  dnd-draggable="item"
                                                  dnd-moved="taskWithParentFolderId[tasks.Id].splice($index, 1)"
                                                  dnd-effect-allowed="move"
                                                  dnd-selected="models.selected = item"
                                                  ng-class="{'selected': models.selected === item}">
-                                                <div style="padding-left: 0px" class="checkbox">
-                                                    <label><input ng-change="editBoolInTask(item.IsCompleted, item.Id)" ng-model="item.IsCompleted" type="checkbox" value=""></label>
-                                                    <input style="border: 0;" type="text" ng-model="item.Title" placeholder="{{item.Title}}" class="form-control3"/>
+                                                <div class="checkbox">
+                                                    <label><input ng-change="editBoolInTask(item.IsCompleted, item.Id)" ng-model="item.IsCompleted" type="checkbox" value="">Completed</label>
+                                                    <input style="border: 0;" type="text" ng-model="item.Title" placeholder="{{item.Title}}" class="form-control"/>
                                                 </div>
 
                                                 <span ng-click="editTask(item)" class="glyphicon glyphicon-check"></span>
                                                 <span ng-click="open('',item.Id)" class="glyphicon glyphicon-search"></span>
                                                 <span ng-click="closeTask(item.Id, item.FolderId)" class="glyphicon glyphicon-remove"></span>
                                             </div>
-                                            <input type="text" style="background-color: green" id="addtask" ng-model="post[tasks.Id]" name="Value" placeholder="+ Add a to-do..." class="form-control">
-                                            <button ng-click="addOneTask(tasks.Id, post[tasks.Id])">Add</button>
+                                            <input type="text" ng-model="post[tasks.Id]" name="Value" placeholder="New one" class="form-control">
+                                            <button ng-click="addOneTask(tasks.Id, post[tasks.Id])">Add</button><hr />
                                         </div>
                                     </div>
                                 </div>
@@ -577,13 +499,13 @@
                         <div class="form-group">
                             <label class="control-label col-md-2">Description</label>
                             <div class="col-md-10">
-                                <textarea class="form-control3" style="width:100%" rows="5" ng-model="formInfo.Description" placeholder="{{ taskForm.Description }}"></textarea>
+                                <textarea class="form-control" rows="5" ng-model="formInfo.Description" placeholder="{{ taskForm.Description }}"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-2">DueTime</label>
                             <div class="col-md-10">
-                                <input type="text"  style="width:100%" ng-model="formInfo.DueTime" class="form-control3" />
+                                <input type="text" ng-model="formInfo.DueTime" class="form-control" />
                             </div>
                         </div>
 

@@ -45,188 +45,6 @@ angular.module('AngularJS').controller('ModalTaskCtrl', function ($scope, $uibMo
              .success(function (response) {
                  $scope.taskForm = response,
                  $scope.formInfo = { Id: $scope.taskForm.Id, FolderId: $scope.taskForm.FolderId, Title: $scope.taskForm.Title, Description: $scope.taskForm.Description, DueTime: $scope.taskForm.DueTime, IsCompleted: $scope.taskForm.IsCompleted };
-<<<<<<< HEAD
-
-             });
-        },
-         "json"
-        );
-    }
-
-});
-
-
-angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $uibModal, myService) {
-    $scope.folder = [{}];
-    $scope.folderInfo = {};
-    $scope.taskList = myService.taskLis;
-    $scope.tasks = [{}];
-    $scope.userId;
-    $scope.taskWithParentFolderId = [];
-    $scope.post = [{}];
-    $scope.formInfo = [{}];
-    $scope.search = false;
-
-    $scope.models = {
-        selected: null,
-        lists: $scope.taskWithParentFolderId
-    };
-
-
-    $scope.closeTask = function (taskId, folderId) {
-        $http.delete('api/Task/DefaultAction/' + taskId).success(function () {
-            $http.get('/api/Task/GetByParentId/' + folderId)
-                 .success(function (response) {
-                     $scope.taskWithParentFolderId[folderId] = response;
-                 });
-        });
-    }
-
-
-
-    $scope.editBoolInTask = function (IsCompleted, Id) {
-        $scope.putTaskFotBool(IsCompleted, Id);
-    };
-    $scope.putTaskFotBool = function (IsCompleted, Id) {
-        var value = {
-            Id: Id,
-            IsCompleted: IsCompleted
-        };
-
-        $.post("api/Task/PutTask",
-          value,
-           //function (value) {
-           //    // Refresh list   
-           //    $http.get('/api/Task/DefaultAction/' + taskId)
-           //     .success(function (response) {
-           //         $scope.taskForm = response,
-           //         $scope.formInfo = { Id: $scope.taskForm.Id, FolderId: $scope.taskForm.FolderId, Title: $scope.taskForm.Title, Description: $scope.taskForm.Description, DueTime: $scope.taskForm.DueTime, IsCompleted: $scope.taskForm.IsCompleted };
-
-           //     });
-           //},
-           "json"
-          );
-    }
-
-
-    $scope.editFolder = function (folderId, folderTitle) {
-
-        Id = folderId,
-        Title = folderTitle,
-        $scope.putFolder(Id, Title);
-    };
-
-    $scope.putFolder = function (Id, Title) {
-        var value = {
-            Id: Id,
-            Title: Title,
-        };
-
-        $.post("api/Folder/PostFolder",
-          value,
-           function () {
-               // Refresh list               
-           },
-           "json"
-          );
-    }
-
-
-
-     //Model to JSON for demo purpose
-    $scope.$watch('models', function (model) {
-        $scope.modelAsJson = angular.toJson(model, true);
-    }, true);
-
-    $scope.onDrop = function (list, item, index) {
-
-        var value = {
-            ListId: list.Id,
-            TaskId: item.Id,
-            Index: index
-        };
-        $.post("api/Task/RerangeTask",
-              value,
-               function (value) {
-                   // Refresh list   
-                   $http.get('/api/Task/GetByParentId/' + list.Id)
-                    .success(function (response) {
-                        $scope.taskWithParentFolderId[list.Id] = response;
-                    });
-
-                   $http.get('/api/Task/GetByParentId/' + item.FolderId)
-                      .success(function (response) {
-                          $scope.taskWithParentFolderId[item.FolderId] = response;
-                      });
-
-               },
-               "json"
-              );
-        return true;
-    }
-
-
-
-    $scope.open = function (size, taskId) {
-        $scope.taskId = taskId
-        var modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'Task.html',
-            controller: 'ModalTaskCtrl',
-            size: size,
-            resolve: {
-                taskId: function () {
-                    return $scope.taskId;
-                }
-
-            }
-        });
-    };
- 
-    $scope.openFolderInfo = function (size, folderId, userId) {
-        $scope.folderId = folderId;
-        $scope.userId = userId;
-        var modalFolderInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'Folder.html',
-            controller: 'ModalFolderCtrl',
-            size: size,
-            resolve: {
-                folderId: function () {
-                    return $scope.folderId;
-                },
-                userId: function () {
-                    return $scope.userId;
-               }
-            }
-        });
-    };
-
-    $scope.addOneTask = function (parentId, inputValue) {
-      
-            //
-            var value = {
-                FolderId: parentId,
-                Title: inputValue
-            };
-
-            $.post("api/Task/DefaultAction",
-               value,
-                function (value) {
-                    // Refresh list   
-                    $http.get('/api/Task/GetByParentId/' + parentId)
-                     .success(function (response) {
-                         $('#addtask').val('');
-                         $scope.taskWithParentFolderId[parentId] = response;
-                         
-                         
-                        });
-                },
-                "json"
-               );
-    }
-
-=======
 
              });
         },
@@ -404,7 +222,6 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
                );
     }
 
->>>>>>> Develop
     $scope.getTaskFromParentFolder = function (parentId) {
         $http.get('/api/Task/GetByParentId/' + parentId)
      .success(function (response) {
@@ -426,8 +243,6 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
     $scope.addAlert = function (id) {
         //
         var temp = document.getElementById('newListTaskList').value;
-        if (temp === '')
-            return;
         var value = {
             Title: temp,
             UserId: $scope.userId            
@@ -439,10 +254,6 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
                 // Refresh list   
                 $http.get('/api/Folder/DefaultAction/' + id)
                  .success(function (response) {
-<<<<<<< HEAD
-                        $('#newListTaskList').val('');
-=======
->>>>>>> Develop
                      $scope.folder = response;
                  });
             },
@@ -472,11 +283,6 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
 
     $scope.addTaskList = function (taskId) {
         var temp = document.getElementById('newTaskList').value;
-<<<<<<< HEAD
-        if (temp === '')
-            return;
-=======
->>>>>>> Develop
         var value = {
             Title: temp,
             ParentFolderId: taskId,
@@ -485,16 +291,9 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
         $.post("api/Folder",
            value,
             function (value) {
-<<<<<<< HEAD
-                // Refresh list
-                $http.get('/api/Folder/GetByParentId/' + taskId)
-                 .success(function (response) {
-                     $('#newTaskList').val('');
-=======
                 // Refresh list   
                 $http.get('/api/Folder/GetByParentId/' + taskId)
                  .success(function (response) {
->>>>>>> Develop
                      $scope.taskList = response;
                      myService.taskList = response;
                  });
