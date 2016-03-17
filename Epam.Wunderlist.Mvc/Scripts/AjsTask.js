@@ -215,11 +215,16 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
                     // Refresh list   
                     $http.get('/api/Task/GetByParentId/' + parentId)
                      .success(function (response) {
+<<<<<<< HEAD
                          $('#addtask').val('');
                          $scope.taskWithParentFolderId[parentId] = response;
                          
                          
                         });
+=======
+                         $scope.taskWithParentFolderId[parentId] = response;
+                     });
+>>>>>>> Develop
                 },
                 "json"
                );
@@ -246,8 +251,6 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
     $scope.addAlert = function (id) {
         //
         var temp = document.getElementById('newListTaskList').value;
-        if (temp === '')
-            return;
         var value = {
             Title: temp,
             UserId: $scope.userId            
@@ -259,7 +262,10 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
                 // Refresh list   
                 $http.get('/api/Folder/DefaultAction/' + id)
                  .success(function (response) {
+<<<<<<< HEAD
                         $('#newListTaskList').val('');
+=======
+>>>>>>> Develop
                      $scope.folder = response;
                  });
             },
@@ -289,8 +295,11 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
 
     $scope.addTaskList = function (taskId) {
         var temp = document.getElementById('newTaskList').value;
+<<<<<<< HEAD
         if (temp === '')
             return;
+=======
+>>>>>>> Develop
         var value = {
             Title: temp,
             ParentFolderId: taskId,
@@ -299,10 +308,16 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
         $.post("api/Folder",
            value,
             function (value) {
+<<<<<<< HEAD
                 // Refresh list
                 $http.get('/api/Folder/GetByParentId/' + taskId)
                  .success(function (response) {
                      $('#newTaskList').val('');
+=======
+                // Refresh list   
+                $http.get('/api/Folder/GetByParentId/' + taskId)
+                 .success(function (response) {
+>>>>>>> Develop
                      $scope.taskList = response;
                      myService.taskList = response;
                  });
