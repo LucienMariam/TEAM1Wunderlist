@@ -57,7 +57,7 @@ namespace TaskManager.Authentification
 
         public string AuthenticationType
         {
-            get { return "SuperAuthen"; }
+            get { return Login; }
         }
 
         public bool IsAuthenticated
