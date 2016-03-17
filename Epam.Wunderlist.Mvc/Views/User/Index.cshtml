@@ -1,6 +1,16 @@
 ﻿@{
     Layout = null;
-
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+        <script src="~/Scripts/angular-animate.min.js"></script>
+        <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+        <script src="~/Scripts/angular-drag-and-drop-lists.min.js"></script>
+        <script src="~/Scripts/AjsUser.js"></script>
+        <script src="~/Scripts/AjsTask.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/metisMenu.min.js"></script>
+        <script src="~/Scripts/sb-admin-2.js"></script>
+        <link href="/Content/multi.css" rel="stylesheet" />
 }
 <html ng-app="AngularJS">
 <head>
@@ -18,6 +28,7 @@
 <body>
 
     <div id="wrapper">
+
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -246,25 +257,15 @@
 
             <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" style="background-color: transparent" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
 
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                @*<span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>*@
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+
                         <li ng-controller="ModalDemoCtrl">
                             <script type="text/ng-template" id="Content.html">
                                 <div class="modal-header">
-                                    <img style="max-height:400px;max-width:400px" ng-src='{{formInfo.Photo}}' />
+                                    <img style="width:200px; height:200px;  display:block; background-position-y:50%;  border-radius:50%;" ng-src='{{formInfo.Photo}}' />
                                     <input type="file" name="upload" id="uploadFile" /><br />
                                     <button ng-click="send()">Save</button>
                                 </div>
@@ -279,6 +280,7 @@
                                             <div class="col-md-10">
                                                 <input type="text" ng-model="formInfo.Login" placeholder="{{ Customer.Login }}" class="form-control" />
                                             </div>
+
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-2">Email</label>
@@ -299,7 +301,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
-                                                <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer('@User.Identity.Name')" />
+                                                <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer(@User.Identity.Name)" />
                                             </div>
                                         </div>
                                     </form>
@@ -405,7 +407,6 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Add Task</h1>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
@@ -416,9 +417,18 @@
                                 <div class="col-xs-3">
                                     <i class="fa fa-comments fa-3x"></i>
                                 </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                            </div>
+                        </div>
+                        @*<div view-source="multi"></div>*@
+                    </div>
 
+                    @*<div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Generated Model</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <pre class="code">{{modelAsJson}}</pre>
                                 </div>
                             </div>
                         </div>
@@ -428,15 +438,26 @@
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" ng-click="editTask(formInfo.Id, formInfo.DueTime, formInfo.Description)" />
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <!-- /.row -->
-            <!-- /.row -->
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+
         </div>
 
     </div>
+<<<<<<< HEAD
+
+=======
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-animate.min.js"></script>
@@ -445,6 +466,7 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/metisMenu.min.js"></script>
     <script src="~/Scripts/sb-admin-2.js"></script>
+>>>>>>> master
     @section scripts{
         <script type="text/javascript">
 

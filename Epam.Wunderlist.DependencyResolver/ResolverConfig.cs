@@ -1,16 +1,15 @@
-﻿using System.Data.Entity;
+﻿#region Namespaces 
+using System.Data.Entity;
 using Ninject.Web.Common;
 using Ninject;
 using ORM;
-using DAL.Interfaces.Repositories;
-using DAL.Concrete.Entities;
-using DAL.Concrete.Repositories;
-using DAL.Concrete.Mappers;
-using BLL.Interfaces.Services;
-using BLL.Concrete.Entities;
-using BLL;
-using DAL.Interfaces;
-using DAL.Concrete;
+using DataAccess.Interfaces;
+using DataAccess.MsSql.Repositories;
+using TaskService;
+using UserService;
+using FolderService;
+using DataAccess.MsSql;
+#endregion
 
 namespace CustomNinjectDependencyResolver
 {
@@ -21,19 +20,19 @@ namespace CustomNinjectDependencyResolver
             Database.SetInitializer(new InitializeEntityModel());
             kernel.Bind<DbContext>().To<EntityModel>().InRequestScope();
 
-            kernel.Bind<IKeyRepository<TaskDal>>().To<KeyRepository<Task, TaskDal, TaskMapperDal>>();
-            kernel.Bind<IKeyRepository<UserDal>>().To<KeyRepository<User, UserDal, UserMapperDal>>();
-            kernel.Bind<ITaskUserRepository>().To<TaskUserRepository>();
+            #region Repository binding
             kernel.Bind<IUserRepository>().To<UserRepository>();
+            kernel.Bind<ITaskRepository>().To<TaskRepository>();
+            kernel.Bind<IFolderRepository>().To<FolderRepository>();
+            #endregion
 
-            kernel.Bind<IKeyService<TaskEntity>>().To<KeyService<TaskDal, TaskEntity, IKeyRepository<TaskDal>, TaskMapper>>();
-            kernel.Bind<IKeyService<UserEntity>>().To<KeyService<UserDal, UserEntity, IKeyRepository<UserDal>, UserMapper>>();
-            kernel.Bind<ITaskUserService>().To<TaskUserService>();
-            kernel.Bind<IUserService>().To<UserService>();
+            #region Service binding
+            kernel.Bind<IUserService>().To<UserService.UserService>();
+            kernel.Bind<ITaskService>().To<TaskService.TaskService>();
+            kernel.Bind<IFolderService>().To<FolderService.FolderService>();
+            #endregion
 
-
-
-            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
         }
 
         public static void Reconfiguration(this IKernel kernel)

@@ -2,5 +2,6 @@
 {
     public interface IOrmEntity
     {
+        int Id { get; set;  }
     }
 }
