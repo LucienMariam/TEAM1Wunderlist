@@ -48,6 +48,7 @@ namespace TaskManager.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 kernel.Bind<ICustomAuthenticationService>().To<CustomAuthenticationService>();
+                //kernel.Bind<HttpContextBase>().ToMethod(context => new HttpContextWrapper(HttpContext.Current));
                 kernel.Bind<IPrincipalService>().To<SupportPrincipalService>();
 
                 RegisterServices(kernel);
