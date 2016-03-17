@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.ServiceAbstraction", "Epam.Wunderlist.ServiceAbstraction\Epam.Wunderlist.ServiceAbstraction.csproj", "{D768716E-DA5E-4F23-AAD4-77298667D279}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.Services", "Epam.Wunderlist.Services\Epam.Wunderlist.Services.csproj", "{D768716E-DA5E-4F23-AAD4-77298667D279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.Entities", "Epam.Wunderlist.Entities\Epam.Wunderlist.Entities.csproj", "{702AD799-BC92-4ADB-8982-9D8934E263E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.DataAccess", "Epam.Wunderlist.DataAccess\Epam.Wunderlist.DataAccess.csproj", "{702AD799-BC92-4ADB-8982-9D8934E263E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.DependencyResolver", "Epam.Wunderlist.DependencyResolver\Epam.Wunderlist.DependencyResolver.csproj", "{D7A83A75-A5B7-46EA-BA12-A1FC7E313F10}"
 EndProject
@@ -14,18 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.Mvc", "Epam.Wunderlist.Mvc\Epam.Wunderlist.Mvc.csproj", "{5B462B17-8363-4F16-AF38-219222300147}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.UnitTests", "Epam.Wunderlist.UnitTests\Epam.Wunderlist.UnitTests.csproj", "{702DC7D6-8A7E-4310-9CA5-7753BE6F2634}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.DataAccess.Interfaces", "Epam.Wunderlist.DataAccess.Interfaces\Epam.Wunderlist.DataAccess.Interfaces.csproj", "{A88AD77A-AD81-4029-91AD-392271F9A04C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.DataAccess.MsSql", "Epam.Wunderlist.DataAccess.MsSql\Epam.Wunderlist.DataAccess.MsSql.csproj", "{18ABC1E9-1D10-4735-BE28-F6D5055D3603}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.PhotoService", "Epam.Wunderlist.PhotoService\Epam.Wunderlist.PhotoService.csproj", "{C0D6E661-6565-4867-B3ED-AD0F37B10C8E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.FolderService", "Epam.Wunderlist.FolderService\Epam.Wunderlist.FolderService.csproj", "{3A07E794-ABF3-44EF-8B0C-56E3C69C8C15}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.TaskService", "Epam.Wunderlist.TaskService\Epam.Wunderlist.TaskService.csproj", "{561385DF-7D39-49C4-881A-323BCC808141}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Wunderlist.UserService", "Epam.Wunderlist.UserService\Epam.Wunderlist.UserService.csproj", "{168F007D-75ED-40A7-903C-1DD63B63B570}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,30 +45,6 @@ Global
 		{702DC7D6-8A7E-4310-9CA5-7753BE6F2634}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{702DC7D6-8A7E-4310-9CA5-7753BE6F2634}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{702DC7D6-8A7E-4310-9CA5-7753BE6F2634}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A88AD77A-AD81-4029-91AD-392271F9A04C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A88AD77A-AD81-4029-91AD-392271F9A04C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A88AD77A-AD81-4029-91AD-392271F9A04C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A88AD77A-AD81-4029-91AD-392271F9A04C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18ABC1E9-1D10-4735-BE28-F6D5055D3603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18ABC1E9-1D10-4735-BE28-F6D5055D3603}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18ABC1E9-1D10-4735-BE28-F6D5055D3603}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18ABC1E9-1D10-4735-BE28-F6D5055D3603}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C0D6E661-6565-4867-B3ED-AD0F37B10C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C0D6E661-6565-4867-B3ED-AD0F37B10C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C0D6E661-6565-4867-B3ED-AD0F37B10C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C0D6E661-6565-4867-B3ED-AD0F37B10C8E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A07E794-ABF3-44EF-8B0C-56E3C69C8C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A07E794-ABF3-44EF-8B0C-56E3C69C8C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A07E794-ABF3-44EF-8B0C-56E3C69C8C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A07E794-ABF3-44EF-8B0C-56E3C69C8C15}.Release|Any CPU.Build.0 = Release|Any CPU
-		{561385DF-7D39-49C4-881A-323BCC808141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{561385DF-7D39-49C4-881A-323BCC808141}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{561385DF-7D39-49C4-881A-323BCC808141}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{561385DF-7D39-49C4-881A-323BCC808141}.Release|Any CPU.Build.0 = Release|Any CPU
-		{168F007D-75ED-40A7-903C-1DD63B63B570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{168F007D-75ED-40A7-903C-1DD63B63B570}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{168F007D-75ED-40A7-903C-1DD63B63B570}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{168F007D-75ED-40A7-903C-1DD63B63B570}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
