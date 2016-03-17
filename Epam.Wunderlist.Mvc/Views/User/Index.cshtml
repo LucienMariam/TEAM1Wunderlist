@@ -317,6 +317,7 @@
                                     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
                                 </div>
                             </script>
+<<<<<<< HEAD
                             <style>
                                 p44 {
                                     border: 2px solid blue;
@@ -342,16 +343,31 @@
                                     }
                                 </style>
                                 <p42><a style="color: blue; cursor:pointer" ng-click="isReplyForm = !isReplyForm">FOLDERS</a></p42>
+=======
+<<<<<<< HEAD
+
+                            <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Account information </a>
+                        </li>
+                        <li ng-controller="TasksCtrl">
+                            <div class="panel-title" ng-click="getTask('@User.Identity.Name')">
+                                <i class="fa fa-bar-chart-o fa-fw"></i>
+                                <a ng-click="isReplyForm = !isReplyForm">Your's tasks</a>
+>>>>>>> Develop
                             </div>
                             <div ng-show="isReplyForm">
                                 <div class="alert alert-success" ng-repeat="task in folder">
 
+<<<<<<< HEAD
                                     <input type="text" id="addnewtaskfield" ng-model="task.Title" placeholder="{{ task.Title }}" />
+=======
+                                    <input type="text" ng-model="task.Title" placeholder="{{ task.Title }}" />
+>>>>>>> Develop
                                     <span ng-click="editFolder(task.Id,task.Title)" class="glyphicon glyphicon-check"></span>
                                     <span ng-click="showListTask(task.Id)" class="glyphicon glyphicon-search"></span>
                                     <span ng-click="closeAlert($index, task.Id)" class="glyphicon glyphicon-remove"></span>
 
                                 </div>
+<<<<<<< HEAD
                                 <style>
                                     input[type="text"]::-webkit-input-placeholder {
                                         color: white;
@@ -361,11 +377,21 @@
                                     }
                                 </style>
                                 <input type="text" style="background-color: green" id="newListTaskList" name="Title" placeholder="+ Add a folder" class="form-control" />
+=======
+                                <input type="text" id="newListTaskList" name="Title" placeholder="New one" class="form-control" />
+>>>>>>> Develop
                                 <button type="button" class='btn btn-default' ng-click="addAlert('@User.Identity.Name')">Add</button>
                             </div>
 
 
                             <!-- /.nav-second-level -->
+<<<<<<< HEAD
+=======
+                        </li>
+
+=======
+                            <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Hello @User.Identity.Name </a>
+>>>>>>> Develop
                         </li>
 
 =======
