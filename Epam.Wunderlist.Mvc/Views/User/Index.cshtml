@@ -25,10 +25,9 @@
 
 </head>
 
-<body >
-    
-    <div id="wrapper" style="background: url(/Content/Images/06.jpg) no-repeat; background-size: cover;   min-height: 330px">
+<body>
 
+    <div id="wrapper">
 
 
         <!-- Navigation -->
@@ -284,6 +283,23 @@
 
                                         </div>
                                         <div class="form-group">
+                                            <label class="control-label col-md-2">Email</label>
+                                            <div class="col-md-10">
+                                                <input type="text" ng-model="formInfo.Email" placeholder="{{ Customer.Email }}" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                <input type="hidden" ng-model="formInfo.Id" placeholder="{{ Customer.ID }}" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">Password</label>
+                                            <div class="col-md-10">
+                                                <input type="text" ng-model="formInfo.Password" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
                                                 <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer(@User.Identity.Name)" />
                                             </div>
@@ -291,92 +307,115 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
+                                    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
                                     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
                                 </div>
                             </script>
-
-                            <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Account information </a>
+                            <a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> Hello @User.Identity.Name </a>
                         </li>
-                        <li ng-controller="TasksCtrl">
-                            <div class="panel-title" ng-click="getTask('@User.Identity.Name')">
-                                <i class="fa fa-bar-chart-o fa-fw"></i>
-                                <a ng-click="isReplyForm = !isReplyForm">Your's tasks</a>
-                            </div>
-                            <div ng-show="isReplyForm">
-                                <div class="alert alert-success" ng-repeat="task in folder">
-
-                                    <input type="text" ng-model="task.Title" placeholder="{{ task.Title }}" />
-                                    <span ng-click="editFolder(task.Id,task.Title)" class="glyphicon glyphicon-check"></span>
-                                    <span ng-click="showListTask(task.Id)" class="glyphicon glyphicon-search"></span>
-                                    <span ng-click="closeAlert($index, task.Id)" class="glyphicon glyphicon-remove"></span>
-
-                                </div>
-                                <input type="text" id="newListTaskList" name="Title" placeholder="New one" class="form-control" />
-                                <button type="button" class='btn btn-default' ng-click="addAlert('@User.Identity.Name')">Add</button>
-                            </div>
-
-
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="flot.html">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Morris.js Charts</a>
+                                </li>
+                            </ul>
                             <!-- /.nav-second-level -->
                         </li>
-
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="panels-wells.html">Panels and Wells</a>
+                                </li>
+                                <li>
+                                    <a href="buttons.html">Buttons</a>
+                                </li>
+                                <li>
+                                    <a href="notifications.html">Notifications</a>
+                                </li>
+                                <li>
+                                    <a href="typography.html">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="grid.html">Grid</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level collapse">
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="blank.html">Blank Page</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">Login Page</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <div ng-controller="TasksCtrl" id="page-wrapper">
-            <div ng-if="getValue()!=undefinded" class="form-horizontal">
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <input type="text" id="newTaskList" name="Title" placeholder="New one" class="form-control" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <button type="button" class='btn btn-default' ng-click="addTaskList(getId())">Add</button>
-                    </div>
+        <div id="page-wrapper" style="min-height: 330px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Add Task</h1>
                 </div>
             </div>
-            <div class="directlyWorkWith">
-
-                <div class="simpleDemo row">
-
-                    <div class="col-md-10">
-                        <div class="row">
-                            <div ng-repeat="tasks in getValue()" class="col-md-12">
-                                <div class="panel panel-info" style="background-color: transparent; border-color: transparent">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">List {{tasks.Title}}</h3>
-                                        <div class="top-right" style="text-align: right;">
-                                            <label>Show completed tasks</label> <input type="checkbox" ng-model="search" />
-                                        </div>
-
-                                        <div ng-click="getTaskFromParentFolder(tasks.Id)">
-                                            <a ng-click="isReplyFormOpen = !isReplyFormOpen">List</a>
-                                        </div>
-                                    </div>
-                                    <div class="panel-body" style ="background-color: transparent; fill-opacity: 0.5;" ng-show="isReplyFormOpen" id="replyForm">
-                                        <div dnd-list="taskWithParentFolderId" dnd-drop="onDrop(tasks, item, index)">
-                                         
-                                            <div style="margin-bottom: 15px;" ng-repeat="item in taskWithParentFolderId[tasks.Id]|filter:search "
-                                                 dnd-draggable="item"
-                                                 dnd-moved="taskWithParentFolderId[tasks.Id].splice($index, 1)"
-                                                 dnd-effect-allowed="move"
-                                                 dnd-selected="models.selected = item"
-                                                 ng-class="{'selected': models.selected === item}">
-                                                <div class="checkbox">
-                                                    <label><input ng-change="editBoolInTask(item.IsCompleted, item.Id)" ng-model="item.IsCompleted" type="checkbox" value="">Completed</label>
-                                                    <input style="border: 0;" type="text" ng-model="item.Title" placeholder="{{item.Title}}" class="form-control"/>
-                                                </div>
-
-                                                <span ng-click="editTask(item)" class="glyphicon glyphicon-check"></span>
-                                                <span ng-click="open('',item.Id)" class="glyphicon glyphicon-search"></span>
-                                                <span ng-click="closeTask(item.Id, item.FolderId)" class="glyphicon glyphicon-remove"></span>
-                                            </div>
-                                            <input type="text" ng-model="post[tasks.Id]" name="Value" placeholder="New one" class="form-control">
-                                            <button ng-click="addOneTask(tasks.Id, post[tasks.Id])">Add</button><hr />
-                                        </div>
-                                    </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-3x"></i>
                                 </div>
                             </div>
                         </div>
@@ -392,30 +431,12 @@
                                     <pre class="code">{{modelAsJson}}</pre>
                                 </div>
                             </div>
-                        </div>*@
-
-                </div>
-            </div>
-
-
-            <script type="text/ng-template" id="Task.html">
-                <div class="modal-header">
-                    <img style="max-height:400px;max-width:400px" />
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" id="cusForm">
-
-                        <hr />
-                        <div class="form-group">
-                            <label class="control-label col-md-2">Description</label>
-                            <div class="col-md-10">
-                                <textarea class="form-control" rows="5" ng-model="formInfo.Description" placeholder="{{ taskForm.Description }}"></textarea>
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-2">DueTime</label>
-                            <div class="col-md-10">
-                                <input type="text" ng-model="formInfo.DueTime" class="form-control" />
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
                             </div>
                         </div>
 
@@ -434,9 +455,22 @@
         </div>
 
     </div>
+<<<<<<< HEAD
 
+=======
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-animate.min.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/Scripts/AjsUser.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/metisMenu.min.js"></script>
+    <script src="~/Scripts/sb-admin-2.js"></script>
+>>>>>>> master
     @section scripts{
         <script type="text/javascript">
+
+
         </script>
     }
 </body>

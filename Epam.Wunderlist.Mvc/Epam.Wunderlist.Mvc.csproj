@@ -191,8 +191,6 @@
     <Compile Include="Authentification\SupportPrincipalService.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\FolderController.cs" />
-    <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -219,7 +217,6 @@
     <Content Include="Content\common.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font_lato_default.css" />
-    <Content Include="Content\Images\06.jpg" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\menubar.css" />
@@ -234,7 +231,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="Scripts\AjsTask.js" />
     <Content Include="Scripts\AjsUser.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
