@@ -215,8 +215,11 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
                     // Refresh list   
                     $http.get('/api/Task/GetByParentId/' + parentId)
                      .success(function (response) {
+                         $('#addtask').val('');
                          $scope.taskWithParentFolderId[parentId] = response;
-                     });
+                         
+                         
+                        });
                 },
                 "json"
                );
@@ -243,6 +246,8 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
     $scope.addAlert = function (id) {
         //
         var temp = document.getElementById('newListTaskList').value;
+        if (temp === '')
+            return;
         var value = {
             Title: temp,
             UserId: $scope.userId            
@@ -254,6 +259,7 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
                 // Refresh list   
                 $http.get('/api/Folder/DefaultAction/' + id)
                  .success(function (response) {
+                        $('#newListTaskList').val('');
                      $scope.folder = response;
                  });
             },
@@ -283,6 +289,8 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
 
     $scope.addTaskList = function (taskId) {
         var temp = document.getElementById('newTaskList').value;
+        if (temp === '')
+            return;
         var value = {
             Title: temp,
             ParentFolderId: taskId,
@@ -291,9 +299,10 @@ angular.module('AngularJS').controller('TasksCtrl', function ($scope, $http, $ui
         $.post("api/Folder",
            value,
             function (value) {
-                // Refresh list   
+                // Refresh list
                 $http.get('/api/Folder/GetByParentId/' + taskId)
                  .success(function (response) {
+                     $('#newTaskList').val('');
                      $scope.taskList = response;
                      myService.taskList = response;
                  });
