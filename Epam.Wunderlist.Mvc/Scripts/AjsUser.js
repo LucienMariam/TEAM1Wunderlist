@@ -1,19 +1,26 @@
-﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap']);
-angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal) {
+﻿angular.module('AngularJS', ['ngAnimate', 'ui.bootstrap', 'dndLists']);
+
+
+
+angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibModal, myService) {
+
+
+
 
     $scope.animationsEnabled = true;
     $scope.formInfo = {};
-    $scope.open = function (size, email) {
+    $scope.open = function (size, id) {
 
-        $scope.email = email
+
+        $scope.id = id
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
             templateUrl: 'Content.html',
             controller: 'ModalInstanceCtrl',
             size: size,
             resolve: {
-                email: function () {
-                    return $scope.email;
+                id: function () {
+                    return $scope.id;
                 }
 
             }
@@ -23,10 +30,9 @@ angular.module('AngularJS').controller('ModalDemoCtrl', function ($scope, $uibMo
 });
 
 
-// Please note that $uibModalInstance represents a modal window (instance) dependency.
-// It is not the same as the $uibModal service used above.
 
-angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $http, email) {
+
+angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $http, id) {
 
 
 
@@ -40,10 +46,11 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
 
     {
         // Get customer list   
-        $http.get('/api/Default/' + email)
+        $http.get('/api/Profile/DefaultAction/' + id)
     .success(function (response) {
+
         $scope.Customer = response,
-        $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo };
+        $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo, Id: $scope.Customer.Id };
 
     });
         // Initial   
@@ -61,15 +68,15 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
                     }
                     $.ajax({
                         type: "POST",
-                        url: 'api/values/post',
+                        url: 'api/Photo/DefaultAction',
                         contentType: false,
                         processData: false,
                         data: data,
                         success: function (result) {
-                            $http.get('/api/Default/' + email)
+                            $http.get('/api/Profile/DefaultAction/' + id)
                             .success(function (response) {
                                 $scope.Customer = response,
-                               $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo }
+                               $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo, Id: $scope.Customer.Id }
                             });
                         },
                         error: function (xhr, status, p3) {
@@ -83,15 +90,8 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
         };
         $scope.editCustomer = function (id) {
 
-            //if (id == 'new') {
-            //    $scope.edit = true;
-            //    $scope.incomplete = true;
-            //    $scope.ID = 0;
-            //    $scope.Login = '';
-            //    $scope.Email = '';
-            //} 
             $scope.edit = false;
-            $scope.ID = $scope.Customer.Id;
+            $scope.Id = $scope.Customer.Id;
             $scope.Photo = $scope.Customer.Photo;
             $scope.Login = $scope.Customer.Login;
             $scope.Email = $scope.Customer.Email;
@@ -105,19 +105,24 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
             var value = {
                 login: $scope.formInfo.Login,
                 email: $scope.formInfo.Email,
+<<<<<<< HEAD
+                password: $scope.formInfo.Password,
+                id: $scope.formInfo.Id
+=======
                 password: $scope.formInfo.Password
 
 
+>>>>>>> master
             };
 
-            $.post("api/Default",
+            $.post("api/Profile/DefaultAction",
               value,
                function (value) {
                    // Refresh list   
-                   $http.get('/api/Default/' + email)
+                   $http.get('/api/Profile/DefaultAction/' + id)
                     .success(function (response) {
                         $scope.Customer = response,
-                       $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo };
+                       $scope.formInfo = { Login: $scope.Customer.Login, Email: $scope.Customer.Email, Photo: $scope.Customer.Photo, Id: $scope.Customer.Id };
                     });
                },
                "json"
