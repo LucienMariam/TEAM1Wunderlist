@@ -105,8 +105,14 @@ angular.module('AngularJS').controller('ModalInstanceCtrl', function ($scope, $u
             var value = {
                 login: $scope.formInfo.Login,
                 email: $scope.formInfo.Email,
+<<<<<<< HEAD
                 password: $scope.formInfo.Password,
                 id: $scope.formInfo.Id
+=======
+                password: $scope.formInfo.Password
+
+
+>>>>>>> master
             };
 
             $.post("api/Profile/DefaultAction",
