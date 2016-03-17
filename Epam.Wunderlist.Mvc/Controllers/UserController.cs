@@ -1,4 +1,4 @@
-﻿using BLL.Concrete.Entities;
+﻿using BLL.Entities;
 using System.Web.Mvc;
 using TaskManager.Authentification;
 using TaskManager.Models;

@@ -9,13 +9,13 @@ namespace TaskManager.Models
         public string UserLogin { get; set; }
 
         [Required]        
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         [Display(Name = "Task")]
         public string TaskTitle { get; set; }
 
         [Required]
-        public Guid TaskId { get; set; }
+        public int TaskId { get; set; }
 
         [Required]
         [Display(Name = "Progress")]        

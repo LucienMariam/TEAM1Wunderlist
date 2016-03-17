@@ -189,24 +189,29 @@
     <Compile Include="Authentification\Identity.cs" />
     <Compile Include="Authentification\Principal.cs" />
     <Compile Include="Authentification\SupportPrincipalService.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FolderController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\FolderModel.cs" />
+    <Compile Include="Models\RerangeTaskModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Models\TaskUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\CustomMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Wunderlist.mdf" />
+    <Content Include="App_Data\Wunderlist_log.ldf">
+      <DependentUpon>Wunderlist.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -218,6 +223,7 @@
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\menubar.css" />
+    <Content Include="Content\multi.css" />
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="Content\signup.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
@@ -237,6 +243,7 @@
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-csp.css" />
+    <Content Include="Scripts\angular-drag-and-drop-lists.min.js" />
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
     <Content Include="Scripts\angular-message-format.js" />
@@ -298,6 +305,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\Images\checkmark.svg" />
+    <Content Include="Content\Images\pictos.svg" />
+    <Content Include="Content\Images\reminder.svg" />
+    <Content Include="Content\Images\shared.svg" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1053,10 +1064,15 @@
     <Content Include="Scripts\metisMenu.js" />
     <Content Include="Scripts\metisMenu.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\multi.js" />
+    <Content Include="Scripts\ngDraggable.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sb-admin-2.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="UploadedFiles\BbYcwnFaN3o.jpg" />
+    <Content Include="UploadedFiles\p5esefl02Ok.jpg" />
+    <Content Include="Content\multi.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1077,8 +1093,7 @@
     <Content Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="UploadedFiles\" />
+    <Folder Include="Mappers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1086,13 +1101,29 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Epam.Wunderlist.Services\Epam.Wunderlist.Services.csproj">
-      <Project>{d768716e-da5e-4f23-aad4-77298667d279}</Project>
-      <Name>Epam.Wunderlist.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Epam.Wunderlist.DependencyResolver\Epam.Wunderlist.DependencyResolver.csproj">
       <Project>{d7a83a75-a5b7-46ea-ba12-a1fc7e313f10}</Project>
       <Name>Epam.Wunderlist.DependencyResolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Wunderlist.Entities\Epam.Wunderlist.Entities.csproj">
+      <Project>{702ad799-bc92-4adb-8982-9d8934e263e6}</Project>
+      <Name>Epam.Wunderlist.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Wunderlist.FolderService\Epam.Wunderlist.FolderService.csproj">
+      <Project>{3a07e794-abf3-44ef-8b0c-56e3c69c8c15}</Project>
+      <Name>Epam.Wunderlist.FolderService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Wunderlist.ServiceAbstraction\Epam.Wunderlist.ServiceAbstraction.csproj">
+      <Project>{d768716e-da5e-4f23-aad4-77298667d279}</Project>
+      <Name>Epam.Wunderlist.ServiceAbstraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Wunderlist.TaskService\Epam.Wunderlist.TaskService.csproj">
+      <Project>{561385df-7d39-49c4-881a-323bcc808141}</Project>
+      <Name>Epam.Wunderlist.TaskService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Wunderlist.UserService\Epam.Wunderlist.UserService.csproj">
+      <Project>{168f007d-75ed-40a7-903c-1dd63b63b570}</Project>
+      <Name>Epam.Wunderlist.UserService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
