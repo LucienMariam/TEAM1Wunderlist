@@ -1,0 +1,497 @@
+﻿@{
+    Layout = null;
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+        <script src="~/Scripts/angular-animate.min.js"></script>
+        <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+        <script src="~/Scripts/angular-drag-and-drop-lists.min.js"></script>
+        <script src="~/Scripts/AjsUser.js"></script>
+        <script src="~/Scripts/AjsTask.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/metisMenu.min.js"></script>
+        <script src="~/Scripts/sb-admin-2.js"></script>
+        <link href="/Content/multi.css" rel="stylesheet" />
+}
+<html ng-app="AngularJS">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Content/sb-admin-2.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <style>
+        .fon_scroll {
+            background-image: url(/Content/Images/bg_berlin.jpg);
+            margin: 0 auto;
+            width: 1300px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-position: 0px 0px;
+            min-height: 100%;
+        }
+    </style>
+</head>
+
+<body >
+
+    <div class="fon_scroll" id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: darkgreen; margin-bottom: 0">
+        <div class="navbar-header">
+            <style>
+                p0 {
+                    flex: 1;
+                    font: bold 30px/45px Georgia, serif;
+                    padding: 10px 14px;
+                    font-weight: 200;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    -o-text-overflow: ellipsis;
+                    text-overflow: ellipsis;
+                }
+            </style>
+            <p0><a style="color: white">Inbox</a></p0>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i style="color: white" class="fa fa-envelope fa-fw"></i>  <i style="color: white" class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i style="color: white" class="fa fa-tasks fa-fw"></i>  <i style="color: white"  class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i style="color: white"  class="fa fa-bell fa-fw"></i>  <i style="color: white" class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i style="color: white"  class="fa fa-user fa-fw"></i>  <i style="color: white"  class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" style="background-color: transparent" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+
+                    <ul class="nav" id="side-menu">
+
+                        <li ng-controller="ModalDemoCtrl">
+                            <script type="text/ng-template" id="Content.html">
+                                <div class="modal-header">
+                                    <img style="width:200px; height:200px;  display:block; background-position-y:50%;  border-radius:50%;" ng-src='{{formInfo.Photo}}' />
+                                    <input type="file" name="upload" id="uploadFile" /><br />
+                                    <button ng-click="send()">Save</button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal" id="cusForm">
+
+                                        <hr />
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">Login</label>
+                                            <div class="col-md-10">
+                                                <input type="text" ng-model="formInfo.Login" placeholder="{{ Customer.Login }}" class="form-control3" />
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Save" class="btn btn-default" ng-click="editCustomer(@User.Identity.Name)" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                                </div>
+                            </script>
+                            <style>
+                                p44 {
+                                    border: 2px solid blue;
+                                    padding: 8px;
+                                    width: 500px;
+                                    background-color: white;
+                                    font: bold 25px/90px Georgia, serif;
+                                }
+                            </style>
+                            <p44><a href="#" ng-click="open('','@User.Identity.Name')"><i class="fa fa-dashboard fa-fw"></i> @User.Identity.AuthenticationType </a></p44>
+                        </li>
+                        <li ng-controller="TasksCtrl">
+                            <div class="panel-title" ng-click="getTask('@User.Identity.Name')">
+                                <i class="fa fa-bar-chart-o fa-fw"></i>
+                                <style>
+                                    p42 {
+                                        border: 1px solid blue;
+                                        padding: 3px;
+                                        width: 85px;
+                                        background-color: white;
+                                        font: bold 15px/30px Georgia, serif;
+                                    }
+                                </style>
+                                <p42><a style="color: blue; cursor:pointer" ng-click="isReplyForm = !isReplyForm">FOLDERS</a></p42>
+                            </div>
+                            <div ng-show="isReplyForm">
+                                <div class="alert alert-success" ng-repeat="task in folder">
+
+                                    <input type="text" id="addnewtaskfield" ng-model="task.Title" placeholder="{{ task.Title }}" />
+                                    <span ng-click="editFolder(task.Id,task.Title)" class="glyphicon glyphicon-check"></span>
+                                    <span ng-click="showListTask(task.Id)" class="glyphicon glyphicon-search"></span>
+                                    <span ng-click="closeAlert($index, task.Id)" class="glyphicon glyphicon-remove"></span>
+
+                                </div>
+                                <style>
+                                    input[type="text"]::-webkit-input-placeholder {
+                                        color: white;
+                                    }
+                                    .form-control {
+                                        color: white
+                                    }
+                                </style>
+                                <input type="text" style="background-color: green" id="newListTaskList" name="Title" placeholder="+ Add a folder" class="form-control" />
+                                <button type="button" class='btn btn-default' ng-click="addAlert('@User.Identity.Name')">Add</button>
+                            </div>
+
+
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div ng-controller="TasksCtrl" id="page-wrapper">
+            <div ng-if="getValue()!=undefinded" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="text" style="background-color: green" id="newTaskList" name="Title" placeholder = "+ Add a tasklist..." class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <button type="button" class='btn btn-default' ng-click="addTaskList(getId())">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="directlyWorkWith">
+
+                <div class="simpleDemo row">
+
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div ng-repeat="tasks in getValue()" class="col-md-12">
+                                <div class="panel panel-info" style="background-color: transparent; border-color: transparent">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">List {{tasks.Title}}</h3>
+                                        <div class="top-right" style="text-align: right;">
+                                            <label>Show completed tasks</label> <input type="checkbox" ng-model="search" />
+                                        </div>
+
+                                        <div ng-click="getTaskFromParentFolder(tasks.Id)">
+                                            <style>
+                                                p {
+                                                    border: 1px solid blue;
+                                                    padding: 3px;
+                                                    width: 85px;
+                                                }
+                                            </style>
+                                            <a style="cursor: pointer" ng-click="isReplyFormOpen = !isReplyFormOpen"> <p>Show tasks</p></a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style ="background-color: transparent; fill-opacity: 0.5;" ng-show="isReplyFormOpen" id="replyForm">
+                                        <div dnd-list="taskWithParentFolderId" dnd-drop="onDrop(tasks, item, index)">
+
+                                            <div style="margin-bottom: 15px;" ng-repeat="item in taskWithParentFolderId[tasks.Id]|filter:search "
+                                                 dnd-draggable="item"
+                                                 dnd-moved="taskWithParentFolderId[tasks.Id].splice($index, 1)"
+                                                 dnd-effect-allowed="move"
+                                                 dnd-selected="models.selected = item"
+                                                 ng-class="{'selected': models.selected === item}">
+                                                <div style="padding-left: 0px" class="checkbox">
+                                                    <label><input ng-change="editBoolInTask(item.IsCompleted, item.Id)" ng-model="item.IsCompleted" type="checkbox" value=""></label>
+                                                    <input style="border: 0;" type="text" ng-model="item.Title" placeholder="{{item.Title}}" class="form-control3"/>
+                                                </div>
+
+                                                <span ng-click="editTask(item)" class="glyphicon glyphicon-check"></span>
+                                                <span ng-click="open('',item.Id)" class="glyphicon glyphicon-search"></span>
+                                                <span ng-click="closeTask(item.Id, item.FolderId)" class="glyphicon glyphicon-remove"></span>
+                                            </div>
+                                            <input type="text" style="background-color: green" id="addtask" ng-model="post[tasks.Id]" name="Value" placeholder="+ Add a to-do..." class="form-control">
+                                            <button ng-click="addOneTask(tasks.Id, post[tasks.Id])">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div view-source="multi"></div>*@
+                    </div>
+
+                    @*<div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Generated Model</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <pre class="code">{{modelAsJson}}</pre>
+                                </div>
+                            </div>
+                        </div>*@
+
+                </div>
+            </div>
+
+
+            <script type="text/ng-template" id="Task.html">
+                <div class="modal-header">
+                    <img style="max-height:400px;max-width:400px" />
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="cusForm">
+
+                        <hr />
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Description</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control3" style="width:100%" rows="5" ng-model="formInfo.Description" placeholder="{{ taskForm.Description }}"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">DueTime</label>
+                            <div class="col-md-10">
+                                <input type="text"  style="width:100%" ng-model="formInfo.DueTime" class="form-control3" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" ng-click="editTask(formInfo.Id, formInfo.DueTime, formInfo.Description)" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+
+        </div>
+
+    </div>
+
+    @section scripts{
+        <script type="text/javascript">
+        </script>
+    }
+</body>
+</html>
