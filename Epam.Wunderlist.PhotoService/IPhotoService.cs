@@ -10,5 +10,6 @@ namespace Epam.Wunderlist.PhotoService
 {
     public interface IPhotoService: IService<UserEntity>
     {
+        void Post();
     }
 }
